@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+{% block stylesheets %}
+   <link href="{{ asset('/css/header.css') }}" rel="stylesheet" />
+   <link href="{{ asset('/css/home.css') }}" rel="stylesheet" />
+{% endblock %}
+{% block body %}
+   {% include 'header/index.html.twig' with {'mensaje': 'bar'} %}
+{% endblock %}

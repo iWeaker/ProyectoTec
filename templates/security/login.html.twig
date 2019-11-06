@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}!Ingresa¡{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+{% endblock %}
+{% block body %}
+<div class="wrapper">
+    <div class="form-container">
+        {{ form_start(form) }}
+        {{ form_end(form) }}
+        <span>¿No tienes cuenta? <a href="{{ path('register') }}">Registrate!</a></span>
+    </div>
+</div>
+{% endblock %}
