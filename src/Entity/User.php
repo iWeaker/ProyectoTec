@@ -20,7 +20,7 @@ class User implements UserInterface, \Serializable
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $username;
+    private $user;
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -58,14 +58,14 @@ class User implements UserInterface, \Serializable
 
         return $this;
     }
-    public function getUsername(): ?string
-    {
-        return $this->username;
-    }
 
-    public function setUsername(string $username): self
+    public function getUser(): ?string
     {
-        $this->username = $username;
+        return $this->user;
+    }
+    public function setUser(string $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
@@ -138,6 +138,10 @@ class User implements UserInterface, \Serializable
         $this->dateRegister = new \DateTime("now");
         return $this;
     }
+    public function getUsername(): ?string
+    {
+        return $this->id;
+    }
     public function getRoles()
     {
         return [
@@ -159,7 +163,7 @@ class User implements UserInterface, \Serializable
     {
         return serialize([
             $this->id,
-            $this->username,
+            $this->user,
             $this->lastM,
             $this->lastF,
             $this->password,
@@ -182,7 +186,7 @@ class User implements UserInterface, \Serializable
     {
         list (
             $this->id,
-            $this->username,
+            $this->user,
             $this->lastM,
             $this->lastF,
             $this->password,

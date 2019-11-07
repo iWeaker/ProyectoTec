@@ -21,7 +21,7 @@ class RegisterType extends AbstractType
                 ],
                 'label' => false,
             ])
-            ->add('username', TextType::class, [
+            ->add('user', TextType::class, [
                 'attr' => [
                     'placeholder' => 'Nombre'
                 ],
