@@ -8,6 +8,8 @@
 <div class="wrapper">
     <div class="form-container">
         {{ form_start(form) }}
+            {{ form_row(form.id, {'full_name':'verify[id]'}) }}
+            {{ form_row(form.password, {'full_name':'verify[password]'}) }}
         {{ form_end(form) }}
         <span>¿No tienes cuenta? <a href="{{ path('register') }}">Registrate!</a></span>
     </div>

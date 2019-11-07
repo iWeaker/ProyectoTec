@@ -14,6 +14,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class SecurityController extends AbstractController
 {
+    private $id;
+    private $user;
+    private $lastM;
+    private $lastF;
+    private $password;
     private $crypt;
     public function __construct(UserPasswordEncoderInterface $encoder)
     {
@@ -68,27 +73,18 @@ class SecurityController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
-            $register->setPassword(
-                $this->crypt->encodePassword(
-                    $register,
-                    $form->get('password')->getData()
-                )
-            );
+
+            $register->setPassword($this->crypt->encodePassword($register,$form->get('password')->getData()));
             $register->setImage('default.jpg');
             $register->setCover('default.jpg');
             $register->setDateRegister();
+
             $con = $this->getDoctrine()->getManager();
             $con->persist($register);
             $con->flush();
 
             $error = $utils->getLastAuthenticationError();
             $username = $utils->getLastUsername();
-
-            return $this->render('security/register.html.twig', [
-                'error' => $error,
-                'last_username' => $username,
-                'form' => $form->createView()
-            ]);
 
         }
 

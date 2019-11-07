@@ -16,8 +16,8 @@ security:
             form_login:
                 login_path: login
                 check_path: login
-                username_parameter: login[id]
-                password_parameter: login[password]
+                username_parameter: verify[id]
+                password_parameter: verify[password]
                 provider: my_provider
             logout:
                 path: /logout

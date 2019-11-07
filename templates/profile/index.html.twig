@@ -7,5 +7,15 @@
 {% endblock %}
 {% block body %}
     {% include 'header/index.html.twig' with {'mensaje': 'bar'} %}
-    {{ controller_name }}
+    <section>
+        <div class="top-section">
+            <div class="profile-cover" style="background-image:url({{ asset('img/default.jpg') }})">
+                <div class="profile-desc">
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-section"></div>
+    </section>
 {% endblock %}
