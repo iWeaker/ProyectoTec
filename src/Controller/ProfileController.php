@@ -16,9 +16,9 @@ class ProfileController extends AbstractController
     public function index(UserInterface $user)
     {
         $userId = $user->getUsername();
-
         return $this->render('profile/index.html.twig', [
-            'controller_name' => $userId,
+
         ]);
     }
 }
+

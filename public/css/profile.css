@@ -7,20 +7,20 @@ section {
 
     width:100%;
     min-height: 200px;
-    margin:70px auto;
+    margin:0px auto;
 }
 
 .top-section {
     position: relative;
     width: 100%;
-    height:330px;
+    height:500px;
 
 }
 
 .profile-cover {
     position: relative;
     width: 100%;
-    height:330px;
+    height:500px;
 
     background-position: center;
     background-repeat: no-repeat;
@@ -29,12 +29,31 @@ section {
 
 .profile-desc {
     position: relative;
-    width:300px;
+    width:100%;
     height: 260px;
-    background:rgba(0,0,0,0.4);
     border-radius:5px;
     margin:0 auto;
-    top:20px;
+    top:200px;
+}
+
+.profile-img{
+    position:relative;
+    width:180px;
+    height:180px;
+    margin:0 auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    border:2px #FAFAFA solid;
+    background-color:white;
+    border-radius: 100px;
+}
+
+.profile-name {
+    position:relative;
+    width:240px;
+    height:50px;
+    margin:0 auto;
 }
 
 .bottom-section {
