@@ -1,19 +1,22 @@
+
 {% block header %}
-<header>
-    <div>
-        <nav>
-            <ul>
-                <li><a href="{{ path('home') }}">Inicio</a></li>
-                <li><a href="{{ path('profile') }}">Perfil</a></li>
-                <li>Grupos</li>
-                <li>
-                    <form action="">
-                        <input class="textSearcher" type="text" name="" id="" placeholder="Buscar">
-                        <input class="btnSearcher" type="submit" value="">
-                    </form>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    {% block header_upper %}
+        <header>
+            <div>
+                <nav>
+                    <ul>
+                        <li><a href="{{ path('home') }}">Inicio</a></li>
+                        <li><a href="{{ path('profile') }}">Perfil</a></li>
+                        <li>Grupos</li>
+                        <li>
+                            <form action="">
+                                <input class="textSearcher" type="text" name="" id="" placeholder="Buscar">
+                                <input class="btnSearcher" type="submit" value="">
+                            </form>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    {% endblock %}
 {% endblock %}

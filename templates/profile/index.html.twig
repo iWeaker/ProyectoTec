@@ -6,13 +6,15 @@
     <link href="{{ asset('/css/profile.css') }}" rel="stylesheet" />
 {% endblock %}
 {% block body %}
-    {% include 'header/index.html.twig' with {'mensaje': 'bar'} %}
+    {% include 'header/index.html.twig' %}
     <section>
         <div class="top-section">
             <div class="profile-cover" style="background-image:url({{ asset('img/default.jpg') }})">
                 <div class="profile-desc">
                     <div class="profile-img" style="background-image:url({{ asset('img/default_profile.jpg') }})"></div>
-                    <div class="profile-name"></div>
+                    <div class="profile-name">
+                        <i>{{ app.user.user }}</i>
+                    </div>
                 </div>
             </div>
         </div>

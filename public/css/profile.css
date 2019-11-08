@@ -21,7 +21,6 @@ section {
     position: relative;
     width: 100%;
     height:500px;
-
     background-position: center;
     background-repeat: no-repeat;
     background-size:100% auto;
@@ -29,17 +28,18 @@ section {
 
 .profile-desc {
     position: relative;
-    width:100%;
+    width:300px;
     height: 260px;
     border-radius:5px;
+    padding-top:10px;
     margin:0 auto;
-    top:200px;
+    top:280px;
 }
 
 .profile-img{
     position:relative;
-    width:180px;
-    height:180px;
+    width:140px;
+    height:140px;
     margin:0 auto;
     background-position: center;
     background-repeat: no-repeat;
@@ -47,6 +47,9 @@ section {
     border:2px #FAFAFA solid;
     background-color:white;
     border-radius: 100px;
+    -webkit-box-shadow: 0px 0px 23px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 23px -8px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 23px -8px rgba(0,0,0,0.75);
 }
 
 .profile-name {
@@ -54,6 +57,11 @@ section {
     width:240px;
     height:50px;
     margin:0 auto;
+}
+
+.profile-name > i{
+    font-size:20px;
+    line-height: 40px;
 }
 
 .bottom-section {

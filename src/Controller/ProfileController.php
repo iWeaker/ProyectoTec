@@ -11,14 +11,15 @@ class ProfileController extends AbstractController
     /**
      * @Route("/profile", name="profile")
      * @param UserInterface $user
+     * @param SecurityController $serialize
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(UserInterface $user)
+
     {
         $userId = $user->getUsername();
-        return $this->render('profile/index.html.twig', [
 
-        ]);
+        return $this->render('profile/index.html.twig');
     }
 }
 

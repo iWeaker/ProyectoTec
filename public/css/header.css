@@ -2,17 +2,24 @@
 * {
     font-family: Arial;
 }
-header{
+header {
+    position:fixed;
+    z-index: 1;
+    min-height: 100px;
+    width: 100%;
+}
+header:before{
+    content: '';
     position:fixed;
     top:0;
     width: 100%;
-    min-height:70px;
-    background-color: rgba(0,0,0,0.0);
-    z-index: 1;
+    min-height:30vh;
+
+
 }
 header > div{
     position:relative;
-    width:80%;
+    width:60%;
     height: 70px;
     margin:0 auto;
 }
@@ -29,6 +36,12 @@ nav > ul > li:nth-child(1), nav > ul > li:nth-child(2), nav > ul > li:nth-child(
     float:left;
     list-style-type:none;
     font-size:15px;
+
+}
+
+nav > ul > li > a {
+    text-decoration: none;
+    color:white;
 }
 
 nav > ul > li:last-child {
