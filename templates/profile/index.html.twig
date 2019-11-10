@@ -9,11 +9,17 @@
     {% include 'header/index.html.twig' %}
     <section>
         <div class="top-section">
-            <div class="profile-cover" style="background-image:url({{ asset('img/default.jpg') }})">
+            <div class="profile-cover">
                 <div class="profile-desc">
                     <div class="profile-img" style="background-image:url({{ asset('img/default_profile.jpg') }})"></div>
                     <div class="profile-name">
-                        <i>{{ app.user.user }}</i>
+                        {% if name|default(null) %}
+
+                            <span>{{ name}}</span>
+                        {% else %}
+
+                            <span>{{ app.user.user }} {{ app.user.lastM }} {{ app.user.lastF }}</span>
+                        {% endif %}
                     </div>
                 </div>
             </div>

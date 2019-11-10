@@ -1,19 +1,35 @@
 
 {% block header %}
     {% block header_upper %}
-        <header>
+        {%  if app.request.attributes.get('_route') == "profile" or  name|default(null) %}
+            <header>
+        {%  else %}
+            <header class="background_purple">
+        {% endif %}
             <div>
                 <nav>
                     <ul>
-                        <li><a href="{{ path('home') }}">Inicio</a></li>
-                        <li><a href="{{ path('profile') }}">Perfil</a></li>
-                        <li>Grupos</li>
+                        <!-- app.request.attributes.get('_route_params') -->
+
+                            <li class="color_white"><a href="{{ path('home') }}">Inicio</a></li>
+                            <li class="color_white"><a href="{{ path('profile') }}">Perfil</a></li>
                         <li>
-                            <form action="">
-                                <input class="textSearcher" type="text" name="" id="" placeholder="Buscar">
+                            <img src="{{ asset('img/config.png') }}" width="30" alt="">
+                            <ul>
+                                <li><a href="">Opcion 1</a></li>
+                                <li><a href="">Opcion 2</a></li>
+                                <li><a href="">Opcion 3</a></li>
+                                <li><a href="">Opcion 4</a></li>
+                                <li><a href="{{ path('logout') }}">Salir</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <form action="{{ path('search') }}" method="GET">
+                                <input class="textSearcher" type="text" name="s" id="" placeholder="Buscar">
                                 <input class="btnSearcher" type="submit" value="">
                             </form>
                         </li>
+
                     </ul>
                 </nav>
             </div>
