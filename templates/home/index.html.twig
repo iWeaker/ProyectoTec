@@ -5,6 +5,31 @@
    <link href="{{ asset('/css/header.css') }}" rel="stylesheet" />
    <link href="{{ asset('/css/home.css') }}" rel="stylesheet" />
 {% endblock %}
+{% block javascripts %}
+   <script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
+   <script type="text/javascript" src="{{ asset('/js/windowEffect.js') }}"></script>
+{% endblock %}
 {% block body %}
    {% include 'header/index.html.twig' with {'class_header': 'button_color'} %}
+   <section>
+      <div class="product_container one">
+         <div style="background-image: url('{{ asset('/postImg/p1.jpg') }}')"></div>
+         <div>
+            <p>Hola como estan asdasdasd</p>
+         </div>
+      </div>
+      <div class="product_container two">
+         <div style="background-image: url('{{ asset('/postImg/p2.jpg') }}')"></div>
+         <div>
+            <p>Hola como estan asdasdasd</p>
+         </div>
+      </div>
+      <div class="product_container three">
+         <div style="background-image: url('{{ asset('/postImg/p3.jpg') }}')"></div>
+         <div>
+            <p>Hola como estan asdasdasd</p>
+         </div>
+      </div>
+
+   </section>
 {% endblock %}
