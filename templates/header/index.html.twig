@@ -1,11 +1,8 @@
 
 {% block header %}
     {% block header_upper %}
-        {%  if app.request.attributes.get('_route') == "profile" or  name|default(null) %}
-            <header>
-        {%  else %}
-            <header class="background_purple">
-        {% endif %}
+           <div class="header-effect"></div>
+        <header>
             <div>
                 <nav>
                     <ul>

@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class SecurityController extends AbstractController
@@ -65,7 +66,9 @@ class SecurityController extends AbstractController
      */
     public function register(Request $request, AuthenticationUtils $utils)
     {
-        $error = "";
+        $status = "";
+        $message = "";
+
         $username = "";
 
         $register = new User();
@@ -81,15 +84,23 @@ class SecurityController extends AbstractController
 
             $con = $this->getDoctrine()->getManager();
             $con->persist($register);
-            $con->flush();
+            try{
+                $con->flush();
+                $status = "success";
+                $message = "new department saved";
+                $response = array(
+                    'status' => $status,
+                    'message' => $message
+                );
+                return new JsonResponse($response);
 
-            $error = $utils->getLastAuthenticationError();
-            $username = $utils->getLastUsername();
-
+            }catch(\Exception $e) {
+                $message = $e->getMessage();
+            }
         }
 
         return $this->render('security/register.html.twig', [
-            'error' => $error,
+            'error' => $status,
             'last_username' => $username,
             'form' => $form->createView()
         ]);

@@ -3,15 +3,62 @@
 {% block title %}!Registrate¡{% endblock %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+    <link rel="stylesheet" href="{{ asset('/js/sweetmodal/min/jquery.sweet-modal.min.css') }}" />
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
+    <script src="{{ asset('/js/sweetmodal/min/jquery.sweet-modal.min.js') }}"></script>
+    <script type="text/javascript" src=""></script>
+    <script type="text/javascript">
+        $.fn.serializeObject = function()
+        {
+            let o = {};
+            let a = this.serializeArray();
+            $.each(a, function() {
+                if (o[this.name] !== undefined) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+        $("#form-register").on('submit', function (e) {
+            e.preventDefault();
+            $.sweetModal.confirm('¿Esta seguro de sus datos a registrar?', function() {
+                let form = $("#form-register");
+                let form_data = form.serializeObject();
+                $.ajax({
+                    url: '{{ path('register')}}',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: form_data,
+                    success:function(data){
+                        if(data.status == 'error'){
+                            console.log("[API] ERROR: "+data.message);
+                        }
+                        if(data.status == 'success'){
+                            $.sweetModal('Gracias por registrarse!');
+                        }
+                    }
+                });
+
+            });
+        })
+    </script>
 {% endblock %}
 {% block body %}
     <header></header>
     <div class="wrapper">
         <div class="form-container">
-            {{ form_start(form) }}
+            {{ form_start(form, {'attr': {'id': 'form-register'}}) }}
 
             {{ form_end(form) }}
             <span>¿Ya tienes cuenta? <a href="{{ path('login') }}">Ingresa!</a></span>
         </div>
     </div>
+
 {% endblock %}
