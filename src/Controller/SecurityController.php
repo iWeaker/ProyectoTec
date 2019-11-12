@@ -87,7 +87,7 @@ class SecurityController extends AbstractController
             try{
                 $con->flush();
                 $status = "success";
-                $message = "new department saved";
+                $message = "Se guardo";
                 $response = array(
                     'status' => $status,
                     'message' => $message

@@ -13,24 +13,40 @@
    {% include 'header/index.html.twig' with {'class_header': 'button_color'} %}
    <div class="background_purple"></div>
    <section>
-      <div class="product_container one">
-         <div style="background-image: url('{{ asset('/postImg/p1.jpg') }}')"></div>
-         <div>
-            <p>Hola como estan asdasdasd</p>
-         </div>
+      <div class="left-section">
+          <div></div>
+          <div></div>
+          <div></div>
       </div>
-      <div class="product_container two">
-         <div style="background-image: url('{{ asset('/postImg/p2.jpg') }}')"></div>
-         <div>
-            <p>Hola como estan asdasdasd</p>
+      <div class="right-section">
+         <div class="product_container one">
+            <div style="background-image: url('{{ asset('/postImg/p1.jpg') }}')"></div>
+            <div>
+                <div>
+                    <div class="post-user-img" style="background-image:url({{ asset('/img/default_profile.jpg')  }})"></div>
+                    <div>
+                        <i>Alejandro Bringas</i>
+                    </div>
+                </div>
+                <div>
+                    <p>Descripcion del producto</p>
+                </div>
+            </div>
          </div>
+          <div class="product_container two">
+              <div style="background-image: url('{{ asset('/postImg/p2.jpg') }}')"></div>
+              <div>
+                  <div>
+                      <div class="post-user-img" style="background-image:url({{ asset('/img/default_profile.jpg')  }})"></div>
+                      <div>
+                          <i>Alejandro Bringas</i>
+                      </div>
+                  </div>
+                  <div>
+                      <p>Descripcion del producto</p>
+                  </div>
+              </div>
+          </div>
       </div>
-      <div class="product_container three">
-         <div style="background-image: url('{{ asset('/postImg/p3.jpg') }}')"></div>
-         <div>
-            <p>Hola como estan asdasdasd</p>
-         </div>
-      </div>
-
    </section>
 {% endblock %}

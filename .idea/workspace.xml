@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87bd9708-4b53-4a5e-9d0b-ac24603bb2e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/js/profileEffect.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/header.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/windowEffect.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/windowEffect.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/header/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/security/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/register.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -206,6 +200,8 @@
       <workItem from="1573413820203" duration="4439000" />
       <workItem from="1573427493187" duration="4458000" />
       <workItem from="1573438146311" duration="4218000" />
+      <workItem from="1573443620524" duration="39000" />
+      <workItem from="1573443717938" duration="9476000" />
     </task>
     <servers />
   </component>

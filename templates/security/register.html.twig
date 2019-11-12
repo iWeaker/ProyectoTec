@@ -24,7 +24,7 @@
                     o[this.name] = this.value || '';
                 }
             });
-            return o;
+              return o;
         };
         $("#form-register").on('submit', function (e) {
             e.preventDefault();
@@ -42,6 +42,7 @@
                         }
                         if(data.status == 'success'){
                             $.sweetModal('Gracias por registrarse!');
+                            location.href="{{ path('login') }}";
                         }
                     }
                 });

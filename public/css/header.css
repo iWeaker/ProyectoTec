@@ -29,7 +29,7 @@ header > div{
     background: linear-gradient(45deg, rgba(255, 0 , 129, 0.6), rgba(104, 39, 176 , 0.6));
 }
 
-nav > ul > li:nth-child(3) > ul {
+nav > ul > li:nth-child(5) > ul {
     position: absolute;
     background:white;
     padding: 10px;
@@ -47,7 +47,7 @@ nav > ul > li:nth-child(3) > ul {
     -moz-box-shadow: 0px 0px 23px -8px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 23px -8px rgba(0,0,0,0.75);
 }
-nav > ul > li:nth-child(3) > ul:before{
+nav > ul > li:nth-child(5) > ul:before{
     content: "";
     position: absolute;
     top: -15px;
@@ -58,13 +58,13 @@ nav > ul > li:nth-child(3) > ul:before{
     border-style: solid;
     border-color:transparent transparent white;
 }
-nav > ul > li:nth-child(3):hover > img{
+nav > ul > li:nth-child(5):hover > img{
 
     -webkit-animation:spin 4s linear infinite;
     -moz-animation:spin 4s linear infinite;
     animation:spin 4s linear infinite;
 }
-nav > ul > li:nth-child(3):hover > ul{
+nav > ul > li:nth-child(5):hover > ul{
     visibility: visible;
     opacity: 1;
 
@@ -73,28 +73,28 @@ nav > ul > li:nth-child(3):hover > ul{
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-nav > ul > li:nth-child(3) > ul li {
+nav > ul > li:nth-child(5) > ul li {
 
     padding-top: 5px;
     padding-bottom:5px;
     border-radius: 3px;
 }
 
-nav > ul > li:nth-child(3) > ul li:hover {
+nav > ul > li:nth-child(5) > ul li:hover {
     background-color:#F2F2F2;
 }
 
-nav > ul > li:nth-child(3) > ul li:last-child {
+nav > ul > li:nth-child(5) > ul li:last-child {
     border-bottom:0 !important;
 }
 
-nav > ul > li:nth-child(3) > ul li > a{
+nav > ul > li:nth-child(5) > ul li > a{
     text-decoration: none;
     font-size: 14px;
     color:gray;
 }
 
-nav > ul > li:nth-child(1), nav > ul > li:nth-child(2){
+nav > ul > li:nth-child(1), nav > ul > li:nth-child(2), nav > ul > li:nth-child(3), nav > ul > li:nth-child(4) {
     position:relative;
     height:40px;
     top:10px;
@@ -110,9 +110,12 @@ nav > ul > li:nth-child(1), nav > ul > li:nth-child(2){
     -webkit-box-shadow: 0px 0px 23px -8px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 23px -8px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 23px -8px rgba(0,0,0,0.75);
+    cursor: pointer;
 }
 
-
+nav > ul > li:nth-child(1):hover, nav > ul > li:nth-child(2):hover, nav > ul > li:nth-child(3):hover, nav > ul > li:nth-child(4):hover{
+    
+}
 
 .color_white{
     background: white;
@@ -138,7 +141,7 @@ nav > ul > li:nth-child(1):hover, nav > ul > li:nth-child(2):hover{
     transition:0.2s;
 }
 
-nav > ul > li:nth-child(3) {
+nav > ul > li:nth-child(5) {
     position: relative;
     color:white;
     height: 30px;
