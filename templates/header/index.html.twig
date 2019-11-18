@@ -1,13 +1,12 @@
 
 {% block header %}
     {% block header_upper %}
-           <div class="header-effect"></div>
+        <div class="header-effect"></div>
         <header>
             <div>
                 <nav>
                     <ul>
                         <!-- app.request.attributes.get('_route_params') -->
-
                         <li class="color_white"><a href="{{ path('home') }}">Inicio</a></li>
                         <li class="color_white"><a href="{{ path('profile') }}">Perfil</a></li>
                         <li class="color_white"><img style="position:relative;top:5px" src="{{ asset('img/notification.png') }}" height="20"/></li>

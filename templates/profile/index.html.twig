@@ -14,14 +14,27 @@
     <section>
         <div class="top-section">
             <div class="profile-cover">
+
+                <div class="profile-img-cover" style="background-image: url({{ asset('userCover/' ~ app.user.id ~ '.jpg') }})"></div>
+
+                <div class="profile-detail-section">
+                    <nav>
+                        <li>Timeline</li>
+                        <li>Acerca</li>
+                        <li>Siguiendo</li>
+                        <li></li>
+                        <li></li>
+                        <li>Fotos</li>
+                        <li>Favoritos</li>
+                        <li>Config</li>
+                    </nav>
+                </div>
                 <div class="profile-desc">
                     <div class="profile-img" style="background-image:url({{ asset('img/default_profile.jpg') }})"></div>
                     <div class="profile-name">
                         {% if name|default(null) %}
-
-                            <span>{{ name}}</span>
+                            <span>{{ name }}</span>
                         {% else %}
-
                             <span>{{ app.user.user }} {{ app.user.lastM }} {{ app.user.lastF }}</span>
                         {% endif %}
                     </div>

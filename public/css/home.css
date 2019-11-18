@@ -5,15 +5,15 @@
 header {
 
 }
-
-
-
+body {
+    background: #edf2f6;
+}
 section {
     position: relative;
     width: 1200px;
     min-height: 700px;
 
-    background: white;
+    background-color:white;
     border-radius: 5px;
     margin:80px auto;
     -webkit-box-shadow: 0px 0px 23px -8px rgba(0,0,0,0.75);
