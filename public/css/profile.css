@@ -197,8 +197,29 @@ section {
     position: relative;
     width: 100%;
     min-height:100px;
-    color:#9da0c1;
+    color:#ada0bb;
     word-break: break-all;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom:1px #e7edf5 solid;
+}
+.container-post-bottom{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    display: grid;
+    grid-template-areas: 'cpb1 cpb2 cpb2 cpb2 cpb2 cpb3';
+}
+.container-post-bottom > div:first-child{
+    grid-area: cpb1;
+}
+
+.container-post-bottom > div:nth-child(2){
+    grid-area: cpb2;
+}
+
+.container-post-bottom > div:last-child{
+    grid-area: cpb3;
 }
 
 .upper-post-right {

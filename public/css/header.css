@@ -14,13 +14,26 @@ header > div{
     position:relative;
     width:900px;
     height:60px;
-    top: 5px;
+
     margin:0 auto;
     border-radius: 5px;
     transition: background-color ease-in 100ms;
 }
 
 
+.profile-img-header{
+    position:relative;
+    width:40px;
+    height:40px;
+    margin:0 auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border:2px #FAFAFA solid;
+    background-color:white;
+    border-radius: 100px;
+
+}
 
 nav > ul > li:nth-child(5) > ul {
     position: absolute;
@@ -31,7 +44,7 @@ nav > ul > li:nth-child(5) > ul {
     width: 200px;
     text-align: center;
     right:-90px;
-    top:60px;
+    top:55px;
 
     visibility: hidden;
     opacity: 0;
@@ -39,6 +52,7 @@ nav > ul > li:nth-child(5) > ul {
     -webkit-box-shadow: 0px 0px 23px -8px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 23px -8px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 23px -8px rgba(0,0,0,0.75);
+    z-index: 4;
 }
 nav > ul > li:nth-child(5) > ul:before{
     content: "";
@@ -141,17 +155,16 @@ nav > ul > li:nth-child(5) {
 
 nav > ul > li:last-child {
     position:relative;
-    height:40px;
-    top:10px;
+    height:70px;
+
     padding-left:10px;
     padding-right:10px;
     color:white;
-    border-radius:100px;
     margin-right:20px;
     line-height: 40px;
     float:right;
     border:0;
-    background-color: white;
+    background-color: #494c62;
     list-style-type:none;
     font-size:15px;
 }
@@ -164,9 +177,13 @@ nav > ul > li:nth-child(2) > ul > li a:hover{
 .textSearcher {
     position: relative;
     width:200px;
-    top:0px;
+    top:15px;
+    background:none;
     height: 16px;
     padding:1px;
+    font-weight: 600;
+    font-size: 17px;
+    color:white;
     resize:none;
     border:0;
     outline: 0;
@@ -179,12 +196,12 @@ nav > ul > li:nth-child(2) > ul > li a:hover{
     width: 25px;
     height: 25px;
     background-image: url('../img/searcher.png');
-    background-color:white;
+    background-color:rgba(0,0,0,00);
     background-size: 80%;
     background-repeat: no-repeat;
     cursor:pointer;
     border-radius:5px;
     background-position: center;
     border:0px;
-    top:5px;
+    top:20px;
 }
