@@ -1,0 +1,32 @@
+{% for post in p %}
+    <div class="container-post">
+        <div class="container-post-upper">
+            <div class="upper-post-left">
+                <div class="photo-post-user" >
+                    <div class="photo-p-user" style="background-image: url({{ asset('userProfiles/' ~ app.user.id ~ '.jpg') }})"></div>
+                </div>
+                <div class="name-post-user">
+                    <p>Alejandro Bringas Martinez</p>
+                    <p>19 horas antes</p>
+                </div>
+            </div>
+            <div class="upper-post-right">
+                <img src="{{ asset('img/menu.png') }}" height="20" alt="">
+            </div>
+        </div>
+        <div class="container-post-middle">
+            <p>{{ post.contentPost }}</p>
+        </div>
+        <div class="container-post-bottom">
+            <div class="heart-bottom-">
+                <div class="heart-base-container">
+                    <img src="{{ asset('img/corazon.png') }}" height="20" alt="">
+                </div>
+            </div>
+            <div class="user-heart-bottom">ADSdd</div>
+            <div class="comment-bottom">
+                <img src="{{ asset('img/comentario.png') }}" height="20" alt="">
+            </div>
+        </div>
+    </div>
+{% endfor %}

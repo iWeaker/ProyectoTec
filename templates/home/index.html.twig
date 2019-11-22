@@ -4,6 +4,7 @@
 {% block stylesheets %}
    <link href="{{ asset('/css/header.css') }}" rel="stylesheet" />
    <link href="{{ asset('/css/home.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('/css/post.css') }}">
 {% endblock %}
 {% block javascripts %}
    <script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
@@ -19,33 +20,8 @@
           <div></div>
       </div>
       <div class="right-section">
-         <div class="product_container one">
-            <div style="background-image: url('{{ asset('/postImg/p1.jpg') }}')"></div>
-            <div>
-                <div>
-                    <div class="post-user-img" style="background-image:url({{ asset('/img/default_profile.jpg')  }})"></div>
-                    <div>
-                        <i>Alejandro Bringas</i>
-                    </div>
-                </div>
-                <div>
-                    <p>Descripcion del producto</p>
-                </div>
-            </div>
-         </div>
-          <div class="product_container two">
-              <div style="background-image: url('{{ asset('/postImg/p2.jpg') }}')"></div>
-              <div>
-                  <div>
-                      <div class="post-user-img" style="background-image:url({{ asset('/img/default_profile.jpg')  }})"></div>
-                      <div>
-                          <i>Alejandro Bringas</i>
-                      </div>
-                  </div>
-                  <div>
-                      <p>Descripcion del producto</p>
-                  </div>
-              </div>
+          <div class="index-content">
+              {{ include('post/index.html.twig', {p: post}) }}
           </div>
       </div>
    </section>
