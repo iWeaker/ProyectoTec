@@ -15,17 +15,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class SecurityController extends AbstractController
 {
-    private $id;
-    private $user;
-    private $lastM;
-    private $lastF;
-    private $password;
     private $crypt;
     public function __construct(UserPasswordEncoderInterface $encoder)
     {
         $this->crypt = $encoder;
     }
-
     /**
      * @Route("/login", name="login")
      * @param Request $request

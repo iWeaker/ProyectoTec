@@ -130,6 +130,7 @@ section {
     position: relative;
     display: inline-block;
     min-height: 250px;
+    width:490px;
     background-color:white;
     border-radius: 7px;
     margin-bottom:10px;

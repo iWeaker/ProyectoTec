@@ -45,6 +45,7 @@
         <div class="bottom-section">
             <div class="profile-content">
                 <!-- Aqui estara la plantilla de los post  -->
+                {% for p in post %}
                 <div class="container-post">
                     <div class="container-post-upper">
                         <div class="upper-post-left">
@@ -61,13 +62,7 @@
                         </div>
                     </div>
                     <div class="container-post-middle">
-                        <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-                        <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-                        <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-                        <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-                        <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-                        <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-
+                        <p>{{ p.contentPost }}</p>
                     </div>
                     <div class="container-post-bottom">
                         <div class="heart-bottom-">
@@ -81,7 +76,7 @@
                         </div>
                     </div>
                 </div>
-            
+                {% endfor %}
 
                 <!-- -->
             </div>

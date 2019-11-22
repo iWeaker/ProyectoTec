@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -47,6 +49,16 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(type="datetime")
      */
     private $dateRegister;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\PostEntity", mappedBy="user_post")
+     */
+    private $postEntities;
+
+    public function __construct()
+    {
+        $this->postEntities = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -194,5 +206,36 @@ class User implements UserInterface, \Serializable
             $this->cover,
             $this->dateRegister
             ) = unserialize($serialized,['allowed_classes' => false]);
+    }
+
+    /**
+     * @return Collection|PostEntity[]
+     */
+    public function getPostEntities(): Collection
+    {
+        return $this->postEntities;
+    }
+
+    public function addPostEntity(PostEntity $postEntity): self
+    {
+        if (!$this->postEntities->contains($postEntity)) {
+            $this->postEntities[] = $postEntity;
+            $postEntity->setUserPost($this);
+        }
+
+        return $this;
+    }
+
+    public function removePostEntity(PostEntity $postEntity): self
+    {
+        if ($this->postEntities->contains($postEntity)) {
+            $this->postEntities->removeElement($postEntity);
+            // set the owning side to null (unless already changed)
+            if ($postEntity->getUserPost() === $this) {
+                $postEntity->setUserPost(null);
+            }
+        }
+
+        return $this;
     }
 }
