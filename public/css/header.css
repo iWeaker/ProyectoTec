@@ -107,9 +107,7 @@ nav > ul > li:nth-child(1), nav > ul > li:nth-child(2), nav > ul > li:nth-child(
     float:left;
     list-style-type:none;
     font-size:16px;
-    -webkit-box-shadow: 0px 0px 23px -8px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 23px -8px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 23px -8px rgba(0,0,0,0.75);
+   
     cursor: pointer;
 }
 
@@ -118,12 +116,12 @@ nav > ul > li:nth-child(1):hover, nav > ul > li:nth-child(2):hover, nav > ul > l
 }
 
 .color_white{
-    background: white;
+    background: none;
 }
 
 .color_white > a {
     text-decoration: none;
-    color:#ff0081;
+    color:white;
 }
 
 
