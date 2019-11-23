@@ -88,6 +88,33 @@
     grid-area: cpb1;
 }
 
+.heart-base-container {
+    position: relative;
+    height: 100%;
+}
+.heart-base-container > img {
+    position: relative;
+    top:20px;
+    cursor: pointer;
+    left:20px;
+}
+.heart-user-like {
+    position: relative;
+    float: left;
+    top:10px;
+    height: 30px;
+    width:30px;
+    background-color:white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border:2px rgba(0,0,0,0.1) solid;
+    border-radius:100px;
+}
+
+.userLike2,.userLike3 , .userLike4 ,  .userLike5{
+    margin-left:-10px;
+}
 .container-post-bottom > div:nth-child(2){
     grid-area: cpb2;
 }
@@ -102,6 +129,15 @@
 }
 
 .upper-post-right  > img {
+    position:relative;
     float: right;
+    padding:10px;
+    border-radius: 100px;
     cursor: pointer;
+    top:-10px;
+}
+
+.upper-post-right  > img:hover {
+    background-color:#F2F2F2;
+    transition:0.2s;
 }

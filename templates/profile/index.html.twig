@@ -15,9 +15,7 @@
     <section>
         <div class="top-section">
             <div class="profile-cover">
-
                 <div class="profile-img-cover" style="background-image: url({{ asset('userCover/' ~ app.user.id ~ '.jpg') }})"></div>
-
                 <div class="profile-detail-section">
                     <nav>
                         <li>Timeline</li>
@@ -43,7 +41,6 @@
             </div>
         </div>
         <div class="bottom-section">
-
             <div class="profile-content">
                 {{ include('post/index.html.twig', {p: post}) }}
             </div>
