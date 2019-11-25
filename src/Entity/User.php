@@ -51,9 +51,11 @@ class User implements UserInterface, \Serializable
     private $dateRegister;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\PostEntity", mappedBy="user_post")
+     * @ORM\OneToMany(targetEntity="App\Entity\PostEntity", mappedBy="userPost")
      */
     private $postEntities;
+
+
 
     public function __construct()
     {
@@ -238,4 +240,5 @@ class User implements UserInterface, \Serializable
 
         return $this;
     }
+
 }

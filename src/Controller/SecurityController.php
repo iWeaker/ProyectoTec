@@ -90,6 +90,7 @@ class SecurityController extends AbstractController
 
             }catch(\Exception $e) {
                 $message = $e->getMessage();
+
             }
         }
 

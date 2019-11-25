@@ -19,23 +19,23 @@ class PostEntity
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $content_post;
+    private $contentPost;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $img_post;
+    private $imagePost;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="postEntities")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $user_post;
+    private $userPost;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $date_post;
+    private $datePost;
 
     public function getId(): ?int
     {
@@ -44,48 +44,48 @@ class PostEntity
 
     public function getContentPost(): ?string
     {
-        return $this->content_post;
+        return $this->contentPost;
     }
 
-    public function setContentPost(?string $content_post): self
+    public function setContentPost(?string $contentPost): self
     {
-        $this->content_post = $content_post;
+        $this->contentPost = $contentPost;
 
         return $this;
     }
 
-    public function getImgPost(): ?string
+    public function getImagePost(): ?string
     {
-        return $this->img_post;
+        return $this->imagePost;
     }
 
-    public function setImgPost(?string $img_post): self
+    public function setImagePost(?string $imagePost): self
     {
-        $this->img_post = $img_post;
+        $this->imagePost = $imagePost;
 
         return $this;
     }
 
     public function getUserPost(): ?User
     {
-        return $this->user_post;
+        return $this->userPost;
     }
 
-    public function setUserPost(?User $user_post): self
+    public function setUserPost(?User $userPost): self
     {
-        $this->user_post = $user_post;
+        $this->userPost = $userPost;
 
         return $this;
     }
 
     public function getDatePost(): ?\DateTimeInterface
     {
-        return $this->date_post;
+        return $this->datePost;
     }
 
-    public function setDatePost(\DateTimeInterface $date_post): self
+    public function setDatePost(\DateTimeInterface $datePost): self
     {
-        $this->date_post = $date_post;
+        $this->datePost = $datePost;
 
         return $this;
     }

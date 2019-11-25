@@ -18,20 +18,20 @@ class PostEntityRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, PostEntity::class);
     }
-    // /**
-    //  * @return PostEntity[] Returns an array of PostEntity objects
-    //  */
+
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.user_post = :val')
+            ->andWhere('p.userPost = :val')
             ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
+            ->orderBy('p.datePost', 'DESC')
             ->setMaxResults(10)
             ->getQuery()
+            
             ->getResult()
             ;
     }
+
     // /**
     //  * @return PostEntity[] Returns an array of PostEntity objects
     //  */

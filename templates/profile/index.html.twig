@@ -13,9 +13,10 @@
 {% block body %}
     {% include 'header/index.html.twig' %}
     <section>
+
         <div class="top-section">
             <div class="profile-cover">
-                <div class="profile-img-cover" style="background-image: url({{ asset('userCover/' ~ app.user.id ~ '.jpg') }})"></div>
+                <div class="profile-img-cover" style="background-image: url({{ asset('userCover/' ~ cover) }})"></div>
                 <div class="profile-detail-section">
                     <nav>
                         <li>Timeline</li>
@@ -29,13 +30,9 @@
                     </nav>
                 </div>
                 <div class="profile-desc">
-                    <div class="profile-img" style="background-image: url({{ asset('userProfiles/' ~ app.user.id ~ '.jpg') }})"></div>
+                    <div class="profile-img" style="background-image: url({{ asset('userProfiles/' ~ picture) }})"></div>
                     <div class="profile-name">
-                        {% if name|default(null) %}
-                            <span>{{ name }}</span>
-                        {% else %}
-                            <span>{{ app.user.user }} {{ app.user.lastM }} {{ app.user.lastF }}</span>
-                        {% endif %}
+                        <span>{{ name }} {{ lastname }} {{ lastname2 }}</span>
                     </div>
                 </div>
             </div>
@@ -46,4 +43,5 @@
             </div>
         </div>
     </section>
+    {# {{ app.user.user }} {{ app.user.lastM }} {{ app.user.lastF }} #}
 {% endblock %}

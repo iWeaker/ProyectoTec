@@ -23,27 +23,45 @@ class ProfileController extends AbstractController
     {
 
         $userId = $user->getUsername();
+        $uRespository = $interface->getRepository(User::class);
+        $u = $uRespository->findOneBy([
+            'id' => $user->getUsername()
+        ]);
+
         $repository = $interface->getRepository(PostEntity::class);
-        $post = $repository->findByExampleField('16491121');
+        $post = $repository->findByExampleField($user->getUsername());
         return $this->render('profile/index.html.twig', [
-            'post' => $post
+            'post' => $post,
+
+            'name' =>$u->getUser(),
+            'lastname' => $u->getLastM(),
+            'lastname2' => $u->getLastF(),
+            'picture' => $user->getImage(),
+            'cover' => $user->getCover()
         ]);
 
     }
 
     /**
      * @Route("/profile/{id}", name="userprofile")
-     * @param $id
+     * @param String $id
+     * @param EntityManagerInterface $interface
      * @return Response
      */
-    public function userIndex(int $id) {
+    public function userIndex(String $id, EntityManagerInterface $interface) {
         $user = $this->getDoctrine()->getRepository(User::class)
             ->findOneBy([
                 'id' => $id
             ]);
-
+        $repository = $interface->getRepository(PostEntity::class);
+        $post = $repository->findByExampleField($id);
         return $this->render('profile/index.html.twig' , [
-            'name' => $user->getUser()
+            'post' => $post,
+            'name' =>$user->getUser(),
+            'lastname' => $user->getLastM(),
+            'lastname2' => $user->getLastF(),
+            'picture' => $user->getImage(),
+            'cover' => $user->getCover()
         ]);
     }
 }
