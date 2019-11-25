@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\PostEntity;
 use App\Entity\User;
+use App\Form\PostType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -14,6 +16,7 @@ class ProfileController extends AbstractController
 {
     /**
      * @Route("/profile", name="profile")
+     * @param Request $request
      * @param UserInterface $user
      * @param EntityManagerInterface $interface
      * @return Response
@@ -28,22 +31,25 @@ class ProfileController extends AbstractController
             'id' => $user->getUsername()
         ]);
 
+        $form = self::postForm(new Request());
+
         $repository = $interface->getRepository(PostEntity::class);
         $post = $repository->findByExampleField($user->getUsername());
         return $this->render('profile/index.html.twig', [
             'post' => $post,
-
+            'id' => $u->getId(),
             'name' =>$u->getUser(),
             'lastname' => $u->getLastM(),
             'lastname2' => $u->getLastF(),
             'picture' => $user->getImage(),
-            'cover' => $user->getCover()
+            'cover' => $user->getCover(),
+            'form' => $form->createView()
         ]);
 
     }
 
     /**
-     * @Route("/profile/{id}", name="userprofile")
+     * @Route("/profile/{id}", name="userprofile" , methods={"GET", "POST"})
      * @param String $id
      * @param EntityManagerInterface $interface
      * @return Response
@@ -57,12 +63,21 @@ class ProfileController extends AbstractController
         $post = $repository->findByExampleField($id);
         return $this->render('profile/index.html.twig' , [
             'post' => $post,
+            'id' => $user->getId(),
             'name' =>$user->getUser(),
             'lastname' => $user->getLastM(),
             'lastname2' => $user->getLastF(),
             'picture' => $user->getImage(),
             'cover' => $user->getCover()
         ]);
+    }
+
+
+    public function postForm(Request $request){
+        $post = new PostEntity();
+        $form = $this->createForm(PostType::class, $post);
+        $form->handleRequest($request);
+        return $form;
     }
 }
 

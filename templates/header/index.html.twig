@@ -7,12 +7,13 @@
                 <nav>
                     <ul>
                         <!-- app.request.attributes.get('_route_params') -->
-                        <li class="color_white"><a href="{{ path('home') }}">Inicio</a></li>
+                        <li class="color_white"><a href="{{ path('home') }}">Noticias</a></li>
+                        <li class="color_white"><a href="{{ path('home') }}">Grupos</a></li>
                         <li class="color_white"><a href="{{ path('profile') }}">Perfil</a></li>
                         <li class="color_white"><img style="position:relative;top:5px" src="{{ asset('img/notification.png') }}" height="20"/></li>
                         <li class="color_white"><img style="position:relative;top:5px" src="{{ asset('img/upload.png') }}" height="20"/></li>
                         <li>
-                            <div class="profile-img-header" style="background-image: url({{ asset('userProfiles/' ~ app.user.id ~ '.jpg') }})"></div>
+                            <div class="profile-img-header" style="background-image: url({{ asset('userProfiles/' ~ app.user.image) }})"></div>
                             <ul>
                                 <li><a href="">Opcion 1</a></li>
                                 <li><a href="">Opcion 2</a></li>

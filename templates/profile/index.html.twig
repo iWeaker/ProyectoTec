@@ -26,7 +26,9 @@
                         <li></li>
                         <li>Fotos</li>
                         <li>Favoritos</li>
+                        {% if id == app.user.id %}
                         <li>Config</li>
+                        {% endif %}
                     </nav>
                 </div>
                 <div class="profile-desc">
@@ -38,6 +40,8 @@
             </div>
         </div>
         <div class="bottom-section">
+            {{ form_start(form) }}
+            {{ form_end(form) }}
             <div class="profile-content">
                 {{ include('post/index.html.twig', {p: post}) }}
             </div>

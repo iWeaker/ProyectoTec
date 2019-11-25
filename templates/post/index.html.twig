@@ -6,7 +6,7 @@
                     <div class="photo-p-user" style="background-image: url({{ asset('userProfiles/' ~  post.userPost.image) }})"></div>
                 </div>
                 <div class="name-post-user">
-                    <p> {{ post.userPost.user }} {{ post.userPost.lastM }} {{ post.userPost.lastF }}</p>
+                    <p> <a href="{{ path('userprofile' ,{'id' :  post.userPost.id}) }}">{{ post.userPost.user }} {{ post.userPost.lastM }} {{ post.userPost.lastF }} </a> </p>
                     <p>19 horas antes</p>
                 </div>
             </div>
