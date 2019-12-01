@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Grupos{% endblock %}
+{% block stylesheets %}
+    <link href="{{ asset('/css/header.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/css/profile.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/css/group.css') }}" rel="stylesheet" />
+{% endblock %}
+{% block body %}
+    {% include 'header/index.html.twig'%}
+    <section id="section-group">
+            <div class="wrapper">
+                <div class="box">
+                    <div class="box-img">
+                        <h3>Grupo 1</h3>
+                    </div>
+                    <h4>Angelo Gutierrez Moreno</h4>
+                    <h5>Matematicas</h5>
+                </div>
+                <div class="box">
+                    <div class="box-img">
+                        <h3>Grupo 2</h3>
+                    </div>
+                    <h4>Angelo Gutierrez Moreno</h4>
+                    <h5>Matematicas</h5>
+                </div>
+                <div class="box">
+                    <div class="box-img">
+                        <h3>Grupo 3</h3>
+                    </div>
+                    <h4>Angelo Gutierrez Moreno</h4>
+                    <h5>Matematicas</h5>
+                </div>
+                <div class="box">
+                    <div class="box-img">
+                        <h3>Grupo 4</h3>
+                    </div>
+                    <h4>Angelo Gutierrez Moreno</h4>
+                    <h5>Matematicas</h5>
+                </div>
+                <div class="box">
+                    <div class="box-img">
+                        <h3>Grupo 5</h3>
+                    </div>
+                    <h4>Angelo Gutierrez Moreno</h4>
+                    <h5>Matematicas</h5>
+                </div>
+            </div>
+    </section>
+{% endblock %}
