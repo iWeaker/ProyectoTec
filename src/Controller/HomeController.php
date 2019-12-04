@@ -11,9 +11,12 @@ class HomeController extends AbstractController
 {
     /**
      * @Route("/", name="home")
+     * @param EntityManagerInterface $interface
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(EntityManagerInterface $interface)
     {
+
         $repository = $interface->getRepository(PostEntity::class);
         $post = $repository->findBy([], ['datePost' => 'DESC']);
         return $this->render('home/index.html.twig', [
