@@ -1,9 +1,11 @@
 * {
     margin:0;
 }
+
 body {
     background: #edf2f6;
 }
+
 
 #section-group{
     margin-top: 100px ;
@@ -12,7 +14,41 @@ body {
 .wrapper{
     margin: 10px 30px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-areas: "mygroup mygroup groups groups groups groups groups";
+    justify-items: center;
+}
+
+section .mygroup{
+    grid-area: mygroup;
+    //background-color: #1c1e23;
+}
+.mygroup a{
+    text-decoration: none;
+    color: black;
+}
+
+.mygroup h1{
+    text-align: center;
+}
+
+.mygroup ol{
+    list-style: none;
+}
+
+.mygroup ol li{
+    text-align: center;
+    background-color: #00bfad;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+section .groups{
+    grid-area: groups;
+    //background-color: #3b216a;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     justify-items: center;
 }
 
@@ -42,7 +78,29 @@ body {
 .box h4{
     margin-top: 10px;
 }
+
 .box h4, h5{
     text-align: left;
     margin-left: 10px;
+}
+
+@media only screen and (max-width: 780px) {
+    .wrapper{
+        margin: 10px 30px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(2,auto);
+        grid-template-areas: "mygroup"
+                             "groups";
+        justify-items: center;
+    }
+
+    .mygroup ol{
+        margin-right: 35px;
+    }
+
+    section .groups{
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: center;
+    }
 }
