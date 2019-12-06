@@ -123,4 +123,49 @@ section {
     grid-column: 2 / 4;
     grid-row: 1;
 }
+/* RESPONSIVO TABLET*/
+@media only screen and (max-width: 800px) {
+    section{
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: repeat(2,auto);
+        grid-template-areas: "up"
+        "down";
+    }
 
+    .right-section{
+        grid-area: down;
+    }
+
+    .left-section{
+        grid-area: up;
+    }
+
+    .left-section >.box{
+        background-color: #00bfad;
+        width: 780px;
+    }
+}
+
+
+/* RESPONSIVO MOVIL*/
+@media only screen and (max-width: 767px) {
+    section{
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: repeat(2,auto);
+        grid-template-areas: "up"
+                             "down";
+    }
+
+    .right-section{
+        grid-area: down;
+    }
+
+    .left-section{
+        grid-area: up;
+    }
+
+    .left-section >.box{
+        background-color: #00bfad;
+        width: 340px;
+    }
+}

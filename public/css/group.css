@@ -64,6 +64,7 @@ section .groups{
     margin: 20px auto;
 }
 
+
 .box{
     background-color: whitesmoke;
     margin-top: 10px;
@@ -84,6 +85,41 @@ section .groups{
     margin-left: 10px;
 }
 
+.box a{
+    display: inline-block;
+    background-color: #00bfad;
+    padding: 10px;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    border-radius: 15px;
+    margin-top: 95px;
+    width: 80%;
+}
+
+/* RESPONSIVO TABLET*/
+@media only screen and (max-width: 900px) {
+    .wrapper{
+        margin: 10px 30px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(2,auto);
+        grid-template-areas: "mygroup"
+        "groups";
+        justify-items: center;
+    }
+
+    .mygroup ol{
+        margin-right: 35px;
+    }
+
+    section .groups{
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+    }
+}
+
+/* RESPONSIVO MOVIL*/
 @media only screen and (max-width: 780px) {
     .wrapper{
         margin: 10px 30px;
