@@ -9,6 +9,7 @@
 {% block javascripts %}
     <script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/profileEffect.js') }}"></script>
+
 {% endblock %}
 {% block body %}
     {% include 'header/index.html.twig' %}
@@ -43,12 +44,13 @@
             <div class="profile-content">
                 {% if getUrl == 0 %}
                     {{ error }}
-                    <div class="container-post">
-                        {{ form_start(form) }}
+                    <div class="container-post" style="min-height: 50px">
+                        {{ form_start(form, {'attr': {'id': 'post-register'}}) }}
 
                         {{ form_end(form) }}
                     </div>
                 {% endif %}
+
                 {{ include('post/index.html.twig', {p: post}) }}
             </div>
         </div>

@@ -7,6 +7,8 @@ use App\Entity\User;
 use App\Form\PostType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,26 +16,34 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class ProfileController extends AbstractController
 {
-    private static $error = "";
+
+
+
+    private static string $error = "";
+    protected  $post;
+    public function __construct(EntityManagerInterface $interface)
+    {
+        $this->post = new PostController($interface);
+    }
+
     /**
      * @Route("/profile", name="profile")
-     * @param Request $request
      * @param UserInterface $user
+     * @param Request $request
      * @param EntityManagerInterface $interface
      * @return Response
      */
-    public function index(Request $request , UserInterface $user, EntityManagerInterface $interface)
+    public function index(UserInterface $user,Request $request, EntityManagerInterface $interface)
 
     {
-
         $userId = $user->getUsername();
         $uRespository = $interface->getRepository(User::class);
         $u = $uRespository->findOneBy([
             'id' => $user->getUsername()
         ]);
 
-        $post = new PostEntity();
-        $form = $this->createForm(PostType::class, $post);
+        $postEntity = new PostEntity();
+        $form = $this->createForm(PostType::class,$postEntity);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $text = $form['contentPost']->getData();
@@ -41,20 +51,45 @@ class ProfileController extends AbstractController
             if($text == null && $image == null){
                 self::$error = "Error de ambos";
             }else{
-                $post->setContentPost($text);
-                $post->setImagePost($image);
-                $post->setDatePost();
-                $post->setUserPost($user);
+                if($image){
+                    $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                    $newFilename = $originalFilename.'-'.uniqid().'.'.$image->guessExtension();
+                    try {
+                        $image->move(
+                            $this->getParameter('imagePostUploader'),
+                            $newFilename
+                        );
+                    } catch (FileException $e) {
+                        $message = $e;
+                    }
+                    $postEntity->setImagePost($newFilename);
+                }
+                $postEntity->setContentPost($text);
+
+                $postEntity->setDatePost();
+                $postEntity->setUserPost($u);
                 $con = $this->getDoctrine()->getManager();
-                $con->persist($post);
-                $con->flush();
+                $con->persist($postEntity);
+                try{
+                    $con->flush();
+                    $status = "success";
+                    //$message = "Se guardo";
+                    $lastPost = $this->repository->findByLast($user->getUsername());
+                    $response = array(
+                        'status' => $status,
+                        'message' => $this->post->showLastPost($user->getUsername()),
+
+                    );
+                    return new JsonResponse($response);
+
+                }catch(\Exception $e) {
+                    $message = $e->getMessage();
+
+                }
             }
         }
-
-        $repository = $interface->getRepository(PostEntity::class);
-        $post = $repository->findByExampleField($user->getUsername());
         return $this->render('profile/index.html.twig', [
-            'post' => $post,
+            'post' => $this->post->showAllPost($user),
             'id' => $u->getId(),
             'name' =>$u->getUser(),
             'lastname' => $u->getLastM(),
@@ -63,11 +98,19 @@ class ProfileController extends AbstractController
             'cover' => $user->getCover(),
             'form' => $form->createView(),
             'getUrl' => 0,
-            'error' => self::$error
+            'error' => self::$error,
+            'pst' => ""
         ]);
 
     }
 
+    /**
+     * @Route(name="photo")
+     *
+     */
+    public function showPhotos(){
+        return "";
+    }
     /**
      * @Route("/profile/{id}", name="userprofile" , methods={"GET", "POST"})
      * @param String $id
