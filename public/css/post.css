@@ -141,3 +141,29 @@
     background-color:#F2F2F2;
     transition:0.2s;
 }
+
+/* RESPONSIVO TABLET*/
+@media only screen and (max-width: 800px) {
+    .container-post{
+        display: grid;
+        width: 780px;
+    }
+
+    .upper-post-left{
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+/* RESPONSIVO MOVIL*/
+@media only screen and (max-width: 767px) {
+    .container-post{
+        display: grid;
+        width: 340px;
+    }
+
+    .upper-post-left{
+        display: flex;
+        flex-direction: row;
+    }
+}
