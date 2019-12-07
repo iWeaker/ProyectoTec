@@ -14,6 +14,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class ProfileController extends AbstractController
 {
+    private static $error = "";
     /**
      * @Route("/profile", name="profile")
      * @param Request $request
@@ -21,7 +22,7 @@ class ProfileController extends AbstractController
      * @param EntityManagerInterface $interface
      * @return Response
      */
-    public function index(UserInterface $user, EntityManagerInterface $interface)
+    public function index(Request $request , UserInterface $user, EntityManagerInterface $interface)
 
     {
 
@@ -31,7 +32,24 @@ class ProfileController extends AbstractController
             'id' => $user->getUsername()
         ]);
 
-        $form = self::postForm(new Request());
+        $post = new PostEntity();
+        $form = $this->createForm(PostType::class, $post);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $text = $form['contentPost']->getData();
+            $image = $form['imagePost']->getData();
+            if($text == null && $image == null){
+                self::$error = "Error de ambos";
+            }else{
+                $post->setContentPost($text);
+                $post->setImagePost($image);
+                $post->setDatePost();
+                $post->setUserPost($user);
+                $con = $this->getDoctrine()->getManager();
+                $con->persist($post);
+                $con->flush();
+            }
+        }
 
         $repository = $interface->getRepository(PostEntity::class);
         $post = $repository->findByExampleField($user->getUsername());
@@ -43,7 +61,9 @@ class ProfileController extends AbstractController
             'lastname2' => $u->getLastF(),
             'picture' => $user->getImage(),
             'cover' => $user->getCover(),
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'getUrl' => 0,
+            'error' => self::$error
         ]);
 
     }
@@ -54,7 +74,10 @@ class ProfileController extends AbstractController
      * @param EntityManagerInterface $interface
      * @return Response
      */
-    public function userIndex(String $id, EntityManagerInterface $interface) {
+    public function userIndex(String $id,UserInterface $u, EntityManagerInterface $interface) {
+        if($id == $u->getUsername()){
+            return $this->redirectToRoute('profile');
+        }
         $user = $this->getDoctrine()->getRepository(User::class)
             ->findOneBy([
                 'id' => $id
@@ -68,16 +91,10 @@ class ProfileController extends AbstractController
             'lastname' => $user->getLastM(),
             'lastname2' => $user->getLastF(),
             'picture' => $user->getImage(),
-            'cover' => $user->getCover()
+            'cover' => $user->getCover(),
+            'getUrl' => 1
         ]);
     }
 
-
-    public function postForm(Request $request){
-        $post = new PostEntity();
-        $form = $this->createForm(PostType::class, $post);
-        $form->handleRequest($request);
-        return $form;
-    }
 }
 
