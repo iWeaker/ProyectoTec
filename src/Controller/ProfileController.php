@@ -126,32 +126,25 @@ class ProfileController extends AbstractController
         $response = array(
             'status' => "",
             'message' =>  $id,
+            'counter' => 0,
         );
         if($repository->checkExist($user->getUsername(), $id)){
-            $uRespository = $interface->getRepository(User::class);
-            $u = $uRespository->findOneBy([
-                'id' => $user->getUsername()
-            ]);
-            $postRespository = $interface->getRepository(PostEntity::class);
-            $postRepo = $postRespository->findOneBy([
-                'id' => $id
-            ]);
-            $heart->setPostId($postRepo);
-            $heart->setUserHeartId($u);
+
+
             $con = $this->getDoctrine()->getManager();
-            $con->remove($heart);
+            $h = $repository->findOneBy(array('userHeartId' => $user->getUsername() , 'post_id' => $id));
+
+            $con->remove($h);
             try{
                 $con->flush();
-                $response['message'] = "";
+                $response['message'] = "unlike";
                 return $this->json($response);
             }catch (\Exception $e){
 
             }
         }else {
             $uRespository = $interface->getRepository(User::class);
-            $u = $uRespository->findOneBy([
-                'id' => $user->getUsername()
-            ]);
+            $u = $uRespository->findOneBy(['id' => $user->getUsername()]);
             $postRespository = $interface->getRepository(PostEntity::class);
             $postRepo = $postRespository->findOneBy([
                 'id' => $id
@@ -162,13 +155,12 @@ class ProfileController extends AbstractController
             $con->persist($heart);
             try{
                 $con->flush();
-                $response['message'] = "Existe";
+                $response['message'] = "like";
                 return $this->json($response);
             }catch (\Exception $e){
 
             }
         }
-
         return $this->json($response);
     }
     /**

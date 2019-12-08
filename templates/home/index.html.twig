@@ -8,7 +8,27 @@
 {% endblock %}
 {% block javascripts %}
    <script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
+   <script>
+       $(".heart-class").click(function(){
+           let op_prod_id = $(this).data('id');
+           let op_prod_url = $(this).data('url');
+           $.ajax({
+               type: 'POST',
+               url: op_prod_url,
+               dataType: 'json',
+               success: function(response) {
+                   if(response.message == "like"){
+                       //$(".hearCounterResponse" + op_prod_id).html(response.counter);
+                       $(".heart-base" + op_prod_id).html("<img class=\"heart-class\" data-id='" +op_prod_id+ "' data-url='"+op_prod_url+"' src=\"{{ asset('img/corazonpicked.png') }}\" height=\"20\" alt=\"\">");
+                   }else if(response.message == "unlike"){
+                       //$(".hearCounterResponse" + op_prod_id).html(response.counter);
+                       $(".heart-base" + op_prod_id).html("<img class=\"heart-class\" data-id='" +op_prod_id+ "' data-url='"+op_prod_url+"' src=\"{{ asset('img/corazon.png') }}\" height=\"20\" alt=\"\">");
+                   }
 
+               },
+           });
+       })
+   </script>
 {% endblock %}
 {% block body %}
    {% include 'header/index.html.twig' with {'class_header': 'button_color'} %}
