@@ -22,7 +22,7 @@
             <div class="heart-bottom-">
                 <div class="heart-base-container">
                     {{ post.heartEntities.count }}
-                    <img src="{{ asset('img/corazon.png') }}" height="20" alt="">
+                    <img class="heart-class" data-id="{{ post.id }}" data-url="{{ path('heart', {'id': post.id}) }}" src="{{ asset('img/corazon.png') }}" height="20" alt="">
                 </div>
 
             </div>

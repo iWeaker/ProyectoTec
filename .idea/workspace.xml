@@ -3,17 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="87bd9708-4b53-4a5e-9d0b-ac24603bb2e2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/HeartEntity.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/PostEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/PostEntity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191124225238.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191124232853.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/HeartEntityRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/HeartEntityRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/HeartEntityRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PostEntityRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PostEntityRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/post/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/follow.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/post.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/post.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +234,7 @@
       <workItem from="1575739052538" duration="13442000" />
       <workItem from="1575770273398" duration="5011000" />
       <workItem from="1575785367157" duration="2213000" />
-      <workItem from="1575822099224" duration="1572000" />
+      <workItem from="1575822099224" duration="7762000" />
     </task>
     <servers />
   </component>

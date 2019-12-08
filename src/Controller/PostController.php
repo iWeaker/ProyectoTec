@@ -32,4 +32,6 @@ class PostController extends AbstractController
         return $this->repository->findByExampleField($user->getUsername());
     }
 
+
+
 }

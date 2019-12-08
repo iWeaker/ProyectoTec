@@ -40,7 +40,6 @@ class PostEntityRepository extends ServiceEntityRepository
             ->orderBy('p.datePost', 'DESC')
             ->setMaxResults(1)
             ->getQuery()
-
             ->getResult()
             ;
     }

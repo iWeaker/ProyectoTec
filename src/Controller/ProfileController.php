@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\HeartEntity;
 use App\Entity\PostEntity;
 use App\Entity\User;
 use App\Form\PostType;
@@ -27,7 +28,6 @@ class ProfileController extends AbstractController
 
     public function __construct(EntityManagerInterface $interface)
     {
-
         $this->post = new PostController($interface);
     }
 
@@ -114,6 +114,64 @@ class ProfileController extends AbstractController
     }
 
     /**
+     * @Route("/heart/{id}" , name="heart")
+     * @param $id
+     * @param EntityManagerInterface $interface
+     * @param UserInterface $user
+     * @return JsonResponse
+     */
+    public function heartPost($id, EntityManagerInterface $interface, UserInterface $user){
+        $heart =  new HeartEntity();
+        $repository = $interface->getRepository(HeartEntity::class);
+        $response = array(
+            'status' => "",
+            'message' =>  $id,
+        );
+        if($repository->checkExist($user->getUsername(), $id)){
+            $uRespository = $interface->getRepository(User::class);
+            $u = $uRespository->findOneBy([
+                'id' => $user->getUsername()
+            ]);
+            $postRespository = $interface->getRepository(PostEntity::class);
+            $postRepo = $postRespository->findOneBy([
+                'id' => $id
+            ]);
+            $heart->setPostId($postRepo);
+            $heart->setUserHeartId($u);
+            $con = $this->getDoctrine()->getManager();
+            $con->remove($heart);
+            try{
+                $con->flush();
+                $response['message'] = "";
+                return $this->json($response);
+            }catch (\Exception $e){
+
+            }
+        }else {
+            $uRespository = $interface->getRepository(User::class);
+            $u = $uRespository->findOneBy([
+                'id' => $user->getUsername()
+            ]);
+            $postRespository = $interface->getRepository(PostEntity::class);
+            $postRepo = $postRespository->findOneBy([
+                'id' => $id
+            ]);
+            $heart->setPostId($postRepo);
+            $heart->setUserHeartId($u);
+            $con = $this->getDoctrine()->getManager();
+            $con->persist($heart);
+            try{
+                $con->flush();
+                $response['message'] = "Existe";
+                return $this->json($response);
+            }catch (\Exception $e){
+
+            }
+        }
+
+        return $this->json($response);
+    }
+    /**
      * @Route("/profile/photo", name="photo")
      *
      */
@@ -132,17 +190,6 @@ class ProfileController extends AbstractController
         $response = array(
             'status' => "",
             'message' =>  $this->renderView('profile/config.html.twig' ),
-        );
-        return $this->json($response);
-    }
-    /**
-     * @Route("/profile/follow", name="follow")
-     *
-     */
-    public function followSection(){
-        $response = array(
-            'status' => "",
-            'message' =>  $this->renderView('profile/follow.html.twig' ),
         );
         return $this->json($response);
     }

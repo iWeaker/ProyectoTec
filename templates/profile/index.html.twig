@@ -32,7 +32,20 @@
             });
         });
     </script>
+
     <script>
+        $(".heart-class").click(function(){
+            let op_prod_id = $(this).data('id');
+            let op_prod_url = $(this).data('url');
+            $.ajax({
+                type: 'POST',
+                url: op_prod_url,
+                dataType: 'json',
+                success: function(response) {
+                    $.sweetModal(response.message);
+                },
+            });
+        })
 
         function photoSection() {
             $.ajax({
