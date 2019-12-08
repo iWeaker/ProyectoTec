@@ -3,7 +3,17 @@
         {{ error }}
         <div class="container-post" style="min-height: 50px">
             {{ form_start(form, {'attr': {'id': 'post-register'}}) }}
-
+                <div class="row-post">
+                        {{ form_row(form.contentPost) }}
+                </div>
+                <div class="row-post">
+                        <div class="col-post-left">
+                                {{ form_row(form.imagePost) }}
+                        </div>
+                        <div class="col-post-right" id="some-custom-id">
+                                {{ form_row(form.Publicar) }}
+                        </div>
+                </div>
             {{ form_end(form) }}
         </div>
     {% endif %}

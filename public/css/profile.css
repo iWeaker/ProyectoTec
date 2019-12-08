@@ -79,7 +79,7 @@ section {
     height: 220px;
     border-radius:5px;
     padding-top:10px;
-    margin:0 auto;
+
     top:180px;
 }
 
@@ -133,4 +133,29 @@ section {
     font-size: 17px;
     border:0;
 }
+.row-post{
+    overflow: auto;
+}
+.col-post-left, .col-post-right {
+    position: relative;
+    width: 100px;
+    height: 40px;
+}
+.col-post-left{
+ float: left;
+}
 
+.col-post-right{
+    float: right;
+}
+
+.col-post-right > div >button{
+    border:0;
+    padding:10px;
+    width: 100%;
+
+    border-radius: 5px;
+    background-color:#53F090;
+    cursor: pointer;
+    outline: none;
+}

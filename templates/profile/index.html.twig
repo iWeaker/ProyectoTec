@@ -61,22 +61,6 @@
                 },
             });
         }
-
-        function followSection() {
-            $.ajax({
-                type: 'POST',
-                url: '{{ path('follow')}}',
-                dataType: 'json',
-                success: function(response) {
-                    $.sweetModal({
-                        title: 'Siguiendo',
-                        content: response.message,
-                    });
-                },
-            });
-        }
-
-
     </script>
 {% endblock %}
 {% block body %}
@@ -87,14 +71,13 @@
                 <div class="profile-img-cover" style="background-image: url({{ asset('userCover/' ~ cover) }})"></div>
                 <div class="profile-detail-section">
                     <nav>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
                         <li><a href="{{ path('profile') }}">Timeline</a></li>
-                        <li></li>
-                        <li onclick="followSection()">Siguiendo</li>
-                        <li></li>
-                        <li></li>
-
                         <li onclick="photoSection()">Fotos</li>
-                        <li></li>
                         {% if id == app.user.id %}
                         <li onclick="configSection()">Config</li>
                         {% endif %}

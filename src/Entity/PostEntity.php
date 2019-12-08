@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,16 @@ class PostEntity
      * @ORM\Column(type="datetime")
      */
     private $datePost;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\HeartEntity", mappedBy="post_id")
+     */
+    private $heartEntities;
+
+    public function __construct()
+    {
+        $this->heartEntities = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,6 +98,37 @@ class PostEntity
     public function setDatePost(): self
     {
         $this->datePost = new \DateTime("now");
+        return $this;
+    }
+
+    /**
+     * @return Collection|HeartEntity[]
+     */
+    public function getHeartEntities(): Collection
+    {
+        return $this->heartEntities;
+    }
+
+    public function addHeartEntity(HeartEntity $heartEntity): self
+    {
+        if (!$this->heartEntities->contains($heartEntity)) {
+            $this->heartEntities[] = $heartEntity;
+            $heartEntity->setPostId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHeartEntity(HeartEntity $heartEntity): self
+    {
+        if ($this->heartEntities->contains($heartEntity)) {
+            $this->heartEntities->removeElement($heartEntity);
+            // set the owning side to null (unless already changed)
+            if ($heartEntity->getPostId() === $this) {
+                $heartEntity->setPostId(null);
+            }
+        }
+
         return $this;
     }
 }
