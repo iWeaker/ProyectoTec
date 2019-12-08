@@ -17,7 +17,7 @@ class PostType extends AbstractType
         $builder
             ->add('contentPost', TextareaType::class, [
                 'label' => false,
-                'attr' => ['placeholder' => 'Ingresa tu noticia'],
+                'attr' => ['placeholder' => 'Ingresa tu noticia', 'class' => 'newPost'],
                 'required' => false
 
             ])

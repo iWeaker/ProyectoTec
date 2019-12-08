@@ -2,28 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87bd9708-4b53-4a5e-9d0b-ac24603bb2e2" name="Default Changelist" comment="">
-<<<<<<< HEAD
+
+
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-=======
+
 
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/group.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/group.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/post.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/post.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/group/group.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/group/group.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
 
-      <change beforePath="$PROJECT_DIR$/.idea/final.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/final.iml" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/post.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/post.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/userProfiles/16491121.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/userProfiles/16491121.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/PostEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/PostEntity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/PostType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PostType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/post/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/index.html.twig" afterDir="false" />
 
->>>>>>> 982e2f9b0928725b0b4ef294dda9cbf60d4cf18f
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +33,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -137,7 +131,6 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/common" />
       <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />
       <path value="$PROJECT_DIR$/vendor/composer" />
@@ -172,7 +165,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="/opt/lampp/htdocs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -228,18 +221,16 @@
       <workItem from="1574132043999" duration="1595000" />
       <workItem from="1574451494562" duration="9477000" />
       <workItem from="1574633183379" duration="12356000" />
-
       <workItem from="1574720002594" duration="1370000" />
       <workItem from="1575179370439" duration="5840000" />
       <workItem from="1575282175470" duration="301000" />
       <workItem from="1575324941061" duration="626000" />
       <workItem from="1575422122731" duration="3575000" />
-<<<<<<< HEAD
+
       <workItem from="1575666734201" duration="4284000" />
       <workItem from="1575782838181" duration="6698000" />
-=======
-      <workItem from="1575666734201" duration="3390000" />
 
+      <workItem from="1575666734201" duration="3390000" />
       <workItem from="1574663488192" duration="270000" />
       <workItem from="1574664240278" duration="40000" />
       <workItem from="1574712539866" duration="30000" />
@@ -253,7 +244,14 @@
       <workItem from="1575072368830" duration="4861000" />
       <workItem from="1575307177952" duration="608000" />
 
->>>>>>> 982e2f9b0928725b0b4ef294dda9cbf60d4cf18f
+
+
+      <workItem from="1575697864156" duration="3856000" />
+      <workItem from="1575739052538" duration="13442000" />
+      <workItem from="1575770273398" duration="5011000" />
+      <workItem from="1575785367157" duration="2213000" />
+      <workItem from="1575822099224" duration="15081000" />
+
     </task>
     <servers />
   </component>
@@ -274,29 +272,47 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-
+    <state x="411" y="167" width="634" height="539" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1575785392718">
+      <screen x="0" y="0" width="1440" height="865" />
+    </state>
+    <state x="411" y="167" width="634" height="539" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1440.865@0.0.1440.865" timestamp="1575785392718" />
     <state x="416" y="115" width="524" height="500" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575179916785">
       <screen x="0" y="0" width="1366" height="732" />
     </state>
     <state x="416" y="115" width="524" height="500" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.732@0.0.1366.732" timestamp="1575179916785" />
+
     <state x="362" y="194" key="com.intellij.ide.util.TipDialog" timestamp="1575783634626">
       <screen x="0" y="0" width="1366" height="736" />
     </state>
     <state x="362" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.732@0.0.1366.732" timestamp="1575483218331" />
-<<<<<<< HEAD
+
     <state x="362" y="194" key="com.intellij.ide.util.TipDialog/0.0.1366.736@0.0.1366.736" timestamp="1575783634626" />
     <state x="347" y="160" key="run.anything.popup" timestamp="1575786232226">
       <screen x="0" y="0" width="1366" height="736" />
     </state>
     <state x="347" y="160" key="run.anything.popup/0.0.1366.736@0.0.1366.736" timestamp="1575786232226" />
-=======
+
+    <state x="453" y="191" width="534" height="488" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1575750144218">
+      <screen x="0" y="0" width="1440" height="865" />
+    </state>
+    <state x="453" y="191" width="534" height="488" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.865@0.0.1440.865" timestamp="1575750144218" />
+    <state x="453" y="192" width="534" height="488" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.869@0.0.1440.869" timestamp="1575702607166" />
 
     <state x="475" y="127" width="426" height="483" key="FileChooserDialogImpl" timestamp="1575307786117">
       <screen x="0" y="0" width="1366" height="734" />
     </state>
     <state x="475" y="127" width="426" height="483" key="FileChooserDialogImpl/0.0.1366.734@0.0.1366.734" timestamp="1575307786117" />
 
->>>>>>> 982e2f9b0928725b0b4ef294dda9cbf60d4cf18f
+    <state x="520" y="359" width="400" height="151" key="NewPhpFileDialog" timestamp="1575740331208">
+      <screen x="0" y="0" width="1440" height="865" />
+    </state>
+    <state x="520" y="359" width="400" height="151" key="NewPhpFileDialog/0.0.1440.865@0.0.1440.865" timestamp="1575740331208" />
+    <state x="382" y="229" key="com.intellij.ide.util.TipDialog" timestamp="1575697865129">
+      <screen x="0" y="0" width="1440" height="869" />
+    </state>
+    <state x="362" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.732@0.0.1366.732" timestamp="1575483218331" />
+    <state x="382" y="229" key="com.intellij.ide.util.TipDialog/0.0.1440.869@0.0.1440.869" timestamp="1575697865129" />
+
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -307,7 +323,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/templates/profile/index.html.twig</url>
-          <line>7</line>
+          <line>8</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

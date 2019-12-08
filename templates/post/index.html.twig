@@ -16,20 +16,34 @@
         </div>
         <div class="container-post-middle">
             <p>{{ post.contentPost }}</p>
+            <img src="{{ asset('postImg/' ~ post.imagePost ) }}" width="470" alt="">
         </div>
         <div class="container-post-bottom">
             <div class="heart-bottom-">
-                <div class="heart-base-container">
-                    <img src="{{ asset('img/corazon.png') }}" height="20" alt="">
+                <div class="heart-base-container heart-base{{ post.id }}" >
+                    {% set find = 0 %}
+                    {% for asd in post.heartEntities.iterator %}
+                        {% if asd is not null and  asd.userHeartId.id == app.user.id %}
+                            {% set find = 1 %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if find == 1 %}
+                        <img class="heart-class" data-id="{{ post.id }}" data-url="{{ path('heart', {'id': post.id}) }}" src="{{ asset('img/corazonpicked.png') }}" height="20" alt="">
+                    {% else %}
+                        <img class="heart-class" data-id="{{ post.id }}" data-url="{{ path('heart', {'id': post.id}) }}" src="{{ asset('img/corazon.png') }}" height="20" alt="">
+                    {% endif  %}
                 </div>
+                <div class="heartCounter hearCounterResponse{{ post.id }}">
+                    {{ post.heartEntities.count }}
+                </div>
+
             </div>
             <div class="user-heart-bottom">
                 <div>
-                    <div class="heart-user-like userLike1" style="background-image:url('{{ asset('userProfiles/user1.jpg') }}')"></div>
-                    <div class="heart-user-like userLike2" style="background-image:url('{{ asset('userProfiles/user2.jpg') }}')"></div>
-                    <div class="heart-user-like userLike3" style="background-image:url('{{ asset('userProfiles/user3.jpg') }}')"></div>
-                    <div class="heart-user-like userLike4" style="background-image:url('{{ asset('userProfiles/user4.jpg') }}')"></div>
-                    <div class="heart-user-like userLike5" style="background-image:url('{{ asset('userProfiles/user5.jpg') }}')"></div>
+                    {% for asd in post.heartEntities.iterator|slice(0, 5) %}
+                            <div class="heart-user-like userLike1" style="background-image:url('{{ asset('userProfiles/' ~ asd.userHeartId.image) }}')"></div>
+                    {% endfor %}
+
                 </div>
             </div>
             <div class="comment-bottom">

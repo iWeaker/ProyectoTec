@@ -18,7 +18,16 @@ class HeartEntityRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, HeartEntity::class);
     }
+    public function checkExist($user , $post){
 
+        return $this->createQueryBuilder('h')
+            ->andWhere('h.userHeartId = :val' , 'h.post_id = :post')
+            ->setParameter('val', $user)
+            ->setParameter('post', $post)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
     // /**
     //  * @return HeartEntity[] Returns an array of HeartEntity objects
     //  */

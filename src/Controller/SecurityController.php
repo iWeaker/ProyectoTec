@@ -7,6 +7,7 @@ use App\Form\LoginType;
 use App\Form\RegisterType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -24,7 +25,7 @@ class SecurityController extends AbstractController
      * @Route("/login", name="login")
      * @param Request $request
      * @param AuthenticationUtils $utils
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      *
      */
     public function login(Request $request, AuthenticationUtils $utils)
@@ -55,16 +56,12 @@ class SecurityController extends AbstractController
      * @Route("/register", name="register")
      * @param Request $request
      * @param AuthenticationUtils $utils
-     * @param UserPasswordEncoder $passwordEncoder
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function register(Request $request, AuthenticationUtils $utils)
     {
         $status = "";
-        $message = "";
-
         $username = "";
-
         $register = new User();
         $form = $this->createForm(RegisterType::class, $register);
         $form->handleRequest($request);

@@ -55,11 +55,17 @@ class User implements UserInterface, \Serializable
      */
     private $postEntities;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\HeartEntity", mappedBy="userHeartId")
+     */
+    private $heartEntities;
+
 
 
     public function __construct()
     {
         $this->postEntities = new ArrayCollection();
+        $this->heartEntities = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -232,6 +238,37 @@ class User implements UserInterface, \Serializable
             // set the owning side to null (unless already changed)
             if ($postEntity->getUserPost() === $this) {
                 $postEntity->setUserPost(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|HeartEntity[]
+     */
+    public function getHeartEntities(): Collection
+    {
+        return $this->heartEntities;
+    }
+
+    public function addHeartEntity(HeartEntity $heartEntity): self
+    {
+        if (!$this->heartEntities->contains($heartEntity)) {
+            $this->heartEntities[] = $heartEntity;
+            $heartEntity->setUserHeartId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHeartEntity(HeartEntity $heartEntity): self
+    {
+        if ($this->heartEntities->contains($heartEntity)) {
+            $this->heartEntities->removeElement($heartEntity);
+            // set the owning side to null (unless already changed)
+            if ($heartEntity->getUserHeartId() === $this) {
+                $heartEntity->setUserHeartId(null);
             }
         }
 

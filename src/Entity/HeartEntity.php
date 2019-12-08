@@ -17,40 +17,42 @@ class HeartEntity
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="App\Entity\PostEntity", inversedBy="heartEntities")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $UserHeart;
+    private $post_id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="heartEntities")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $PostHeart;
+    private $userHeartId;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getUserHeart(): ?string
+    public function getPostId(): ?PostEntity
     {
-        return $this->UserHeart;
+        return $this->post_id;
     }
 
-    public function setUserHeart(string $UserHeart): self
+    public function setPostId(?PostEntity $post_id): self
     {
-        $this->UserHeart = $UserHeart;
+        $this->post_id = $post_id;
 
         return $this;
     }
 
-    public function getPostHeart(): ?int
+    public function getUserHeartId(): ?User
     {
-        return $this->PostHeart;
+        return $this->userHeartId;
     }
 
-    public function setPostHeart(int $PostHeart): self
+    public function setUserHeartId(?User $userHeartId): self
     {
-        $this->PostHeart = $PostHeart;
+        $this->userHeartId = $userHeartId;
 
         return $this;
     }

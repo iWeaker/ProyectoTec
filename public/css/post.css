@@ -91,12 +91,21 @@
 .heart-base-container {
     position: relative;
     height: 100%;
+    float: left;
+}
+.heartCounter{
+    position: relative;
+    float: left;
+    height: 100%;
+    line-height: 50px;
+    color:gray
 }
 .heart-base-container > img {
     position: relative;
-    top:20px;
+    top:15px;
+    margin-right: 10px;
     cursor: pointer;
-    left:20px;
+
 }
 .heart-user-like {
     position: relative;
