@@ -1,0 +1,37 @@
+/* background:#EA375D; */
+* {
+    font-family: Arial;
+}
+
+header {
+    position:fixed;
+    z-index: 2;
+    top:0;
+    min-height:60px;
+    height: 70px;
+    width: 100%;
+    background-color:#3f4257;
+}
+
+header > div{
+    position:relative;
+    width:900px;
+    height:60px;
+
+    margin:0 auto;
+    border-radius: 5px;
+    transition: background-color ease-in 100ms;
+}
+
+li{
+    list-style: none;
+}
+
+.color_white{
+    background: none;
+}
+
+.color_white > a {
+    text-decoration: none;
+    color:white;
+}

@@ -1,33 +1,31 @@
 
 {% block header %}
     {% block header_upper %}
-        <div class="header-effect"></div>
         <header>
             <div>
                 <nav>
                     <ul>
                         <!-- app.request.attributes.get('_route_params') -->
-                        <li class="color_white"><a href="{{ path('home') }}">Noticias</a></li>
-                        <li class="color_white"><a href="{{ path('group') }}">Grupos</a></li>
-                        <li class="color_white"><a href="{{ path('profile') }}">Perfil</a></li>
-                        <li class="color_white"><img style="position:relative;top:5px" src="{{ asset('img/notification.png') }}" height="20"/></li>
-                        <li class="color_white"><img style="position:relative;top:5px" src="{{ asset('img/upload.png') }}" height="20"/></li>
-                        <li>
-                            <div class="profile-img-header" style="background-image: url({{ asset('userProfiles/' ~ app.user.image) }})"></div>
+                        <li class="color_white"><a href="{{ path('home') }}"><i class="fas fa-home"></i></a></li>
+                        <li class="color_white"><a><i class="fas fa-search"></i></a></li>
+                        <li class="color_white"><a><i class="far fa-bell"></i></a></li>
+                       {# <li class="color_white"><a><i class="fas fa-search"></i></a></li>
+                        <li class="color_white"><a><i class="far fa-bell"></i></a></li>#}
+                        <li>{#<div class="profile-img-header" style="background-image: url({{ asset('userProfiles/' ~ 					app.user.image) }})"></div>#}
+                            <i class="fas fa-bars"></i>
                             <ul>
-                                <li><a href="">Opcion 1</a></li>
-                                <li><a href="">Opcion 2</a></li>
-                                <li><a href="">Opcion 3</a></li>
-                                <li><a href="">Opcion 4</a></li>
+                                <li><a href="{{ path('profile') }}">Mi perfil</a></li>
+                                <li><a href="{{ path('group') }}">Grupos</a></li>
+                                <li><a href="">Ajustes</a></li>
                                 <li><a href="{{ path('logout') }}">Salir</a></li>
                             </ul>
                         </li>
-                        <li>
+                        {#<li>
                             <form action="{{ path('search') }}" method="GET">
                                 <input class="textSearcher" type="text" name="s" id="" placeholder="Buscar">
                                 <input class="btnSearcher" type="submit" value="">
                             </form>
-                        </li>
+                        </li>#}
 
                     </ul>
                 </nav>
