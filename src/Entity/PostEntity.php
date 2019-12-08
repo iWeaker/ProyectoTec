@@ -83,10 +83,9 @@ class PostEntity
         return $this->datePost;
     }
 
-    public function setDatePost(\DateTimeInterface $datePost): self
+    public function setDatePost(): self
     {
-        $this->datePost = $datePost;
-
+        $this->datePost = new \DateTime("now");
         return $this;
     }
 }

@@ -17,11 +17,13 @@ class PostType extends AbstractType
         $builder
             ->add('contentPost', TextareaType::class, [
                 'label' => false,
-                'attr' => ['placeholder' => 'Ingresa tu noticia']
+                'attr' => ['placeholder' => 'Ingresa tu noticia'],
+                'required' => false
 
             ])
             ->add('imagePost', FileType::class, [
-                'label' => false
+                'label' => false,
+                'required' => false
             ])
             ->add('Publicar' , SubmitType::class)
         ;

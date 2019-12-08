@@ -146,9 +146,6 @@ class User implements UserInterface, \Serializable
 
     public function setDateRegister(): self
     {
-        //\DateTimeInterface $dateRegister
-        //$this->dateRegister = $dateRegister;
-        //$this->dateRegister = \DateTime::createFromFormat("d/m/Y H:i","25/04/2015 15:00");
         $this->dateRegister = new \DateTime("now");
         return $this;
     }

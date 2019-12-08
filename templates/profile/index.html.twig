@@ -14,7 +14,6 @@
 {% block body %}
     {% include 'header/index.html.twig' %}
     <section>
-
         <div class="top-section">
             <div class="profile-cover">
                 <div class="profile-img-cover" style="background-image: url({{ asset('userCover/' ~ cover) }})"></div>
@@ -41,9 +40,16 @@
             </div>
         </div>
         <div class="bottom-section">
-            {{ form_start(form) }}
-            {{ form_end(form) }}
+
             <div class="profile-content">
+                {% if getUrl == 0 %}
+                    {{ error }}
+                    <div class="container-post">
+                        {{ form_start(form) }}
+
+                        {{ form_end(form) }}
+                    </div>
+                {% endif %}
                 {{ include('post/index.html.twig', {p: post}) }}
             </div>
         </div>
