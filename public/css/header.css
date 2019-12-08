@@ -6,7 +6,8 @@ header {
     position:fixed;
     z-index: 2;
     top:0;
-    min-height:70px;
+    min-height:60px;
+    height: 70px;
     width: 100%;
     background-color:#3f4257;
 }
@@ -20,20 +21,6 @@ header > div{
     transition: background-color ease-in 100ms;
 }
 
-
-.profile-img-header{
-    position:relative;
-    width:40px;
-    height:40px;
-    margin:0 auto;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border:2px #FAFAFA solid;
-    background-color:white;
-    border-radius: 100px;
-
-}
 
 nav > ul > li:nth-child(6) > ul {
     position: absolute;
@@ -130,7 +117,7 @@ nav > ul > li:nth-child(1):hover, nav > ul > li:nth-child(2):hover, nav > ul > l
 
 nav > ul > li:last-child {
     list-style-type: none;
-    float:left;
+    //float:left;
 }
 nav > ul > li:nth-child(1):hover, nav > ul > li:nth-child(2):hover{
 
@@ -152,17 +139,17 @@ nav > ul > li:nth-child(6) {
 }
 
 nav > ul > li:last-child {
-    position:relative;
-    height:70px;
-
+    //position:relative;
+    height:40px;
+    width: 15px;
     padding-left:10px;
     padding-right:10px;
     color:white;
-    margin-right:20px;
+    //margin-right:20px;
     line-height: 40px;
-    float:right;
+    //float:right;
     border:0;
-    background-color: #494c62;
+    //background-color: #494c62;
     list-style-type:none;
     font-size:15px;
 }
@@ -172,6 +159,7 @@ nav > ul > li:nth-child(2) > ul > li a:hover{
 }
 
 
+/* STYLE OF SEARCHER
 .textSearcher {
     position: relative;
     width:200px;
@@ -202,4 +190,15 @@ nav > ul > li:nth-child(2) > ul > li a:hover{
     background-position: center;
     border:0px;
     top:20px;
+}
+                    */
+
+@media only screen and (max-width: 768px) {
+    nav > ul > li:last-child{
+        margin-left: 70px;
+    }
+
+    header > div{
+        margin-left: 10px;
+    }
 }
