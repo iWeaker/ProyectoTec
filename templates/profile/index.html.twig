@@ -23,7 +23,11 @@
                 dataType: 'json',
                 success: function(response) {
 
-                   $(".profile-content").prepend(response.message);
+                   $(".container-post").first().after(response.message);
+                    $.sweetModal({
+                        content: 'Publicado con exito.',
+                        icon: $.sweetModal.ICON_SUCCESS
+                    });
                 },
             });
         });
@@ -51,7 +55,7 @@
                 dataType: 'json',
                 success: function(response) {
                     $.sweetModal({
-                        title: 'config',
+                        title: 'Configuraciones',
                         content: response.message,
                     });
                 },
