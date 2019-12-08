@@ -4,11 +4,13 @@ namespace App\Controller;
 
 use App\Entity\PostEntity;
 use App\Entity\User;
+
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -27,14 +29,7 @@ class PostController extends AbstractController
 
 
     public function showAllPost(UserInterface $user){
-        return $this->repository->findByExampleField($user->getUsername());;
+        return $this->repository->findByExampleField($user->getUsername());
     }
 
-    public function showLastPost(String $user){
-        $lastpost = $this->repository->findByLast($user);
-        return $this->render(
-            'post/index.html.twig',
-            array('p' => $lastpost)
-        );
-    }
 }

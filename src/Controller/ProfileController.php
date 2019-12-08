@@ -19,10 +19,15 @@ class ProfileController extends AbstractController
 
 
 
-    private static string $error = "";
+    private static $error = "";
+    private $interface;
+    private $request;
+    private $user;
     protected  $post;
+
     public function __construct(EntityManagerInterface $interface)
     {
+
         $this->post = new PostController($interface);
     }
 
@@ -33,18 +38,21 @@ class ProfileController extends AbstractController
      * @param EntityManagerInterface $interface
      * @return Response
      */
-    public function index(UserInterface $user,Request $request, EntityManagerInterface $interface)
+    public function index( UserInterface $user,Request $request, EntityManagerInterface $interface)
 
     {
-        $userId = $user->getUsername();
+        $this->interface = $interface;
+        $this->request = $request;
+        $this->user = $user;
+
         $uRespository = $interface->getRepository(User::class);
         $u = $uRespository->findOneBy([
-            'id' => $user->getUsername()
+            'id' => $this->user->getUsername()
         ]);
 
         $postEntity = new PostEntity();
         $form = $this->createForm(PostType::class,$postEntity);
-        $form->handleRequest($request);
+        $form->handleRequest($this->request);
         if($form->isSubmitted() && $form->isValid()){
             $text = $form['contentPost']->getData();
             $image = $form['imagePost']->getData();
@@ -70,32 +78,33 @@ class ProfileController extends AbstractController
                 $postEntity->setUserPost($u);
                 $con = $this->getDoctrine()->getManager();
                 $con->persist($postEntity);
+
                 try{
+
                     $con->flush();
                     $status = "success";
-                    //$message = "Se guardo";
-                    $lastPost = $this->repository->findByLast($user->getUsername());
+                    $response['status'] = $status;
+                    $repository = $interface->getRepository(PostEntity::class);
+                    $post = $repository->findByLast($this->user->getUsername());
                     $response = array(
-                        'status' => $status,
-                        'message' => $this->post->showLastPost($user->getUsername()),
-
+                        'status' => "",
+                        'message' => $this->renderView('post/index.html.twig' , ['p' => $post]),
                     );
-                    return new JsonResponse($response);
-
+                    return $this->json($response);
                 }catch(\Exception $e) {
                     $message = $e->getMessage();
-
                 }
+
             }
         }
         return $this->render('profile/index.html.twig', [
-            'post' => $this->post->showAllPost($user),
+            'post' => $this->post->showAllPost($this->user),
             'id' => $u->getId(),
             'name' =>$u->getUser(),
             'lastname' => $u->getLastM(),
             'lastname2' => $u->getLastF(),
-            'picture' => $user->getImage(),
-            'cover' => $user->getCover(),
+            'picture' => $u->getImage(),
+            'cover' => $u->getCover(),
             'form' => $form->createView(),
             'getUrl' => 0,
             'error' => self::$error,
@@ -105,15 +114,43 @@ class ProfileController extends AbstractController
     }
 
     /**
-     * @Route(name="photo")
+     * @Route("/profile/photo", name="photo")
      *
      */
-    public function showPhotos(){
-        return "";
+    public function photoSection(){
+        $response = array(
+            'status' => "",
+            'message' =>  $this->renderView('profile/photo.html.twig' ),
+        );
+        return $this->json($response);
     }
+    /**
+     * @Route("/profile/config", name="config")
+     *
+     */
+    public function configSection(){
+        $response = array(
+            'status' => "",
+            'message' =>  $this->renderView('profile/config.html.twig' ),
+        );
+        return $this->json($response);
+    }
+    /**
+     * @Route("/profile/follow", name="follow")
+     *
+     */
+    public function followSection(){
+        $response = array(
+            'status' => "",
+            'message' =>  $this->renderView('profile/follow.html.twig' ),
+        );
+        return $this->json($response);
+    }
+
     /**
      * @Route("/profile/{id}", name="userprofile" , methods={"GET", "POST"})
      * @param String $id
+     * @param UserInterface $u
      * @param EntityManagerInterface $interface
      * @return Response
      */

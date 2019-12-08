@@ -4,12 +4,76 @@
 {% block stylesheets %}
     <link href="{{ asset('/css/header.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/profile.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('/js/sweetmodal/min/jquery.sweet-modal.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('/css/post.css') }}">
 {% endblock %}
 {% block javascripts %}
     <script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/profileEffect.js') }}"></script>
+    <script src="{{ asset('/js/sweetmodal/min/jquery.sweet-modal.min.js') }}"></script>
+    <script type="text/javascript">
+        $('#post-register').on("submit",function(event) {
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '{{ path('profile')}}',
+                processData: false,
+                contentType: false,
+                data: new FormData(this),
+                dataType: 'json',
+                success: function(response) {
 
+                   $(".profile-content").prepend(response.message);
+                },
+            });
+        });
+    </script>
+    <script>
+
+        function photoSection() {
+            $.ajax({
+                type: 'POST',
+                url: '{{ path('photo')}}',
+                dataType: 'json',
+                success: function(response) {
+                    $.sweetModal({
+                        title: 'Fotos',
+                        content: response.message,
+                    });
+                },
+            });
+        }
+
+        function configSection() {
+            $.ajax({
+                type: 'POST',
+                url: '{{ path('config')}}',
+                dataType: 'json',
+                success: function(response) {
+                    $.sweetModal({
+                        title: 'config',
+                        content: response.message,
+                    });
+                },
+            });
+        }
+
+        function followSection() {
+            $.ajax({
+                type: 'POST',
+                url: '{{ path('follow')}}',
+                dataType: 'json',
+                success: function(response) {
+                    $.sweetModal({
+                        title: 'Siguiendo',
+                        content: response.message,
+                    });
+                },
+            });
+        }
+
+
+    </script>
 {% endblock %}
 {% block body %}
     {% include 'header/index.html.twig' %}
@@ -19,15 +83,16 @@
                 <div class="profile-img-cover" style="background-image: url({{ asset('userCover/' ~ cover) }})"></div>
                 <div class="profile-detail-section">
                     <nav>
-                        <li>Timeline</li>
-                        <li>Acerca</li>
-                        <li>Siguiendo</li>
+                        <li><a href="{{ path('profile') }}">Timeline</a></li>
+                        <li></li>
+                        <li onclick="followSection()">Siguiendo</li>
                         <li></li>
                         <li></li>
-                        <li>Fotos</li>
-                        <li>Favoritos</li>
+
+                        <li onclick="photoSection()">Fotos</li>
+                        <li></li>
                         {% if id == app.user.id %}
-                        <li>Config</li>
+                        <li onclick="configSection()">Config</li>
                         {% endif %}
                     </nav>
                 </div>
@@ -41,18 +106,7 @@
         </div>
         <div class="bottom-section">
 
-            <div class="profile-content">
-                {% if getUrl == 0 %}
-                    {{ error }}
-                    <div class="container-post" style="min-height: 50px">
-                        {{ form_start(form, {'attr': {'id': 'post-register'}}) }}
-
-                        {{ form_end(form) }}
-                    </div>
-                {% endif %}
-
-                {{ include('post/index.html.twig', {p: post}) }}
-            </div>
+            {{ include('profile/post.html.twig') }}
         </div>
     </section>
     {# {{ app.user.user }} {{ app.user.lastM }} {{ app.user.lastF }} #}
