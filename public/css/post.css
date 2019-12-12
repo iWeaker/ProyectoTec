@@ -134,7 +134,7 @@
     box-sizing: border-box;
 }
 
-.upper-post-right  > img {
+.upper-post-right  > li > img {
     position:relative;
     float: right;
     padding:10px;
@@ -142,12 +142,43 @@
     cursor: pointer;
     top:-10px;
 }
-
-.upper-post-right  > img:hover {
+.upper-post-right > li{
+    list-style: none;
+}
+.upper-post-right  > li >  img:hover {
     background-color:#F2F2F2;
     transition:0.2s;
 }
+.upper-post-right > li > ul {
+    position: absolute;
+    display:none;
+    top:50px;
+    left:20px;
+    padding:10px;
+    -webkit-box-shadow: 0px 0px 20px -8px rgba(0,0,0,0.50);
+    -moz-box-shadow: 0px 0px 20px -8px rgba(0,0,0,0.50);
+    box-shadow: 0px 0px 20px -8px rgba(0,0,0,0.50);
+    z-index: 4;
+}
+.upper-post-right  > li {
+    width: 30px;
+    float: right;
+}
+.upper-post-right > li:hover > ul{
+    display: block;
+}
+.upper-post-right > li > ul{
 
+    list-style: none;
+}
+.upper-post-right > li > ul > a > li{
+    padding:10px;
+    cursor: pointer;
+    font-size:14px;
+}
+.upper-post-right > li > ul > a > li:hover {
+    background-color:#F2F2F2;
+}
 /* RESPONSIVO TABLET*/
 @media only screen and (max-width: 800px) {
     .container-post{
