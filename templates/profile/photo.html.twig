@@ -1,1 +1,9 @@
-hola
+<div class="photo-list">
+{% for photo in img %}
+    <div class="photo-container">
+        <a  style="position:relative;height: 150px; width: 150px;" href="{{ asset('postImg/' ~ photo.imgName) }}" target="_blank">
+            <div style="background-image: url('{{ asset('postImg/' ~ photo.imgName) }}')" alt=""></div>
+        </a>
+    </div>
+{% endfor %}
+</div>

@@ -1,0 +1,24 @@
+<script type="text/javascript">
+
+    $('#cover-change').on("submit",function(event) {
+        event.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '{{ path('coverprofile')}}',
+            processData: false,
+            contentType: false,
+            data: new FormData(this),
+            dataType: 'json',
+            success: function(pChange) {
+                $.sweetModal({
+                    content: 'Publicado con exito.',
+                    icon: $.sweetModal.ICON_SUCCESS
+                });
+            },
+        });
+    });
+</script>
+
+{{ form_start(form, {'attr': {'id': 'cover-change'}}) }}
+
+{{ form_end(form) }}

@@ -1,5 +1,5 @@
 {% for post in p %}
-    <div class="container-post">
+    <div class="container-post post-{{ post.id }}"  data-url="{{ path('deletepost', {'id': post.id}) }}" >
         <div class="container-post-upper">
             <div class="upper-post-left">
                 <div class="photo-post-user" >
@@ -15,7 +15,7 @@
                 <li>
                     <img src="{{ asset('img/menu.png') }}" height="20" alt="">
                     <ul>
-                        <a><li>Eliminar</li></a>
+                        <a onclick="deletePost({{ post.id }})"><li>Eliminar</li></a>
                     </ul>
                 </li>
 

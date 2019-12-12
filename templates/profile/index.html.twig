@@ -35,6 +35,7 @@
             });
         });
     </script>
+
     <script>
 
 
@@ -65,6 +66,33 @@
                 },
             });
         }
+
+        function getPhotoConfig(){
+            $.ajax({
+                type: 'POST',
+                url: '{{ path('photoprofile') }}',
+                dataType: 'json',
+                success: function(changephotoresponse){
+                    $.sweetModal({
+                        title: 'Cambio de perfil',
+                        content: changephotoresponse.message,
+                    });
+                }
+            })
+        }
+        function getCoverConfig(){
+            $.ajax({
+                type: 'POST',
+                url: '{{ path('coverprofile') }}',
+                dataType: 'json',
+                success: function(changecoverresponse){
+                    $.sweetModal({
+                        title: 'Cambio de portada',
+                        content: changecoverresponse.message,
+                    });
+                }
+            })
+        }
     </script>
 {% endblock %}
 {% block body %}
@@ -72,7 +100,7 @@
     <section>
         <div class="top-section">
             <div class="profile-cover">
-                <div class="profile-img-cover" style="background-image: url({{ asset('userCover/' ~ cover) }})"></div>
+                <div onclick="getCoverConfig()" class="profile-img-cover" style="background-image: url({{ asset('userCover/' ~ cover) }})"></div>
                 <div class="profile-detail-section">
                     <nav>
                         <li></li>
@@ -88,7 +116,9 @@
                     </nav>
                 </div>
                 <div class="profile-desc">
-                    <div class="profile-img" style="background-image: url({{ asset('userProfiles/' ~ picture) }})"></div>
+
+                    <div onclick="getPhotoConfig()" class="profile-img" style="background-image: url({{ asset('userProfiles/' ~ picture) }})"></div>
+
                     <div class="profile-name">
                         <span>{{ name }} {{ lastname }} {{ lastname2 }}</span>
                     </div>

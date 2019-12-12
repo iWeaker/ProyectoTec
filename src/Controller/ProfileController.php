@@ -3,8 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\HeartEntity;
+use App\Entity\ImagesEntity;
+use App\Entity\ImgEntity;
 use App\Entity\PostEntity;
 use App\Entity\User;
+use App\Form\PhotoType;
+use App\Form\CoverType;
 use App\Form\PostType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,11 +28,13 @@ class ProfileController extends AbstractController
     private $interface;
     private $request;
     private $user;
-    protected  $post;
+    protected $post;
+    protected $img;
 
     public function __construct(EntityManagerInterface $interface)
     {
         $this->post = new PostController($interface);
+        $this->img = new ImgEntity($interface);
     }
 
     /**
@@ -50,18 +56,21 @@ class ProfileController extends AbstractController
             'id' => $this->user->getUsername()
         ]);
 
+
         $postEntity = new PostEntity();
         $form = $this->createForm(PostType::class,$postEntity);
         $form->handleRequest($this->request);
         if($form->isSubmitted() && $form->isValid()){
             $text = $form['contentPost']->getData();
             $image = $form['imagePost']->getData();
+            $imagePost = new ImgEntity();
             if($text == null && $image == null){
                 self::$error = "Error de ambos";
             }else{
                 if($image){
                     $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
                     $newFilename = $originalFilename.'-'.uniqid().'.'.$image->guessExtension();
+                    $newFilename = str_replace(' ', '', $newFilename);
                     try {
                         $image->move(
                             $this->getParameter('imagePostUploader'),
@@ -70,6 +79,7 @@ class ProfileController extends AbstractController
                     } catch (FileException $e) {
                         $message = $e;
                     }
+                    $imagePost->setImgName($newFilename);
                     $postEntity->setImagePost($newFilename);
                 }
                 $postEntity->setContentPost($text);
@@ -81,6 +91,10 @@ class ProfileController extends AbstractController
 
                 try{
 
+                    $con->flush();
+
+                    $imagePost->setUser($u);
+                    $con->persist($imagePost);
                     $con->flush();
                     $status = "success";
                     $response['status'] = $status;
@@ -116,12 +130,20 @@ class ProfileController extends AbstractController
 
     /**
      * @Route("/profile/photo", name="photo")
-     *
+     * @param UserInterface $user
+     * @param EntityManagerInterface $interface
+     * @return JsonResponse
      */
-    public function photoSection(){
+    public function photoSection(UserInterface $user, EntityManagerInterface $interface){
+        $uRespository = $interface->getRepository(User::class);
+        $u = $uRespository->findOneBy([
+            'id' => $user->getUsername()
+        ]);
+        $imgRepo =$interface->getRepository(ImgEntity::class);
+        $i = $imgRepo->findByExampleField($user->getUsername());
         $response = array(
             'status' => "",
-            'message' =>  $this->renderView('profile/photo.html.twig' ),
+            'message' =>  $this->renderView('profile/photo.html.twig' , ['img' => $i])
         );
         return $this->json($response);
     }
@@ -137,6 +159,96 @@ class ProfileController extends AbstractController
         return $this->json($response);
     }
 
+    /**
+     * @Route("photoprofile" ,name="photoprofile")
+     * @param Request $request
+     * @param UserInterface $user
+     * @return JsonResponse
+     *
+     */
+    public function changeProfile(Request $request, UserInterface $user){
+
+
+        $form = $this->createForm(PhotoType::class, new User());
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $con = $this->getDoctrine()->getManager();
+            $user = $con->getRepository(User::class)->find($user->getUsername());
+            $img = $form['image']->getData();
+            if($img){
+                $originalFilename = pathinfo($img->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = $originalFilename.'-'.uniqid().'.'.$img->guessExtension();
+                $newFilename = str_replace(' ', '', $newFilename);
+                try {
+                    $img->move(
+                        $this->getParameter('profileUserUploader'),
+                        $newFilename
+                    );
+                    $user->setImage($newFilename);
+                    $con->persist($user);
+                    $con->flush();
+                } catch (FileException $e) {
+                    $message = $e;
+                }
+
+            }
+
+        }
+        $response = array(
+            'status' => "",
+            'message' => $this->renderView('profile/profilephoto.html.twig' , [
+                'form' => $form->createView()
+            ]),
+        );
+
+        return $this->json($response);
+    }
+
+
+    /**
+     * @Route("coverprofile" ,name="coverprofile")
+     * @param Request $request
+     * @param UserInterface $user
+     * @return JsonResponse
+     *
+     */
+    public function changeCover(Request $request, UserInterface $user){
+
+
+        $form = $this->createForm(CoverType::class, new User());
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $con = $this->getDoctrine()->getManager();
+            $user = $con->getRepository(User::class)->find($user->getUsername());
+            $img = $form['cover']->getData();
+            if($img){
+                $originalFilename = pathinfo($img->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = $originalFilename.'-'.uniqid().'.'.$img->guessExtension();
+                $newFilename = str_replace(' ', '', $newFilename);
+                try {
+                    $img->move(
+                        $this->getParameter('coverUserUploader'),
+                        $newFilename
+                    );
+                    $user->setCover($newFilename);
+                    $con->persist($user);
+                    $con->flush();
+                } catch (FileException $e) {
+                    $message = $e;
+                }
+
+            }
+
+        }
+        $response = array(
+            'status' => "",
+            'message' => $this->renderView('profile/profilecover.html.twig' , [
+                'form' => $form->createView()
+            ]),
+        );
+
+        return $this->json($response);
+    }
     /**
      * @Route("/profile/{id}", name="userprofile" , methods={"GET", "POST"})
      * @param String $id

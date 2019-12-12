@@ -60,12 +60,18 @@ class User implements UserInterface, \Serializable
      */
     private $heartEntities;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ImgEntity", mappedBy="user")
+     */
+    private $imgEntities;
+
 
 
     public function __construct()
     {
         $this->postEntities = new ArrayCollection();
         $this->heartEntities = new ArrayCollection();
+        $this->imgEntities = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -269,6 +275,37 @@ class User implements UserInterface, \Serializable
             // set the owning side to null (unless already changed)
             if ($heartEntity->getUserHeartId() === $this) {
                 $heartEntity->setUserHeartId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ImgEntity[]
+     */
+    public function getImgEntities(): Collection
+    {
+        return $this->imgEntities;
+    }
+
+    public function addImgEntity(ImgEntity $imgEntity): self
+    {
+        if (!$this->imgEntities->contains($imgEntity)) {
+            $this->imgEntities[] = $imgEntity;
+            $imgEntity->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImgEntity(ImgEntity $imgEntity): self
+    {
+        if ($this->imgEntities->contains($imgEntity)) {
+            $this->imgEntities->removeElement($imgEntity);
+            // set the owning side to null (unless already changed)
+            if ($imgEntity->getUser() === $this) {
+                $imgEntity->setUser(null);
             }
         }
 

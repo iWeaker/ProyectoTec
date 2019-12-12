@@ -34,6 +34,31 @@ class PostController extends AbstractController
     }
 
     /**
+     * @Route("/deletePost/{id}", name="deletepost")
+     * @param $id
+     *
+     * @param EntityManagerInterface $interface
+     * @return JsonResponse
+     */
+    public function deletePost($id, EntityManagerInterface $interface){
+        $json = Array("success" => false, "msg" => "error");
+        $postRepo = $interface->getRepository(PostEntity::class);
+        $find = $postRepo->findOneBy(['id' => $id]);
+        if($find){
+            $con = $this->getDoctrine()->getManager();
+            $con->remove($find);
+            try {
+                $con->flush();
+                $json['success'] = true;
+                $json['msg'] = "Se ha eliminado correctamente";
+                return $this->json($json);
+            }catch (\Exception $e){
+
+            }
+        }
+        return $this->json($json);
+    }
+    /**
      * @Route("/heart/{id}" , name="heart")
      * @param $id
      * @param EntityManagerInterface $interface
@@ -50,8 +75,6 @@ class PostController extends AbstractController
 
         );
         if($repository->checkExist($user->getUsername(), $id)){
-
-
             $con = $this->getDoctrine()->getManager();
             $h = $repository->findOneBy(array('userHeartId' => $user->getUsername() , 'post_id' => $id));
 

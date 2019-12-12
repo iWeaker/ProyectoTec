@@ -153,9 +153,35 @@ section {
     border:0;
     padding:10px;
     width: 100%;
-
     border-radius: 5px;
     background-color:#53F090;
     cursor: pointer;
     outline: none;
 }
+
+/* Photo section */
+
+.photo-list{
+    position:relative;
+    width:100%;
+    min-height: 200px;
+    overflow: auto;
+}
+
+.photo-container{
+    position:relative;
+    width:150px;
+    min-height: 150px;
+    float: left;
+    margin-right:20px;
+
+}
+
+.photo-container > a > div {
+    width: 150px;
+    height: 150px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+

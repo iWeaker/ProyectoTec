@@ -17,3 +17,26 @@ function heartSystem(variable){
         },
     });
 }
+
+function deletePost(id){
+    let post = $(".post-"+id);
+
+    let post_url = $(post).data('url');
+    $.sweetModal.confirm('Eliminacion', '¿Seguro de eliminar?', function() {
+        $.ajax({
+            type: 'POST',
+            url: post_url,
+            dataType: 'json',
+            success: function(resp) {
+                if(resp.success == true){
+                    $.sweetModal({
+                        content: 'Eliminado con exito!.',
+                        icon: $.sweetModal.ICON_SUCCESS
+                    });
+                    post.remove();
+                }
+            }
+        })
+    });
+
+}
