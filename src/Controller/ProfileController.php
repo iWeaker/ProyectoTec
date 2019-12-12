@@ -50,7 +50,8 @@ class ProfileController extends AbstractController
         $this->interface = $interface;
         $this->request = $request;
         $this->user = $user;
-
+        $newFilename= "";
+        $con = $this->getDoctrine()->getManager();
         $uRespository = $interface->getRepository(User::class);
         $u = $uRespository->findOneBy([
             'id' => $this->user->getUsername()
@@ -80,26 +81,21 @@ class ProfileController extends AbstractController
                         $message = $e;
                     }
                     $imagePost->setImgName($newFilename);
+                    $imagePost->setUser($u);
+                    $con->persist($imagePost);
+                    $con->flush();
                     $postEntity->setImagePost($newFilename);
                 }
                 $postEntity->setContentPost($text);
-
                 $postEntity->setDatePost();
                 $postEntity->setUserPost($u);
-                $con = $this->getDoctrine()->getManager();
                 $con->persist($postEntity);
-
                 try{
-
-                    $con->flush();
-
-                    $imagePost->setUser($u);
-                    $con->persist($imagePost);
                     $con->flush();
                     $status = "success";
                     $response['status'] = $status;
                     $repository = $interface->getRepository(PostEntity::class);
-                    $post = $repository->findByLast($this->user->getUsername());
+                    $post = $repository->findByLast($user->getUsername());
                     $response = array(
                         'status' => "",
                         'message' => $this->renderView('post/index.html.twig' , ['p' => $post]),

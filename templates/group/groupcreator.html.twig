@@ -11,8 +11,11 @@
             dataType: 'json',
             success: function(pChange) {
                 $.sweetModal({
-                    content: 'Publicado con exito.',
-                    icon: $.sweetModal.ICON_SUCCESS
+                    content: 'Creado con exito.',
+                    icon: $.sweetModal.ICON_SUCCESS,
+                    onClose: function(){
+                        location.href="{{ path('group') }}"
+                    },
                 });
             },
         });

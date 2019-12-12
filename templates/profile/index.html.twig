@@ -99,7 +99,11 @@
     <section>
         <div class="top-section">
             <div class="profile-cover">
+                {% if app.user.id == id %}
                 <div onclick="getCoverConfig()" class="profile-img-cover" style="background-image: url({{ asset('userCover/' ~ cover) }})"></div>
+                {% else %}
+                 <div  class="profile-img-cover" style="background-image: url({{ asset('userCover/' ~ cover) }})"></div>
+                {% endif %}
                 <div class="profile-detail-section">
                     <nav>
                         <li></li>
