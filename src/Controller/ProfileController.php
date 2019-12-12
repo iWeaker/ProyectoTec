@@ -125,18 +125,16 @@ class ProfileController extends AbstractController
 
 
     /**
-     * @Route("/profile/photo", name="photo")
+     * @Route("/profile/photo/{id}", name="photo")
+     * @param $id
      * @param UserInterface $user
      * @param EntityManagerInterface $interface
      * @return JsonResponse
      */
-    public function photoSection(UserInterface $user, EntityManagerInterface $interface){
-        $uRespository = $interface->getRepository(User::class);
-        $u = $uRespository->findOneBy([
-            'id' => $user->getUsername()
-        ]);
+    public function photoSection($id , UserInterface $user, EntityManagerInterface $interface){
+
         $imgRepo =$interface->getRepository(ImgEntity::class);
-        $i = $imgRepo->findByExampleField($user->getUsername());
+        $i = $imgRepo->findByExampleField($id);
         $response = array(
             'status' => "",
             'message' =>  $this->renderView('profile/photo.html.twig' , ['img' => $i])

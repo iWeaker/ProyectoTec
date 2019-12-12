@@ -41,7 +41,7 @@
         function photoSection() {
             $.ajax({
                 type: 'POST',
-                url: '{{ path('photo')}}',
+                url: '{{ path('photo', {id : id })}}',
                 dataType: 'json',
                 success: function(response) {
                     $.sweetModal({
@@ -119,8 +119,12 @@
                     </nav>
                 </div>
                 <div class="profile-desc">
+                    {% if app.user.id == id %}
+                        <div onclick="getPhotoConfig()" class="profile-img" style="background-image: url({{ asset('userProfiles/' ~ picture) }})"></div>
+                    {% else %}
+                        <div class="profile-img" style="background-image: url({{ asset('userProfiles/' ~ picture) }})"></div>
+                    {% endif %}
 
-                    <div onclick="getPhotoConfig()" class="profile-img" style="background-image: url({{ asset('userProfiles/' ~ picture) }})"></div>
 
                     <div class="profile-name">
                         <span>{{ name }} {{ lastname }} {{ lastname2 }}</span>
