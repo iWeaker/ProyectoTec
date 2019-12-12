@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Grupo {{ title }}{% endblock %}
+{% block stylesheets %}
+    <link href="{{ asset('/css/header.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('/css/viewgroup.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
+    <script src="https://kit.fontawesome.com/8bc8911105.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block body %}
+    {% include 'header/index.html.twig' %}
+    <section>
+        <div class="margin-group">
+            <div class="top-group">
+                <div class="group-cover">
+                    {% if app.user.id == creator.id %}
+                        <div onclick="" class="group-img-cover" style="background-image: url({{ asset('groupImage/' ~ image) }})"></div>
+                    {% else %}
+                        <div  class="group-img-cover" style="background-image: url({{ asset('userCover/' ~ cover) }})"></div>
+                    {% endif %}
+                    <div class="group-detail-section">
+                        <nav>
+                            <li>
+                                Encargado:<a href="{{ path('profile' , {id: creator.id}) }}">{{ creator.user }} {{ creator.lastM }} {{ creator.lastF }}</a>
+                            </li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            {% if app.user.id == creator.id %}
+                                <li onclick="configSection()">Config</li>
+                            {% endif %}
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="down-group">
+                <div>
+                    <div class="member-list">
+                        <div class="user-member-container"></div>
+                        <div class="user-member-container"></div>
+                        <div class="user-member-container"></div>
+                        <div class="user-member-container"></div>
+                    </div>
+                    <div class="solicitudes-list">
+                        <div class="solicitud-container">
+                            <div class="left-solicitud-container">Alejandro Bringas</div>
+                            <div class="right-solicitud-container">
+                                <button>Aceptar</button>
+                            </div>
+                        </div>
+                        <div class="solicitud-container">
+                            <div class="left-solicitud-container">Alejandro Bringas</div>
+                            <div class="right-solicitud-container">
+                                <button>Aceptar</button>
+                            </div>
+                        </div>
+                        <div class="solicitud-container">
+                            <div class="left-solicitud-container">Alejandro Bringas</div>
+                            <div class="right-solicitud-container">
+                                <button>Aceptar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div></div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,125 @@
+* {
+    margin:0;
+}
+body {
+    background-color:#edf2f6;
+}
+.margin-group{
+    position: relative;
+    width: 1000px;
+    min-height: 300px;
+    margin:100px auto;
+}
+.top-group {
+    position: relative;
+    width: 100%;
+    min-height:400px;
+    margin-top:90px;
+    margin-bottom: 10px;
+}
+.group-cover {
+    position: relative;
+    width: 1000px;
+    height:400px;
+    margin:0 auto;
+    border-radius: 7px;
+    background:#ffffff;
+}
+.group-img-cover {
+    position: absolute;
+
+    width: 100%;
+    height: 320px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-top-left-radius: 7px;
+
+    border-top-right-radius: 7px;
+}
+
+.group-detail-section {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background:white;
+    border-bottom-left-radius: 7px;
+
+    border-bottom-right-radius: 7px;
+
+}
+.group-detail-section > nav {
+    display: grid;
+    grid-template-areas: 'li1 li2 li3 none none none none li4 li5 li6';
+}
+.group-detail-section  > nav > li {
+    list-style: none;
+    text-align: center;
+    line-height: 80px;
+    color:#a69eb9;
+    cursor: pointer;
+}
+
+.down-group{
+    position:relative;
+    width: 1000px;
+    min-height: 200px;
+
+}
+
+.down-group > div:first-child{
+    position:relative;
+    width:300px;
+    min-height: 200px;
+    float: left;
+
+}
+.member-list{
+    position: relative;
+    width:300px;
+
+    height: 300px;
+
+}
+.user-member-container{
+    position: relative;
+    width: 90px;
+    height: 90px;
+    margin:5px;
+    float: left;
+    background:red;
+}
+.solicitudes-list{
+    position: relative;
+    width:300px;
+    min-height: 300px;
+}
+.solicitud-container{
+    position: relative;
+    width:300px;
+    height:30px;
+    padding-top:5px;
+    padding-bottom:5px;
+    line-height: 30px;
+    background:red;
+    border:1px rgba(0,0,0,0.1) solid;
+    border-radius:5px;
+    background-color:white;
+    margin-bottom:10px
+}
+.left-solicitud-container{
+    font-size: 14px;
+    float: left;
+}
+.right-solicitud-container{
+    float: left;
+}
+.down-group > div:last-child{
+    position:relative;
+    width:70%;
+    min-height: 200px;
+    float: left;
+    box-sizing: border-box;
+}

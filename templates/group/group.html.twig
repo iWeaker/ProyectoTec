@@ -43,7 +43,7 @@
                             {% for group in mygroups %}
                                 {% set count = count + 1 %}
                             <li>
-                                <a href="#">
+                                <a href="{{ path('viewgroup', {id: group.id}) }}">
                                     {{ group.titleGroup }}
                                 </a>
                             </li>

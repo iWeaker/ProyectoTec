@@ -37,6 +37,23 @@ class GroupController extends AbstractController
     }
 
     /**
+     * @Route("/view/{id}" , name="viewgroup")
+     * @param $id
+     * @param EntityManagerInterface $interface
+     * @return Response
+     */
+    public function viewGroup($id, EntityManagerInterface $interface){
+        $group = $interface->getRepository(GroupEntity::class)->find($id);
+
+
+        return $this->render('group/viewgroup.html.twig', [
+            'title' => $group->getTitleGroup(),
+            'creator' => $group->getCreator(),
+            'tematica' => $group->getTematica(),
+            'image' => $group->getGroupImage()
+        ]);
+    }
+    /**
      * @Route("/newgroup" , name="newgroup" )
      * @param Request $request
      * @param UserInterface $user

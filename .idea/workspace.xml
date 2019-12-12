@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87bd9708-4b53-4a5e-9d0b-ac24603bb2e2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/css/viewgroup.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/group/viewgroup.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GroupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GroupController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/group/group.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/group/group.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -238,7 +240,8 @@
       <workItem from="1576100251323" duration="245000" />
       <workItem from="1576100904375" duration="3746000" />
       <workItem from="1576164202444" duration="11218000" />
-      <workItem from="1576177459046" duration="7646000" />
+      <workItem from="1576177459046" duration="8188000" />
+      <workItem from="1576186484509" duration="3073000" />
     </task>
     <servers />
   </component>
@@ -263,9 +266,10 @@
       <screen x="0" y="0" width="1440" height="863" />
     </state>
     <state x="178" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.863@0.0.1440.863" timestamp="1576182560589" />
-    <state x="411" y="167" width="634" height="539" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1575785392718">
-      <screen x="0" y="0" width="1440" height="865" />
+    <state x="411" y="167" width="634" height="544" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1576186470054">
+      <screen x="0" y="0" width="1440" height="863" />
     </state>
+    <state x="411" y="167" width="634" height="544" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1440.863@0.0.1440.863" timestamp="1576186470054" />
     <state x="411" y="167" width="634" height="539" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1440.865@0.0.1440.865" timestamp="1575785392718" />
     <state x="416" y="115" width="524" height="500" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575179916785">
       <screen x="0" y="0" width="1366" height="732" />
