@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87bd9708-4b53-4a5e-9d0b-ac24603bb2e2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/js/Post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/post.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/post.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/post/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,6 +241,7 @@
       <workItem from="1575785367157" duration="2213000" />
       <workItem from="1575822099224" duration="15081000" />
       <workItem from="1575864592715" duration="1200000" />
+      <workItem from="1576112612789" duration="6012000" />
     </task>
     <servers />
   </component>
@@ -262,18 +270,10 @@
       <screen x="0" y="0" width="1366" height="732" />
     </state>
     <state x="416" y="115" width="524" height="500" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.732@0.0.1366.732" timestamp="1575179916785" />
-    <state x="362" y="194" key="com.intellij.ide.util.TipDialog" timestamp="1575783634626">
-      <screen x="0" y="0" width="1366" height="736" />
+    <state x="430" y="162" width="534" height="488" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1576116120187">
+      <screen x="0" y="0" width="1366" height="734" />
     </state>
-    <state x="362" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.732@0.0.1366.732" timestamp="1575483218331" />
-    <state x="362" y="194" key="com.intellij.ide.util.TipDialog/0.0.1366.736@0.0.1366.736" timestamp="1575783634626" />
-    <state x="347" y="160" key="run.anything.popup" timestamp="1575786232226">
-      <screen x="0" y="0" width="1366" height="736" />
-    </state>
-    <state x="347" y="160" key="run.anything.popup/0.0.1366.736@0.0.1366.736" timestamp="1575786232226" />
-    <state x="453" y="191" width="534" height="488" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1575750144218">
-      <screen x="0" y="0" width="1440" height="865" />
-    </state>
+    <state x="430" y="162" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.734@0.0.1366.734" timestamp="1576116120187" />
     <state x="453" y="191" width="534" height="488" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.865@0.0.1440.865" timestamp="1575750144218" />
     <state x="453" y="192" width="534" height="488" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.869@0.0.1440.869" timestamp="1575702607166" />
     <state x="475" y="127" width="426" height="483" key="FileChooserDialogImpl" timestamp="1575307786117">
@@ -288,7 +288,12 @@
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state x="362" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.732@0.0.1366.732" timestamp="1575483218331" />
+    <state x="362" y="194" key="com.intellij.ide.util.TipDialog/0.0.1366.736@0.0.1366.736" timestamp="1575783634626" />
     <state x="382" y="229" key="com.intellij.ide.util.TipDialog/0.0.1440.869@0.0.1440.869" timestamp="1575697865129" />
+    <state x="347" y="160" key="run.anything.popup" timestamp="1575786232226">
+      <screen x="0" y="0" width="1366" height="736" />
+    </state>
+    <state x="347" y="160" key="run.anything.popup/0.0.1366.736@0.0.1366.736" timestamp="1575786232226" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -299,7 +304,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/templates/profile/index.html.twig</url>
-          <line>8</line>
+          <line>9</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

@@ -16,7 +16,9 @@
         </div>
         <div class="container-post-middle">
             <p>{{ post.contentPost }}</p>
+            {% if post.imagePost is not null %}
             <img src="{{ asset('postImg/' ~ post.imagePost ) }}" width="470" alt="">
+            {% endif %}
         </div>
         <div class="container-post-bottom">
             <div class="heart-bottom-">
@@ -28,9 +30,9 @@
                         {% endif %}
                     {% endfor %}
                     {% if find == 1 %}
-                        <img class="heart-class" data-id="{{ post.id }}" data-url="{{ path('heart', {'id': post.id}) }}" src="{{ asset('img/corazonpicked.png') }}" height="20" alt="">
+                        <img onclick="heartSystem({{ post.id }})" class="heart-class" data-id="{{ post.id }}" data-url="{{ path('heart', {'id': post.id}) }}" src="{{ asset('img/corazonpicked.png') }}" height="20" alt="">
                     {% else %}
-                        <img class="heart-class" data-id="{{ post.id }}" data-url="{{ path('heart', {'id': post.id}) }}" src="{{ asset('img/corazon.png') }}" height="20" alt="">
+                        <img  onclick="heartSystem({{ post.id }})" class="heart-class" data-id="{{ post.id }}" data-url="{{ path('heart', {'id': post.id}) }}" src="{{ asset('img/corazon.png') }}" height="20" alt="">
                     {% endif  %}
                 </div>
                 <div class="heartCounter hearCounterResponse{{ post.id }}">
@@ -43,11 +45,7 @@
                     {% for asd in post.heartEntities.iterator|slice(0, 5) %}
                             <div class="heart-user-like userLike1" style="background-image:url('{{ asset('userProfiles/' ~ asd.userHeartId.image) }}')"></div>
                     {% endfor %}
-
                 </div>
-            </div>
-            <div class="comment-bottom">
-                <img src="{{ asset('img/comentario.png') }}" height="20" alt="">
             </div>
         </div>
     </div>

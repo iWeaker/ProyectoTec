@@ -128,9 +128,6 @@
     grid-area: cpb2;
 }
 
-.container-post-bottom > div:last-child{
-    grid-area: cpb3;
-}
 
 .upper-post-right {
     padding:20px;
