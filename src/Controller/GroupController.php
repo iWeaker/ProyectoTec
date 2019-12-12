@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\GroupEntity;
+use App\Entity\SolicitudesEntity;
 use App\Entity\User;
 use App\Form\GroupType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -30,9 +31,11 @@ class GroupController extends AbstractController
             'id' => $user->getUsername()
         ]);
         $group = $interface->getRepository(GroupEntity::class);
+        $otherGroups = $group->otherGroups($user->getUsername());
         $myGroups = $group->findBy(['creator' => $u] );
         return $this->render('group/group.html.twig', [
             'mygroups' => $myGroups,
+            'othergroups' => $otherGroups,
         ]);
     }
 
@@ -105,5 +108,31 @@ class GroupController extends AbstractController
         );
 
         return $this->json($response);
+    }
+
+    /**
+     * @Route("/solicitud/{id}" , name="solicitud")
+     * @param $id
+     * @param EntityManagerInterface $interface
+     * @param UserInterface $user
+     * @return null
+     */
+    public function addSolicitud($id, EntityManagerInterface $interface, UserInterface $user){
+        $arreglo = Array('success' => false, 'msg' => 'error');
+        $solicitud = new SolicitudesEntity();
+        $con = $this->getDoctrine()->getManager();
+        $group = $con->getRepository(GroupEntity::class)->find($id);
+        $user = $con->getRepository(User::class)->find($user->getUsername());
+        try{
+            $solicitud->setGroupid($group);
+            $solicitud->setUserid($user);
+            $con->persist($solicitud);
+            $con->flush();
+            $arreglo['success'] = true;
+            $arreglo['msg'] = "Se ha mandado la solicitud correctamente";
+            return $this->json($arreglo);
+        }catch (\Exception $e){
+
+        }
     }
 }

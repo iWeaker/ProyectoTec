@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,24 @@ class GroupEntity
      * @ORM\Column(type="string", length=255)
      */
     private $groupImage;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\SolicitudesEntity", mappedBy="groupid")
+     */
+    private $solicitudesEntities;
+
+    public function __construct()
+    {
+        $this->solicitudesEntities = new ArrayCollection();
+    }
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\SolicitudesEntity", mappedBy="groupid")
+     */
+
+
+
+
 
     public function getId(): ?int
     {
@@ -89,4 +109,38 @@ class GroupEntity
 
         return $this;
     }
+
+    /**
+     * @return Collection|SolicitudesEntity[]
+     */
+    public function getSolicitudesEntities(): Collection
+    {
+        return $this->solicitudesEntities;
+    }
+
+    public function addSolicitudesEntity(SolicitudesEntity $solicitudesEntity): self
+    {
+        if (!$this->solicitudesEntities->contains($solicitudesEntity)) {
+            $this->solicitudesEntities[] = $solicitudesEntity;
+            $solicitudesEntity->setGroupid($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSolicitudesEntity(SolicitudesEntity $solicitudesEntity): self
+    {
+        if ($this->solicitudesEntities->contains($solicitudesEntity)) {
+            $this->solicitudesEntities->removeElement($solicitudesEntity);
+            // set the owning side to null (unless already changed)
+            if ($solicitudesEntity->getGroupid() === $this) {
+                $solicitudesEntity->setGroupid(null);
+            }
+        }
+
+        return $this;
+    }
+
+
+
 }

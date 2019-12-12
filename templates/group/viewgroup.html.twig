@@ -25,10 +25,14 @@
                     <div class="group-detail-section">
                         <nav>
                             <li>
+                                Grupo: {{ title }}
+                            </li>
+                            <li>
+                                Tematica: {{ tematica }}
+                            </li>
+                            <li>
                                 Encargado:<a href="{{ path('profile' , {id: creator.id}) }}">{{ creator.user }} {{ creator.lastM }} {{ creator.lastF }}</a>
                             </li>
-                            <li></li>
-                            <li></li>
                             <li></li>
                             <li></li>
                             <li></li>

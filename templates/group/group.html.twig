@@ -25,6 +25,38 @@
                 }
             })
         }
+        function sendSolicitud(variable){
+            let tag = $(".solicitudGrupo"+variable);
+            let op_prod_url = $(tag).data('url');
+            $.ajax({
+                type: 'POST',
+                url: op_prod_url,
+                dataType: 'json',
+                success: function(res){
+                    if(res.success == true){
+                        $.sweetModal(res.msg);
+                        tag.replace()
+                    }
+
+                }
+            })
+        }
+        function cancelarSolicitud(variable){
+            let tag = $(".solicitudGrupo"+variable);
+            let op_prod_url = $(tag).data('url');
+            $.ajax({
+                type: 'POST',
+                url: op_prod_url,
+                dataType: 'json',
+                success: function(rescancel){
+                    if(rescancel.success == true){
+                        $.sweetModal(rescancel.msg);
+                        tag.remove()
+                    }
+
+                }
+            })
+        }
     </script>
 {% endblock %}
 {% block body %}
@@ -55,47 +87,33 @@
                    </div>
                </section>
                 <section class="groups">
+                    {% for  other in othergroups %}
                     <div class="box">
                         <div class="box-img">
-                            <h3>Grupo 1</h3>
+                            <h3>{{ other.titlegroup }}</h3>
                         </div>
-                        <h4>Angelo Gutierrez Moreno</h4>
-                        <h5>Matematicas</h5>
-                        <a href="#">Ingresa.</a>
+                        <h4>{{ other.creator.user }} {{ other.creator.lastM }} {{ other.creator.lastF }}</h4>
+                        <h5>{{ other.tematica }}</h5>
+                        {% set counter = 0  %}
+                        {% for en in other.solicitudesentities %}
+                            {% set counter = 1 %}
+                            {% if  en.userid.id != app.user.id %}
+                                <button class="solicitudGrupo{{ other.id }}" onclick="sendSolicitud({{ other.id }})" data-url="{{ path('solicitud', {'id': other.id }) }}" >
+                                    Enviar Solicitud
+                                </button>
+                            {% else %}
+                                <button class="cancelarGrupo{{ other.id }}" onclick="sendSolicitud({{ other.id }})" data-url="{{ path('solicitud', {'id': other.id }) }}" >
+                                    Cancelar solicitud
+                                </button>
+                            {% endif %}
+                        {% endfor %}
+                        {% if counter == 0 %}
+                            <button class="solicitudGrupo{{ other.id }}" onclick="sendSolicitud({{ other.id }})" data-url="{{ path('solicitud', {'id': other.id }) }}" >
+                                Esto es un boton
+                            </button>
+                        {% endif %}
                     </div>
-                    <div class="box">
-                        <div class="box-img">
-                            <h3>Grupo 2</h3>
-                        </div>
-                        <h4>Angelo Gutierrez Moreno</h4>
-                        <h5>Matematicas</h5>
-                        <a href="#">Ingresa.</a>
-                    </div>
-                    <div class="box">
-                        <div class="box-img">
-                            <h3>Grupo 3</h3>
-                        </div>
-                        <h4>Angelo Gutierrez Moreno</h4>
-                        <h5>Matematicas</h5>
-                        <a href="#">Ingresa.</a>
-                    </div>
-                    <div class="box">
-                        <div class="box-img">
-                            <h3>Grupo 4</h3>
-                        </div>
-                        <h4>Angelo Gutierrez Moreno</h4>
-                        <h5>Matematicas</h5>
-                        <a href="#">Ingresa.</a>
-                    </div>
-                    <div class="box">
-                        <div class="box-img">
-                            <h3>Grupo 5</h3>
-                        </div>
-                        <h4>Angelo Gutierrez Moreno</h4>
-                        <h5>Matematicas</h5>
-                        <a href="#">Ingresa.</a>
-                    </div>
-
+                    {% endfor %}
                 </section>
             </div>
     </section>
