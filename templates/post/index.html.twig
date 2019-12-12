@@ -11,14 +11,14 @@
                 </div>
             </div>
             <div class="upper-post-right">
-
+                {% if post.userpost.id == app.user.id %}
                 <li>
                     <img src="{{ asset('img/menu.png') }}" height="20" alt="">
                     <ul>
                         <a onclick="deletePost({{ post.id }})"><li>Eliminar</li></a>
                     </ul>
                 </li>
-
+                {% endif %}
             </div>
         </div>
         <div class="container-post-middle">

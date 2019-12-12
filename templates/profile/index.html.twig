@@ -25,7 +25,6 @@
                 data: new FormData(this),
                 dataType: 'json',
                 success: function(response) {
-
                    $(".container-post").first().after(response.message);
                     $.sweetModal({
                         content: 'Publicado con exito.',
