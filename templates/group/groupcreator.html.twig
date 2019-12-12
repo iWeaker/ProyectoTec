@@ -1,0 +1,24 @@
+<script type="text/javascript">
+
+    $('#add-group').on("submit",function(event) {
+        event.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '{{ path('newgroup')}}',
+            processData: false,
+            contentType: false,
+            data: new FormData(this),
+            dataType: 'json',
+            success: function(pChange) {
+                $.sweetModal({
+                    content: 'Publicado con exito.',
+                    icon: $.sweetModal.ICON_SUCCESS
+                });
+            },
+        });
+    });
+</script>
+
+{{ form_start(form, {'attr': {'id': 'add-group'}}) }}
+
+{{ form_end(form) }}

@@ -65,6 +65,11 @@ class User implements UserInterface, \Serializable
      */
     private $imgEntities;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\GroupEntity", mappedBy="creator")
+     */
+    private $groupEntities;
+
 
 
     public function __construct()
@@ -72,6 +77,7 @@ class User implements UserInterface, \Serializable
         $this->postEntities = new ArrayCollection();
         $this->heartEntities = new ArrayCollection();
         $this->imgEntities = new ArrayCollection();
+        $this->groupEntities = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -306,6 +312,37 @@ class User implements UserInterface, \Serializable
             // set the owning side to null (unless already changed)
             if ($imgEntity->getUser() === $this) {
                 $imgEntity->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|GroupEntity[]
+     */
+    public function getGroupEntities(): Collection
+    {
+        return $this->groupEntities;
+    }
+
+    public function addGroupEntity(GroupEntity $groupEntity): self
+    {
+        if (!$this->groupEntities->contains($groupEntity)) {
+            $this->groupEntities[] = $groupEntity;
+            $groupEntity->setCreator($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGroupEntity(GroupEntity $groupEntity): self
+    {
+        if ($this->groupEntities->contains($groupEntity)) {
+            $this->groupEntities->removeElement($groupEntity);
+            // set the owning side to null (unless already changed)
+            if ($groupEntity->getCreator() === $this) {
+                $groupEntity->setCreator(null);
             }
         }
 

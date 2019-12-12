@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87bd9708-4b53-4a5e-9d0b-ac24603bb2e2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/group/groupcreator.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/post.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/post.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/post/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GroupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GroupController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/group/group.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/group/group.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +242,7 @@
       <workItem from="1576100251323" duration="245000" />
       <workItem from="1576100904375" duration="3746000" />
       <workItem from="1576164202444" duration="11218000" />
-      <workItem from="1576177459046" duration="2638000" />
+      <workItem from="1576177459046" duration="5449000" />
     </task>
     <servers />
   </component>
@@ -264,6 +263,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="178" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576182560589">
+      <screen x="0" y="0" width="1440" height="863" />
+    </state>
+    <state x="178" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.863@0.0.1440.863" timestamp="1576182560589" />
     <state x="411" y="167" width="634" height="539" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1575785392718">
       <screen x="0" y="0" width="1440" height="865" />
     </state>
@@ -272,11 +275,11 @@
       <screen x="0" y="0" width="1366" height="732" />
     </state>
     <state x="416" y="115" width="524" height="500" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.732@0.0.1366.732" timestamp="1575179916785" />
-    <state x="453" y="190" width="528" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1576179014173">
+    <state x="453" y="190" width="528" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1576182576865">
       <screen x="0" y="0" width="1440" height="863" />
     </state>
     <state x="430" y="162" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.734@0.0.1366.734" timestamp="1576116120187" />
-    <state x="453" y="190" width="528" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.863@0.0.1440.863" timestamp="1576179014173" />
+    <state x="453" y="190" width="528" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.863@0.0.1440.863" timestamp="1576182576865" />
     <state x="453" y="191" width="534" height="488" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.865@0.0.1440.865" timestamp="1575750144218" />
     <state x="453" y="192" width="534" height="488" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.869@0.0.1440.869" timestamp="1575702607166" />
     <state x="475" y="127" width="426" height="483" key="FileChooserDialogImpl" timestamp="1575307786117">

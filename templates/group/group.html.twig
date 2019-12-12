@@ -5,6 +5,26 @@
     <link href="{{ asset('/css/header.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/profile.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/group.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('/js/sweetmodal/min/jquery.sweet-modal.min.css') }}" />
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
+    <script src="{{ asset('/js/sweetmodal/min/jquery.sweet-modal.min.js') }}"></script>
+    <script>
+        function getNewGroup(){
+            $.ajax({
+                type: 'POST',
+                url: '{{ path('newgroup') }}',
+                dataType: 'json',
+                success: function(response){
+                    $.sweetModal({
+                        title: 'Cambio de perfil',
+                        content: response.message,
+                    });
+                }
+            })
+        }
+    </script>
 {% endblock %}
 {% block body %}
     {% include 'header/index.html.twig'%}
@@ -12,24 +32,26 @@
     <section id="section-group">
             <div class="wrapper">
                <section class="mygroup">
-                   <h1>Mis grupos.</h1>
-                    <ol>
-                        <li>
-                            <a href="#">
-                                #208 Matematicas.
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Sistemas Calculo.
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Matematicas.
-                            </a>
-                        </li>
-                    </ol>
+                   <div>
+                        <button onclick="getNewGroup()">Crear grupo</button>
+                   </div>
+                   <div>
+                       <h1>Mis grupos.</h1>
+                        <ol>
+                            {% set count = 0 %}
+                            {% for group in mygroups %}
+                                {% set count = count + 1 %}
+                            <li>
+                                <a href="#">
+                                    {{ group.titleGroup }}
+                                </a>
+                            </li>
+                            {% endfor %}
+                            {%  if count == 0 %}
+                                <span>No cuentas con grupos</span>
+                            {% endif %}
+                        </ol>
+                   </div>
                </section>
                 <section class="groups">
                     <div class="box">
