@@ -1,4 +1,6 @@
-
+img{
+    width: 100%;
+}
 .container-post {
     position: relative;
     display: inline-block;
@@ -193,6 +195,20 @@
     .upper-post-left{
         display: flex;
         flex-direction: row;
+    }
+}
+
+@media only screen and (width: 768px){
+
+    .left-section{
+        width: 350px;
+    }
+    .container-post{
+        width: 750px;
+    }
+
+    img{
+        width: 100%;
     }
 }
 

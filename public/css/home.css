@@ -142,10 +142,17 @@ section {
 
     .left-section >.box{
         background-color: #00bfad;
-        width: 780px;
+        width: 777px;
     }
 }
 
+@media only screen and (width: 768px) {
+
+    .left-section >.box{
+        background-color: #00bfad;
+        width: 750px;
+    }
+}
 
 /* RESPONSIVO MOVIL*/
 @media only screen and (max-width: 767px) {
@@ -166,6 +173,6 @@ section {
 
     .left-section >.box{
         background-color: #00bfad;
-        width: 340px;
+        width: 338px;
     }
 }

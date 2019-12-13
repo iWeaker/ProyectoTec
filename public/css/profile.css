@@ -185,3 +185,68 @@ section {
     background-size: cover;
 }
 
+@media only screen and (max-width: 800px) {
+    .profile-content{
+        margin-left: 12px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(2,auto);
+        grid-template-areas: "top"
+                             "bot";
+    }
+
+    .top-section{
+        grid-area: top;
+        width: 300px;
+    }
+
+    .profile-cover{
+        width: 800px;
+    }
+
+    .bottom-section{
+        grid-area: bot;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .container-post-middle{
+        width: 100px;
+    }
+
+}
+
+@media only screen and (max-width: 767px) {
+    .profile-content{
+        margin-left: 10px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(2,auto);
+        grid-template-areas: "top"
+        "bot";
+    }
+
+    .top-section{
+        grid-area: top;
+        width: 300px;
+    }
+
+    .profile-cover{
+        width: 360px;
+    }
+
+    .bottom-section{
+        grid-area: bot;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .container-post-middle{
+        width: 100px;
+    }
+
+    .profile-desc .profile-name{
+        margin-bottom: 50px;
+    }
+
+}
+
+

@@ -187,6 +187,7 @@ nav > ul > li:nth-child(2) > ul > li a:hover{
     }
 
     header > div{
+        width: 100% !important;
         margin-left: 10px;
     }
 }

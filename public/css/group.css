@@ -17,19 +17,8 @@ body {
     grid-template-columns: repeat(7, 1fr);
     grid-template-areas: "mygroup mygroup groups groups groups groups groups";
     justify-items: center;
+}
 
-}
-.mygroup > div {
-    margin-bottom: 10px;
-}
-.mygroup > div > button{
-    position:relative;
-    border:0;
-    height:40px;
-    width: 100%;
-    cursor:pointer;
-    background-color:#53F090
-}
 section .mygroup{
     grid-area: mygroup;
     //background-color: #1c1e23;
@@ -108,6 +97,17 @@ section .groups{
     width: 80%;
 }
 
+.mygroup button{
+    margin-left: 35px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    background-color: #1d9cd1;
+    height: 30px;
+    width: 150px;
+}
+
+
+
 /* RESPONSIVO TABLET*/
 @media only screen and (max-width: 900px) {
     .wrapper{
@@ -128,10 +128,50 @@ section .groups{
         grid-template-columns: repeat(2, 1fr);
         justify-items: center;
     }
+
+    .mygroup button{
+        margin-left: 40px;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        background-color: #1d9cd1;
+        height: 30px;
+        width: 150px;
+    }
+}
+
+@media only screen and (width: 768px) {
+
+    .wrapper{
+        margin: 10px 30px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(2,auto);
+        grid-template-areas: "mygroup"
+        "groups";
+        justify-items: center;
+    }
+
+    .mygroup ol{
+        margin-right: 35px;
+    }
+
+    section .groups{
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+    }
+
+    .mygroup button{
+        margin-left: 40px;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        background-color: #1d9cd1;
+        height: 30px;
+        width: 150px;
+    }
 }
 
 /* RESPONSIVO MOVIL*/
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 767px) {
     .wrapper{
         margin: 10px 30px;
         display: grid;
@@ -149,5 +189,13 @@ section .groups{
     section .groups{
         grid-template-columns: repeat(1, 1fr);
         justify-items: center;
+    }
+
+    .mygroup button{
+        margin-left: 15px;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        background-color: #1d9cd1;
+        height: 25px ;
     }
 }
