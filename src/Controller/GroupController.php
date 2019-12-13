@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\AceptedEntity;
 use App\Entity\GroupEntity;
 use App\Entity\SolicitudesEntity;
 use App\Entity\User;
@@ -116,7 +117,7 @@ class GroupController extends AbstractController
      * @param $id
      * @param EntityManagerInterface $interface
      * @param UserInterface $user
-     * @return null
+     * @return JsonResponse
      */
     public function addSolicitud($id, EntityManagerInterface $interface, UserInterface $user){
         $arreglo = Array('success' => false, 'msg' => 'error');
@@ -131,7 +132,7 @@ class GroupController extends AbstractController
             $con->flush();
             $arreglo['success'] = true;
             $arreglo['msg'] = "Se ha mandado la solicitud correctamente";
-            return $this->json($arreglo);
+            return new JsonResponse($arreglo);
         }catch (\Exception $e){
 
         }
@@ -141,7 +142,7 @@ class GroupController extends AbstractController
      * @param $id
      * @param EntityManagerInterface $interface
      * @param UserInterface $user
-     * @return null
+     * @return JsonResponse
      */
     public function removeSolicitud($id, EntityManagerInterface $interface, UserInterface $user){
         $arreglo = Array('success' => false, 'msg' => 'error');
@@ -155,11 +156,43 @@ class GroupController extends AbstractController
             $con->flush();
             $arreglo['success'] = true;
             $arreglo['msg'] = "Se ha cancelado la solicitud correctamente";
-            return $this->json($arreglo);
-        }catch (\Exception $e){
+            return new JsonResponse($arreglo);
+        }catch (\Exception $e) {
 
         }
 
+    }
 
+    /**
+     * @Route("/solicitudaccepted/{idgroup}/{iduser}{" , name="solicitudaccepted")
+     * @param $idgroup
+     * @param $iduser
+     * @return JsonResponse
+     */
+    public function solicitudaccepted($idgroup, $iduser, UserInterface $user, EntityManagerInterface $interface){
+        $arreglo = Array('success' => false, 'msg' => 'error');
+
+        $con = $this->getDoctrine()->getManager();
+        $repository = $interface->getRepository(SolicitudesEntity::class);
+        $h = $repository->findOneBy(array('groupid' => $idgroup , 'userid' => $iduser));
+
+        $adder = new AceptedEntity();
+        $group = $con->getRepository(GroupEntity::class)->find($idgroup);
+        $user = $con->getRepository(User::class)->find($iduser);
+        try{
+
+            $con->remove($h);
+            $con->flush();
+            $adder->setUserid($user);
+            $adder->setGroupid($group);
+            $con->persist($adder);
+            $con->flush();
+            $arreglo['success'] = true;
+            $arreglo['msg'] = "Se ha aceptado a usuario";
+            return new JsonResponse($arreglo);
+        }catch (\Exception $e) {
+
+        }
+        return new JsonResponse($arreglo);
     }
 }

@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="87bd9708-4b53-4a5e-9d0b-ac24603bb2e2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/group.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/group.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/GroupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GroupController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/GroupEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/GroupEntity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/group/group.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/group/group.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/group/viewgroup.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/group/viewgroup.html.twig" afterDir="false" />
     </list>
@@ -244,7 +241,7 @@
       <workItem from="1576164202444" duration="11218000" />
       <workItem from="1576177459046" duration="8188000" />
       <workItem from="1576186484509" duration="9203000" />
-      <workItem from="1576197569925" duration="1118000" />
+      <workItem from="1576197569925" duration="3482000" />
     </task>
     <servers />
   </component>

@@ -94,23 +94,33 @@
                         </div>
                         <h4>{{ other.creator.user }} {{ other.creator.lastM }} {{ other.creator.lastF }}</h4>
                         <h5>{{ other.tematica }}</h5>
-                        {% set counter = 0  %}
-                        {% for en in other.solicitudesentities %}
-                            {% set counter = 1 %}
-                            {% if  en.userid.id != app.user.id %}
-                                <button class="solicitudGrupo{{ other.id }}" onclick="sendSolicitud({{ other.id }})" data-url="{{ path('solicitud', {'id': other.id }) }}" >
-                                    Enviar Solicitud
-                                </button>
-                            {% else %}
-                                <button class="cancelarGrupo{{ other.id }}" onclick="cancelarSolicitud({{ other.id }})" data-url="{{ path('solicitudremove', {'id': other.id }) }}" >
-                                    Cancelar solicitud
-                                </button>
+                        {% set acepted = 0 %}
+                        {% for accepted in other.aceptedentities %}
+                            {% if accepted.userid.id == app.user.id %}
+                                {% set acepted = 1 %}
                             {% endif %}
                         {% endfor %}
-                        {% if counter == 0 %}
-                            <button class="solicitudGrupo{{ other.id }}" onclick="sendSolicitud({{ other.id }})" data-url="{{ path('solicitud', {'id': other.id }) }}" >
-                                Enviar solicitud
-                            </button>
+                        {% if acepted == 0 %}
+                            {% set counter = 0  %}
+                            {% for en in other.solicitudesentities %}
+                                {% set counter = 1 %}
+                                {% if  en.userid.id != app.user.id %}
+                                    <button class="solicitudGrupo{{ other.id }}" onclick="sendSolicitud({{ other.id }})" data-url="{{ path('solicitud', {'id': other.id }) }}" >
+                                        Enviar Solicitud
+                                    </button>
+                                {% else %}
+                                    <button class="cancelarGrupo{{ other.id }}" onclick="cancelarSolicitud({{ other.id }})" data-url="{{ path('solicitudremove', {'id': other.id }) }}" >
+                                        Cancelar solicitud
+                                    </button>
+                                {% endif %}
+                            {% endfor %}
+                            {% if counter == 0 %}
+                                <button class="solicitudGrupo{{ other.id }}" onclick="sendSolicitud({{ other.id }})" data-url="{{ path('solicitud', {'id': other.id }) }}" >
+                                    Enviar solicitud
+                                </button>
+                            {% endif %}
+                        {% else %}
+                            <button><a href="{{ path("viewgroup" , {id: other.id }) }}">Entrar</a></button>
                         {% endif %}
                     </div>
                     {% endfor %}

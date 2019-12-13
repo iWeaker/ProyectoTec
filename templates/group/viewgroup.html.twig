@@ -11,7 +11,16 @@
     <script src="https://kit.fontawesome.com/8bc8911105.js" crossorigin="anonymous"></script>
     <script>
         function acceptSolicitud(variable){
+            let tagadding = $(".adding"+variable);
+            let op_url = $(tagadding).data('url');
+            $.ajax({
+                type: 'POST',
+                url: op_url,
+                dataType: 'json',
+                success:function(respuesta){
 
+                }
+            })
         }
     </script>
 {% endblock %}
@@ -25,7 +34,7 @@
                     {% if app.user.id == creator.id %}
                         <div onclick="" class="group-img-cover" style="background-image: url({{ asset('groupImage/' ~ image) }})"></div>
                     {% else %}
-                        <div  class="group-img-cover" style="background-image: url({{ asset('userCover/' ~ cover) }})"></div>
+                        <div  class="group-img-cover" style="background-image: url({{ asset('groupImage/' ~ image) }})"></div>
                     {% endif %}
                     <div class="group-detail-section">
                         <nav>
@@ -61,7 +70,7 @@
                         <div class="solicitud-container">
                             <div class="left-solicitud-container">{{ entran.userid.user }} {{ entran.userid.lastM }} {{ entran.userid.lastF }}</div>
                             <div class="right-solicitud-container">
-                                <button onclick="acceptSolicitud({{ entran.userid.id }})">Aceptar</button>
+                                <button class="adding{{ entran.id }}" onclick="acceptSolicitud({{ entran.id }})" data-url="{{ path('solicitudaccepted', {'idgroup': entran.groupid.id , 'iduser' : entran.userid.id}) }}">Aceptar</button>
                             </div>
                         </div>
                         {% endfor %}
