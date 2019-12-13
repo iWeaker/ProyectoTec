@@ -135,4 +135,30 @@ class GroupController extends AbstractController
 
         }
     }
+    /**
+     * @Route("/solicitudremove/{id}" , name="solicitudremove")
+     * @param $id
+     * @param EntityManagerInterface $interface
+     * @param UserInterface $user
+     * @return null
+     */
+    public function removeSolicitud($id, EntityManagerInterface $interface, UserInterface $user){
+        $arreglo = Array('success' => false, 'msg' => 'error');
+
+        $con = $this->getDoctrine()->getManager();
+        $repository = $interface->getRepository(SolicitudesEntity::class);
+        $h = $repository->findOneBy(array('groupid' => $id , 'userid' => $user->getUsername()));
+        try{
+
+            $con->remove($h);
+            $con->flush();
+            $arreglo['success'] = true;
+            $arreglo['msg'] = "Se ha cancelado la solicitud correctamente";
+            return $this->json($arreglo);
+        }catch (\Exception $e){
+
+        }
+
+
+    }
 }

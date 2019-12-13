@@ -35,23 +35,23 @@
                 success: function(res){
                     if(res.success == true){
                         $.sweetModal(res.msg);
-                        tag.replace()
+                        tag.remove()
                     }
 
                 }
             })
         }
         function cancelarSolicitud(variable){
-            let tag = $(".solicitudGrupo"+variable);
-            let op_prod_url = $(tag).data('url');
+            let tagcancel = $(".cancelarGrupo"+variable);
+            let op_url = $(tagcancel).data('url');
             $.ajax({
                 type: 'POST',
-                url: op_prod_url,
+                url: op_url,
                 dataType: 'json',
                 success: function(rescancel){
                     if(rescancel.success == true){
                         $.sweetModal(rescancel.msg);
-                        tag.remove()
+                        tagcancel.remove()
                     }
 
                 }
@@ -102,7 +102,7 @@
                                     Enviar Solicitud
                                 </button>
                             {% else %}
-                                <button class="cancelarGrupo{{ other.id }}" onclick="sendSolicitud({{ other.id }})" data-url="{{ path('solicitud', {'id': other.id }) }}" >
+                                <button class="cancelarGrupo{{ other.id }}" onclick="cancelarSolicitud({{ other.id }})" data-url="{{ path('solicitudremove', {'id': other.id }) }}" >
                                     Cancelar solicitud
                                 </button>
                             {% endif %}
