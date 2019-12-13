@@ -19,7 +19,7 @@
                 dataType: 'json',
                 success: function(response){
                     $.sweetModal({
-                        title: 'Cambio de perfil',
+                        title: 'Crear grupo',
                         content: response.message,
                     });
                 }
@@ -109,7 +109,7 @@
                         {% endfor %}
                         {% if counter == 0 %}
                             <button class="solicitudGrupo{{ other.id }}" onclick="sendSolicitud({{ other.id }})" data-url="{{ path('solicitud', {'id': other.id }) }}" >
-                                Esto es un boton
+                                Enviar solicitud
                             </button>
                         {% endif %}
                     </div>

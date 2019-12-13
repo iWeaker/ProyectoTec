@@ -75,6 +75,11 @@ class User implements UserInterface, \Serializable
      */
     private $solicitudesEntities;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\AceptedEntity", mappedBy="userid")
+     */
+    private $aceptedEntities;
+
 
     public function __construct()
     {
@@ -83,6 +88,7 @@ class User implements UserInterface, \Serializable
         $this->imgEntities = new ArrayCollection();
         $this->groupEntities = new ArrayCollection();
         $this->solicitudesEntities = new ArrayCollection();
+        $this->aceptedEntities = new ArrayCollection();
 
     }
 
@@ -380,6 +386,37 @@ class User implements UserInterface, \Serializable
             // set the owning side to null (unless already changed)
             if ($solicitudesEntity->getUserid() === $this) {
                 $solicitudesEntity->setUserid(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|AceptedEntity[]
+     */
+    public function getAceptedEntities(): Collection
+    {
+        return $this->aceptedEntities;
+    }
+
+    public function addAceptedEntity(AceptedEntity $aceptedEntity): self
+    {
+        if (!$this->aceptedEntities->contains($aceptedEntity)) {
+            $this->aceptedEntities[] = $aceptedEntity;
+            $aceptedEntity->setUserid($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAceptedEntity(AceptedEntity $aceptedEntity): self
+    {
+        if ($this->aceptedEntities->contains($aceptedEntity)) {
+            $this->aceptedEntities->removeElement($aceptedEntity);
+            // set the owning side to null (unless already changed)
+            if ($aceptedEntity->getUserid() === $this) {
+                $aceptedEntity->setUserid(null);
             }
         }
 

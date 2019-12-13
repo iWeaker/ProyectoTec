@@ -44,16 +44,16 @@ class GroupEntity
      */
     private $solicitudesEntities;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\AceptedEntity", mappedBy="groupid")
+     */
+    private $aceptedEntities;
+
     public function __construct()
     {
         $this->solicitudesEntities = new ArrayCollection();
+        $this->aceptedEntities = new ArrayCollection();
     }
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\SolicitudesEntity", mappedBy="groupid")
-     */
-
-
 
 
 
@@ -135,6 +135,37 @@ class GroupEntity
             // set the owning side to null (unless already changed)
             if ($solicitudesEntity->getGroupid() === $this) {
                 $solicitudesEntity->setGroupid(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|AceptedEntity[]
+     */
+    public function getAceptedEntities(): Collection
+    {
+        return $this->aceptedEntities;
+    }
+
+    public function addAceptedEntity(AceptedEntity $aceptedEntity): self
+    {
+        if (!$this->aceptedEntities->contains($aceptedEntity)) {
+            $this->aceptedEntities[] = $aceptedEntity;
+            $aceptedEntity->setGroupid($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAceptedEntity(AceptedEntity $aceptedEntity): self
+    {
+        if ($this->aceptedEntities->contains($aceptedEntity)) {
+            $this->aceptedEntities->removeElement($aceptedEntity);
+            // set the owning side to null (unless already changed)
+            if ($aceptedEntity->getGroupid() === $this) {
+                $aceptedEntity->setGroupid(null);
             }
         }
 

@@ -9,6 +9,11 @@
 {% block javascripts %}
     <script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
     <script src="https://kit.fontawesome.com/8bc8911105.js" crossorigin="anonymous"></script>
+    <script>
+        function acceptSolicitud(variable){
+
+        }
+    </script>
 {% endblock %}
 
 {% block body %}
@@ -49,29 +54,17 @@
                 <div>
                     <div class="member-list">
                         <div class="user-member-container"></div>
-                        <div class="user-member-container"></div>
-                        <div class="user-member-container"></div>
-                        <div class="user-member-container"></div>
+
                     </div>
                     <div class="solicitudes-list">
+                        {% for entran in solicitudes %}
                         <div class="solicitud-container">
-                            <div class="left-solicitud-container">Alejandro Bringas</div>
+                            <div class="left-solicitud-container">{{ entran.userid.user }} {{ entran.userid.lastM }} {{ entran.userid.lastF }}</div>
                             <div class="right-solicitud-container">
-                                <button>Aceptar</button>
+                                <button onclick="acceptSolicitud({{ entran.userid.id }})">Aceptar</button>
                             </div>
                         </div>
-                        <div class="solicitud-container">
-                            <div class="left-solicitud-container">Alejandro Bringas</div>
-                            <div class="right-solicitud-container">
-                                <button>Aceptar</button>
-                            </div>
-                        </div>
-                        <div class="solicitud-container">
-                            <div class="left-solicitud-container">Alejandro Bringas</div>
-                            <div class="right-solicitud-container">
-                                <button>Aceptar</button>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <div></div>

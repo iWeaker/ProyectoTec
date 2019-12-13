@@ -53,7 +53,8 @@ class GroupController extends AbstractController
             'title' => $group->getTitleGroup(),
             'creator' => $group->getCreator(),
             'tematica' => $group->getTematica(),
-            'image' => $group->getGroupImage()
+            'image' => $group->getGroupImage(),
+            'solicitudes' => $group->getSolicitudesEntities()
         ]);
     }
     /**

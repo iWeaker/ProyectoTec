@@ -17,8 +17,19 @@ body {
     grid-template-columns: repeat(7, 1fr);
     grid-template-areas: "mygroup mygroup groups groups groups groups groups";
     justify-items: center;
-}
 
+}
+.mygroup > div {
+    margin-bottom: 10px;
+}
+.mygroup > div > button{
+    position:relative;
+    border:0;
+    height:40px;
+    width: 100%;
+    cursor:pointer;
+    background-color:#53F090
+}
 section .mygroup{
     grid-area: mygroup;
     //background-color: #1c1e23;
