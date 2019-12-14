@@ -96,10 +96,6 @@ section .groups{
     margin-top: 10px;
 }
 
-
-
-
-
 .mygroup button{
     margin-bottom: 30px;
     border-radius: 5px;
@@ -113,23 +109,29 @@ section .groups{
 }
 .sendRequest , .cancelRequest{
     position: relative;
-    width: 30px;
-    height: 30px;
+    width: 100%;
+    padding: 10px;
+    font-size: 12px;
     border:0;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-
+    color:white;
 }
 
-.cancelRequest{
-    background-image: url("../img/remove.png");
-}
 .sendRequest{
-    background-image: url("../img/add.png");
+    background-color:#6AE187;
 }
+.cancelRequest{
+    background-color:#E1756A;
+}
+.enter-button{
+    position: relative;
+    border:0;
+    width: 100%;
 
-
+    padding: 10px;
+}
 /* RESPONSIVO TABLET*/
 @media only screen and (max-width: 900px) {
     .wrapper{

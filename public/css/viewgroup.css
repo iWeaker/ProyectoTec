@@ -79,9 +79,16 @@ body {
 .member-list{
     position: relative;
     width:300px;
+    min-height:100px;
+    overflow: auto;
+    background-color:white;
+    margin-bottom:10px;
+}
 
-    height: 300px;
-
+.member-list > div:first-child{
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
 }
 .user-member-container{
     position: relative;

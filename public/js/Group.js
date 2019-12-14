@@ -8,7 +8,7 @@ function sendSolicitud(variable){
         success: function(res){
             if(res.success == true){
                 $.sweetModal(res.msg);
-                $(".request" + variable).html("<button class=\"cancelRequest cancelarGrupo"+variable+"\" onclick=\"cancelarSolicitud("+variable+")\" data-url=\"/solicitudremove/"+variable+"\" ></button>");
+                $(".request" + variable).html("<button class=\"cancelRequest cancelarGrupo"+variable+"\" onclick=\"cancelarSolicitud("+variable+")\" data-url=\"/solicitudremove/"+variable+"\" >Cancelar</button>");
             }
 
         }
@@ -24,7 +24,7 @@ function cancelarSolicitud(variable){
         success: function(rescancel){
             if(rescancel.success == true){
                 $.sweetModal(rescancel.msg);
-                $(".request" + variable).html("<button class=\"sendRequest solicitarGrupo"+variable+"\" onclick=\"sendSolicitud("+variable+")\" data-url=\"/solicitud/"+variable+"\" ></button>");
+                $(".request" + variable).html("<button class=\"sendRequest solicitarGrupo"+variable+"\" onclick=\"sendSolicitud("+variable+")\" data-url=\"/solicitud/"+variable+"\" >Enviar solicitud</button>");
             }
 
         }
