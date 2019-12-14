@@ -81,7 +81,7 @@
                             </li>
                             {% endfor %}
                             {%  if count == 0 %}
-                                <span>No cuentas con grupos</span>
+                                <span >No cuentas con grupos</span>
                             {% endif %}
                         </ol>
                    </div>
@@ -89,11 +89,15 @@
                 <section class="groups">
                     {% for  other in othergroups %}
                     <div class="box">
-                        <div class="box-img">
-                            <h3>{{ other.titlegroup }}</h3>
+                        <div class="box-img" style="background-image: url({{ asset('/groupImage/' ~ other.groupimage) }})"></div>
+                        <div>
+                            <h4>{{ other.creator.user }} {{ other.creator.lastM }} {{ other.creator.lastF }}</h4>
                         </div>
-                        <h4>{{ other.creator.user }} {{ other.creator.lastM }} {{ other.creator.lastF }}</h4>
-                        <h5>{{ other.tematica }}</h5>
+                        <div>
+                            <h3>{{ other.titlegroup }}</h3>
+                            <h5>{{ other.tematica }}</h5>
+                        </div>
+
                         {% set acepted = 0 %}
                         {% for accepted in other.aceptedentities %}
                             {% if accepted.userid.id == app.user.id %}
@@ -105,19 +109,13 @@
                             {% for en in other.solicitudesentities %}
                                 {% set counter = 1 %}
                                 {% if  en.userid.id != app.user.id %}
-                                    <button class="solicitudGrupo{{ other.id }}" onclick="sendSolicitud({{ other.id }})" data-url="{{ path('solicitud', {'id': other.id }) }}" >
-                                        Enviar Solicitud
-                                    </button>
+                                    <button class="sendRequest solicitudGrupo{{ other.id }}" onclick="sendSolicitud({{ other.id }})" data-url="{{ path('solicitud', {'id': other.id }) }}" ></button>
                                 {% else %}
-                                    <button class="cancelarGrupo{{ other.id }}" onclick="cancelarSolicitud({{ other.id }})" data-url="{{ path('solicitudremove', {'id': other.id }) }}" >
-                                        Cancelar solicitud
-                                    </button>
+                                    <button class="cancelarGrupo{{ other.id }}" onclick="cancelarSolicitud({{ other.id }})" data-url="{{ path('solicitudremove', {'id': other.id }) }}" ></button>
                                 {% endif %}
                             {% endfor %}
                             {% if counter == 0 %}
-                                <button class="solicitudGrupo{{ other.id }}" onclick="sendSolicitud({{ other.id }})" data-url="{{ path('solicitud', {'id': other.id }) }}" >
-                                    Enviar solicitud
-                                </button>
+                                <button class="solicitudGrupo{{ other.id }}" onclick="sendSolicitud({{ other.id }})" data-url="{{ path('solicitud', {'id': other.id }) }}" ></button>
                             {% endif %}
                         {% else %}
                             <button><a href="{{ path("viewgroup" , {id: other.id }) }}">Entrar</a></button>

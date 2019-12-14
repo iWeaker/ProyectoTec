@@ -58,6 +58,11 @@
     font-size: 14px;
 }
 
+.name-post-user > p:first-child > a{
+    text-decoration: none;
+    color:#5f5a63;
+}
+
 .name-post-user > p:last-child {
     color:#a69eb9;
     font-size: 12px;

@@ -53,11 +53,13 @@ section .groups{
 }
 
 .box-img{
-    background: #3f4257;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+    background-color: #3f4257;
     height: 100px;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
 }
+
 
 .box-img h3{
     display: inline-block;
@@ -70,12 +72,16 @@ section .groups{
     margin-top: 10px;
     margin-bottom: 10px;
     width: 270px;
-    height: 290px;
-    border-radius: 10px;
-    border: 1px solid #1c1e23;
+    height: 200px;
+    border-radius:5px;
+    border:1px solid rgba(0,0,0,0.1);
     text-align: center;
 }
-
+.box:hover{
+    -webkit-box-shadow: 0px 0px 6px 2px rgba(214,214,214,1);
+    -moz-box-shadow: 0px 0px 6px 2px rgba(214,214,214,1);
+    box-shadow: 0px 0px 6px 2px rgba(214,214,214,1);
+}
 .box h4{
     margin-top: 10px;
 }
@@ -100,12 +106,18 @@ section .groups{
 .mygroup button{
     margin-left: 35px;
     margin-bottom: 30px;
-    border-radius: 10px;
-    background-color: #1d9cd1;
-    height: 30px;
-    width: 150px;
+    border-radius: 5px;
+    background-color: #6AE18C;
+    border:0;
+    height: 35px;
+    font-weight: 600;
+    color:white;
+    cursor: pointer;
+    width:80%;
 }
+.sendRequest{
 
+}
 
 
 /* RESPONSIVO TABLET*/
@@ -122,6 +134,7 @@ section .groups{
 
     .mygroup ol{
         margin-right: 35px;
+
     }
 
     section .groups{

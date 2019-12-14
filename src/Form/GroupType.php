@@ -16,8 +16,18 @@ class GroupType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titleGroup' , TextType::class)
-            ->add('tematica' , TextType::class)
+            ->add('titleGroup' , TextType::class, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Titulo del grupo'
+                ]
+            ])
+            ->add('tematica' , TextType::class, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Tema del grupo'
+                ]
+            ])
             ->add('groupImage', FileType::class)
             ->add('Crear', SubmitType::class)
         ;
