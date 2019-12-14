@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Integer;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\GroupEntityRepository")
@@ -149,6 +150,13 @@ class GroupEntity
         return $this->aceptedEntities;
     }
 
+    /**
+     * @return int
+     *
+     */
+    public function countAccepted():int{
+        return $this->aceptedEntities->count();
+    }
     public function addAceptedEntity(AceptedEntity $aceptedEntity): self
     {
         if (!$this->aceptedEntities->contains($aceptedEntity)) {

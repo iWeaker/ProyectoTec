@@ -3,7 +3,6 @@
 {% block title %}Grupos{% endblock %}
 {% block stylesheets %}
     <link href="{{ asset('/css/header.css') }}" rel="stylesheet" />
-    <link href="{{ asset('/css/profile.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/group.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('/js/sweetmodal/min/jquery.sweet-modal.min.css') }}" />
 {% endblock %}
@@ -38,17 +37,19 @@
                    <div>
                         <button onclick="getNewGroup()">Crear grupo</button>
                    </div>
-                   <div>
+                   <div class="list-mygroups">
                        <h1>Mis grupos.</h1>
                         <ol>
                             {% set count = 0 %}
                             {% for group in mygroups %}
                                 {% set count = count + 1 %}
-                            <li>
                                 <a href="{{ path('viewgroup', {id: group.id}) }}">
-                                    {{ group.titleGroup }}
+                                    <li>
+                                        <h4>{{ group.titleGroup }}</h4>
+                                        <h5>{{ group.tematica }}</h5>
+                                        {{ group.countAccepted }}
+                                    </li>
                                 </a>
-                            </li>
                             {% endfor %}
                             {%  if count == 0 %}
                                 <span >No cuentas con grupos</span>

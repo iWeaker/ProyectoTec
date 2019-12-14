@@ -6,7 +6,11 @@ body {
     background: #edf2f6;
 }
 
-
+section{
+    width: 90%;
+    min-height: 200px;
+    margin: 0px auto;
+}
 #section-group{
     margin-top: 100px ;
 }
@@ -14,39 +18,46 @@ body {
 .wrapper{
     margin: 10px 30px;
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
     grid-template-areas: "mygroup mygroup groups groups groups groups groups";
     justify-items: center;
 }
 
 section .mygroup{
     grid-area: mygroup;
-    //background-color: #1c1e23;
 }
-.mygroup a{
+
+.list-mygroups > ol > a > li{
+
+    height: 40px;
+    background-color: white;
+    padding: 5px;
+    border-radius:5px;
+    margin-bottom: 15px;
+    color:gray;
+}
+.list-mygroups > ol > a > li:hover{
+    -webkit-box-shadow: 0px 0px 4px 2px rgba(214,214,214,1);
+    -moz-box-shadow: 0px 0px 4px 2px rgba(214,214,214,1);
+    box-shadow: 0px 0px 4px 2px rgba(214,214,214,1);
+}
+.list-mygroups > ol > a{
     text-decoration: none;
-    color: black;
 }
 
 .mygroup h1{
     text-align: center;
+    margin-bottom:10px;
 }
 
 .mygroup ol{
     list-style: none;
+    padding:0;
 }
 
-.mygroup ol li{
-    text-align: center;
-    background-color: #00bfad;
-    padding: 5px;
-    border-radius: 10px;
-    margin-top: 15px;
-}
+
 
 section .groups{
     grid-area: groups;
-    //background-color: #3b216a;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
@@ -86,15 +97,11 @@ section .groups{
     margin-top: 10px;
 }
 
-.box h4, h5{
-    text-align: left;
-    margin-left: 10px;
-}
+
 
 
 
 .mygroup button{
-    margin-left: 35px;
     margin-bottom: 30px;
     border-radius: 5px;
     background-color: #6AE18C;
@@ -103,7 +110,7 @@ section .groups{
     font-weight: 600;
     color:white;
     cursor: pointer;
-    width:80%;
+    width:100%;
 }
 .sendRequest , .cancelRequest{
     position: relative;
