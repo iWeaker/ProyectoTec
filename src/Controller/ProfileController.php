@@ -162,37 +162,34 @@ class ProfileController extends AbstractController
      */
     public function changeProfile(Request $request, UserInterface $user){
 
-
-        $form = $this->createForm(PhotoType::class, new User());
-        $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()){
             $con = $this->getDoctrine()->getManager();
             $user = $con->getRepository(User::class)->find($user->getUsername());
-            $img = $form['image']->getData();
-            if($img){
-                $originalFilename = pathinfo($img->getClientOriginalName(), PATHINFO_FILENAME);
-                $newFilename = $originalFilename.'-'.uniqid().'.'.$img->guessExtension();
-                $newFilename = str_replace(' ', '', $newFilename);
-                try {
-                    $img->move(
-                        $this->getParameter('profileUserUploader'),
-                        $newFilename
-                    );
-                    $user->setImage($newFilename);
-                    $con->persist($user);
-                    $con->flush();
-                } catch (FileException $e) {
-                    $message = $e;
-                }
+
+            if ($request->isXmlHttpRequest()) {
+                    $data = $request->files->get('imagen');
+
+                    $originalFilename = pathinfo($data->getClientOriginalName(), PATHINFO_FILENAME);
+                    $newFilename = $originalFilename.'-'.uniqid().'.'.$data->guessExtension();
+                    $newFilename = str_replace(' ', '', $newFilename);
+                    try {
+                        $data->move(
+                            $this->getParameter('profileUserUploader'),
+                            $newFilename
+                        );
+                        $user->setImage($newFilename);
+                        $con->persist($user);
+                        $con->flush();
+                    } catch (FileException $e) {
+                        $message = $e;
+                    }
+
 
             }
 
-        }
+
         $response = array(
             'status' => "",
-            'message' => $this->renderView('profile/profilephoto.html.twig' , [
-                'form' => $form->createView()
-            ]),
+            'msg' => ""
         );
 
         return $this->json($response);

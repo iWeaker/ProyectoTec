@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87bd9708-4b53-4a5e-9d0b-ac24603bb2e2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/group.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/group.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/home.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/post.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/post.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/profilephoto.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/profilephoto.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +26,7 @@
       <list>
         <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="Less File" />
       </list>
     </option>
   </component>
@@ -156,7 +158,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -244,6 +246,8 @@
       <workItem from="1576177459046" duration="8188000" />
       <workItem from="1576186484509" duration="9203000" />
       <workItem from="1576197569925" duration="4954000" />
+      <workItem from="1576294091039" duration="784000" />
+      <workItem from="1576298642927" duration="3652000" />
     </task>
     <servers />
   </component>
@@ -284,6 +288,10 @@
     <state x="453" y="190" width="528" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.863@0.0.1440.863" timestamp="1576196001229" />
     <state x="453" y="191" width="534" height="488" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.865@0.0.1440.865" timestamp="1575750144218" />
     <state x="453" y="192" width="534" height="488" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.869@0.0.1440.869" timestamp="1575702607166" />
+    <state x="341" y="211" width="748" height="451" key="EditFileWatcherDialog" timestamp="1576299630254">
+      <screen x="0" y="0" width="1440" height="864" />
+    </state>
+    <state x="341" y="211" width="748" height="451" key="EditFileWatcherDialog/0.0.1440.864@0.0.1440.864" timestamp="1576299630254" />
     <state x="475" y="127" width="426" height="483" key="FileChooserDialogImpl" timestamp="1575307786117">
       <screen x="0" y="0" width="1366" height="734" />
     </state>
@@ -292,12 +300,13 @@
       <screen x="0" y="0" width="1440" height="865" />
     </state>
     <state x="520" y="359" width="400" height="151" key="NewPhpFileDialog/0.0.1440.865@0.0.1440.865" timestamp="1575740331208" />
-    <state x="382" y="227" key="com.intellij.ide.util.TipDialog" timestamp="1576100253044">
-      <screen x="0" y="0" width="1440" height="863" />
+    <state x="382" y="227" key="com.intellij.ide.util.TipDialog" timestamp="1576294092500">
+      <screen x="0" y="0" width="1440" height="864" />
     </state>
     <state x="362" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.732@0.0.1366.732" timestamp="1575483218331" />
     <state x="362" y="194" key="com.intellij.ide.util.TipDialog/0.0.1366.736@0.0.1366.736" timestamp="1575783634626" />
     <state x="382" y="227" key="com.intellij.ide.util.TipDialog/0.0.1440.863@0.0.1440.863" timestamp="1576100253044" />
+    <state x="382" y="227" key="com.intellij.ide.util.TipDialog/0.0.1440.864@0.0.1440.864" timestamp="1576294092500" />
     <state x="382" y="229" key="com.intellij.ide.util.TipDialog/0.0.1440.869@0.0.1440.869" timestamp="1575697865129" />
     <state x="347" y="160" key="run.anything.popup" timestamp="1575786232226">
       <screen x="0" y="0" width="1366" height="736" />

@@ -93,6 +93,40 @@
             })
         }
     </script>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#imagePreview').css('background-image', 'url('+e.target.result +')');
+                    $('#imagePreview').hide();
+                    $('#imagePreview').fadeIn(650);
+
+                }
+
+                reader.readAsDataURL(input.files[0]);
+                let formData = new FormData();
+                formData.append("imagen", $('#imageUpload').prop('files')[0]);
+                $.ajax({
+                    type: 'POST',
+                    url: '{{ path('photoprofile')}}',
+                    processData: false,
+                    contentType: false,
+                    data: formData,
+                    dataType: 'json',
+                    success: function(pChange) {
+                        $.sweetModal({
+                            content: 'Publicado con exito.',
+                            icon: $.sweetModal.ICON_SUCCESS
+                        });
+                    },
+                });
+            }
+        }
+        $("#imageUpload").change(function() {
+            readURL(this);
+        });
+    </script>
 {% endblock %}
 {% block body %}
     {% include 'header/index.html.twig' %}
@@ -111,25 +145,30 @@
                         <li></li>
                         <li></li>
                         <li></li>
-                        <li><a href="{{ path('profile') }}">Timeline</a></li>
+                        <li><a style="text-decoration: none;color:#a69eb9;" href="{{ path('profile') }}">Timeline</a></li>
                         <li onclick="photoSection()">Fotos</li>
                         {% if id == app.user.id %}
                         <li onclick="configSection()">Config</li>
                         {% endif %}
                     </nav>
                 </div>
-                <div class="profile-desc">
+                <div class="avatar-upload">
                     {% if app.user.id == id %}
-                        <div onclick="getPhotoConfig()" class="profile-img" style="background-image: url({{ asset('userProfiles/' ~ picture) }})"></div>
-                    {% else %}
-                        <div class="profile-img" style="background-image: url({{ asset('userProfiles/' ~ picture) }})"></div>
+                    <div class="avatar-edit">
+                        <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                        <label for="imageUpload"></label>
+                    </div>
                     {% endif %}
-
-
+                    <div class="avatar-preview">
+                        <div id="imagePreview" style="background-image: url({{ asset('userProfiles/' ~ picture) }})">
+                        </div>
+                    </div>
                     <div class="profile-name">
                         <span>{{ name }} {{ lastname }} {{ lastname2 }}</span>
                     </div>
                 </div>
+
+
             </div>
         </div>
         <div class="bottom-section">
