@@ -74,8 +74,10 @@ section {
 .profile-detail-section  > nav > li:nth-child(7){ grid-area: li5 }
 .profile-detail-section  > nav > li:last-child{ grid-area: li6 }
 .avatar-upload {
-    position: relative;
+    position: absolute;
     max-width: 205px;
+    bottom:0;
+    left:10px;
 }
 
 .avatar-preview {
@@ -134,18 +136,20 @@ section {
 
 .profile-name {
     position:relative;
-    width:100%;
+    width:150%;
     height:50px;
     margin:0 auto;
-    text-align:center;
+    text-align:left;
 }
 
 
 .profile-name > span{
-    font-size:16px;
+    position: relative;
+    font-size:15px;
     color:#5f5a63;
     font-weight: 600;
     line-height: 40px;
+    left:10px;
 }
 
 .bottom-section {

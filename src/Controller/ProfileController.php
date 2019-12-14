@@ -205,37 +205,33 @@ class ProfileController extends AbstractController
      */
     public function changeCover(Request $request, UserInterface $user){
 
+        $con = $this->getDoctrine()->getManager();
+        $user = $con->getRepository(User::class)->find($user->getUsername());
 
-        $form = $this->createForm(CoverType::class, new User());
-        $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()){
-            $con = $this->getDoctrine()->getManager();
-            $user = $con->getRepository(User::class)->find($user->getUsername());
-            $img = $form['cover']->getData();
-            if($img){
-                $originalFilename = pathinfo($img->getClientOriginalName(), PATHINFO_FILENAME);
-                $newFilename = $originalFilename.'-'.uniqid().'.'.$img->guessExtension();
-                $newFilename = str_replace(' ', '', $newFilename);
-                try {
-                    $img->move(
-                        $this->getParameter('coverUserUploader'),
-                        $newFilename
-                    );
-                    $user->setCover($newFilename);
-                    $con->persist($user);
-                    $con->flush();
-                } catch (FileException $e) {
-                    $message = $e;
-                }
-
+        if ($request->isXmlHttpRequest()) {
+            $data = $request->files->get('imagen');
+            $originalFilename = pathinfo($data->getClientOriginalName(), PATHINFO_FILENAME);
+            $newFilename = $originalFilename.'-'.uniqid().'.'.$data->guessExtension();
+            $newFilename = str_replace(' ', '', $newFilename);
+            try {
+                $data->move(
+                    $this->getParameter('coverUserUploader'),
+                    $newFilename
+                );
+                $user->setCover($newFilename);
+                $con->persist($user);
+                $con->flush();
+            } catch (FileException $e) {
+                $message = $e;
             }
 
+
         }
+
+
         $response = array(
             'status' => "",
-            'message' => $this->renderView('profile/profilecover.html.twig' , [
-                'form' => $form->createView()
-            ]),
+            'msg' => ""
         );
 
         return $this->json($response);

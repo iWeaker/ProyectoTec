@@ -2,13 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87bd9708-4b53-4a5e-9d0b-ac24603bb2e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/Profile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/post.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/post.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/groupImage/78610589_3866993973326618_1945009225990144000_n-5df2eea25d6d2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/groupImage/78610589_3866993973326618_1945009225990144000_n-5df2eea3138ba.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/groupImage/asd-5df2df8086fe6.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/groupImage/foto-de-portada-3-5df2a7a3891d4.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/groupImage/foto-de-portada-3-5df2a7beca6f1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/groupImage/foto-de-portada-3-5df2aa27d04cc.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/groupImage/foto-de-portada-3-5df2bf11eb63d.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/groupImage/foto-perfil-5df2a794f09c7.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/76779531_2528915640687452_961591663736651776_n-5df197c96c04b.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/Captura de pantalla_2019-12-07_09-08-47-5debe32fcf1cb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/Captura de pantalla_2019-12-07_09-08-47-5debe52cdc721.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/Captura de pantalla_2019-12-07_09-08-47-5debe54d9c082.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/Captura de pantalla_2019-12-11_13-55-46-5df1705852207.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/Captura de pantalla_2019-12-11_13-55-46-5df25e24a9573.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/Captura de pantalla_2019-12-11_13-55-46-5df25ff38f84a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/Capturadepantalla_2019-12-11_13-55-46-5df271bc8e0d2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/foto-de-portada-3-5df2abc2d3660.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/foto-de-portada-3-5df2ad73e3af4.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/foto-perfil-5df2acb3183f3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/foto-perfil-5df2acbdddb19.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/foto-perfil-5df2ad6dc6801.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/illustration-video-games-night-planet-space-Earth-713268-wallhere.com-5debe329a5603.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/illustration-video-games-night-planet-space-Earth-713268-wallhere.com-5debe5a9da000.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/illustration-video-games-night-planet-space-Earth-713268-wallhere.com-5debe5e1ecbf6.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/illustration-video-games-night-planet-space-Earth-713268-wallhere.com-5debed7d05bfd.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/illustration-video-games-night-planet-space-Earth-713268-wallhere.com-5debed8818f9f.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/illustration-video-games-night-planet-space-Earth-713268-wallhere.com-5dec13a88c598.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/illustration-video-games-night-planet-space-Earth-713268-wallhere.com-5dec2eef5f362.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/illustration-video-games-night-planet-space-Earth-713268-wallhere.com-5dec77a688948.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/p1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/p2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/postImg/p3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/userCover/16491121.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/userCover/foto-de-portada-3-5df27f1b3a1cc.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/userProfiles/16491121.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/userProfiles/79842410_2796705753694459_7571873750522527744_n-5df477359b8dc.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/userProfiles/foto-perfil-5df27d1c23787.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/userProfiles/imageaaas-5df2ee475635f.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/userProfiles/user1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/userProfiles/user2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/userProfiles/user3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/userProfiles/user4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/userProfiles/user5.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/profilephoto.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/profilephoto.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/profilecover.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/profilephoto.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,9 +67,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="Less File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -248,6 +291,7 @@
       <workItem from="1576197569925" duration="4954000" />
       <workItem from="1576294091039" duration="784000" />
       <workItem from="1576298642927" duration="3652000" />
+      <workItem from="1576338755681" duration="1877000" />
     </task>
     <servers />
   </component>
@@ -300,13 +344,13 @@
       <screen x="0" y="0" width="1440" height="865" />
     </state>
     <state x="520" y="359" width="400" height="151" key="NewPhpFileDialog/0.0.1440.865@0.0.1440.865" timestamp="1575740331208" />
-    <state x="382" y="227" key="com.intellij.ide.util.TipDialog" timestamp="1576294092500">
+    <state x="382" y="227" key="com.intellij.ide.util.TipDialog" timestamp="1576338756680">
       <screen x="0" y="0" width="1440" height="864" />
     </state>
     <state x="362" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.732@0.0.1366.732" timestamp="1575483218331" />
     <state x="362" y="194" key="com.intellij.ide.util.TipDialog/0.0.1366.736@0.0.1366.736" timestamp="1575783634626" />
     <state x="382" y="227" key="com.intellij.ide.util.TipDialog/0.0.1440.863@0.0.1440.863" timestamp="1576100253044" />
-    <state x="382" y="227" key="com.intellij.ide.util.TipDialog/0.0.1440.864@0.0.1440.864" timestamp="1576294092500" />
+    <state x="382" y="227" key="com.intellij.ide.util.TipDialog/0.0.1440.864@0.0.1440.864" timestamp="1576338756680" />
     <state x="382" y="229" key="com.intellij.ide.util.TipDialog/0.0.1440.869@0.0.1440.869" timestamp="1575697865129" />
     <state x="347" y="160" key="run.anything.popup" timestamp="1575786232226">
       <screen x="0" y="0" width="1366" height="736" />

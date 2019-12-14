@@ -14,6 +14,7 @@
     <script src="https://kit.fontawesome.com/8bc8911105.js" crossorigin="anonymous"></script>
     <script src="{{ asset('js/Post.js') }}"></script>
     <script src="{{ asset('/js/sweetmodal/min/jquery.sweet-modal.min.js') }}"></script>
+    <script src="{{ asset('js/Profile.js') }}"></script>
     <script type="text/javascript">
         $('#post-register').on("submit",function(event) {
             event.preventDefault();
@@ -37,7 +38,6 @@
 
     <script>
 
-
         function photoSection() {
             $.ajax({
                 type: 'POST',
@@ -51,7 +51,6 @@
                 },
             });
         }
-
         function configSection() {
             $.ajax({
                 type: 'POST',
@@ -66,67 +65,8 @@
             });
         }
 
-        function getPhotoConfig(){
-            $.ajax({
-                type: 'POST',
-                url: '{{ path('photoprofile') }}',
-                dataType: 'json',
-                success: function(changephotoresponse){
-                    $.sweetModal({
-                        title: 'Cambio de perfil',
-                        content: changephotoresponse.message,
-                    });
-                }
-            })
-        }
-        function getCoverConfig(){
-            $.ajax({
-                type: 'POST',
-                url: '{{ path('coverprofile') }}',
-                dataType: 'json',
-                success: function(changecoverresponse){
-                    $.sweetModal({
-                        title: 'Cambio de portada',
-                        content: changecoverresponse.message,
-                    });
-                }
-            })
-        }
     </script>
-    <script>
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#imagePreview').css('background-image', 'url('+e.target.result +')');
-                    $('#imagePreview').hide();
-                    $('#imagePreview').fadeIn(650);
 
-                }
-
-                reader.readAsDataURL(input.files[0]);
-                let formData = new FormData();
-                formData.append("imagen", $('#imageUpload').prop('files')[0]);
-                $.ajax({
-                    type: 'POST',
-                    url: '{{ path('photoprofile')}}',
-                    processData: false,
-                    contentType: false,
-                    data: formData,
-                    dataType: 'json',
-                    success: function(pChange) {
-                        $.sweetModal({
-                            content: 'Publicado con exito.',
-                            icon: $.sweetModal.ICON_SUCCESS
-                        });
-                    },
-                });
-            }
-        }
-        $("#imageUpload").change(function() {
-            readURL(this);
-        });
-    </script>
 {% endblock %}
 {% block body %}
     {% include 'header/index.html.twig' %}
@@ -134,10 +74,12 @@
         <div class="top-section">
             <div class="profile-cover">
                 {% if app.user.id == id %}
-                <div onclick="getCoverConfig()" class="profile-img-cover" style="background-image: url({{ asset('userCover/' ~ cover) }})"></div>
-                {% else %}
-                 <div  class="profile-img-cover" style="background-image: url({{ asset('userCover/' ~ cover) }})"></div>
+                    <div class="avatar-edit">
+                        <input type='file' id="imageUploadCover" data-url="{{ path('coverprofile')}}" accept=".png, .jpg, .jpeg" />
+                        <label for="imageUploadCover"></label>
+                    </div>
                 {% endif %}
+                <div  class="profile-img-cover" style="background-image: url({{ asset('userCover/' ~ cover) }})"></div>
                 <div class="profile-detail-section">
                     <nav>
                         <li></li>
@@ -155,7 +97,7 @@
                 <div class="avatar-upload">
                     {% if app.user.id == id %}
                     <div class="avatar-edit">
-                        <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                        <input type='file' id="imageUpload" data-url="{{ path('photoprofile')}}" accept=".png, .jpg, .jpeg" />
                         <label for="imageUpload"></label>
                     </div>
                     {% endif %}
