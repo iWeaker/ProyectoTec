@@ -10,7 +10,7 @@
     <script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
     <script src="{{ asset('/js/FontAwesome.js') }}" crossorigin="anonymous"></script>
     <script src="{{ asset('/js/sweetmodal/min/jquery.sweet-modal.min.js') }}"></script>
-    <script src="{{ asset('/js/Post.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/Group.js') }}"></script>
     <script>
         function getNewGroup(){
             $.ajax({
@@ -25,7 +25,6 @@
                 }
             })
         }
-
     </script>
 {% endblock %}
 {% block body %}
@@ -38,7 +37,7 @@
                         <button onclick="getNewGroup()">Crear grupo</button>
                    </div>
                    <div class="list-mygroups">
-                       <h1>Mis grupos.</h1>
+                       <h1>Mis grupos</h1>
                         <ol>
                             {% set count = 0 %}
                             {% for group in mygroups %}
@@ -47,7 +46,7 @@
                                     <li>
                                         <h4>{{ group.titleGroup }}</h4>
                                         <h5>{{ group.tematica }}</h5>
-                                        {{ group.countAccepted }}
+                                        <span style="font-size: 14px">Numero de miembros {{ group.countAccepted }}</span>
                                     </li>
                                 </a>
                             {% endfor %}
@@ -61,36 +60,39 @@
                     {% for  other in othergroups %}
                     <div class="box">
                         <div class="box-img" style="background-image: url({{ asset('/groupImage/' ~ other.groupimage) }})"></div>
-                        <div>
-                            <h4>{{ other.creator.user }} {{ other.creator.lastM }} {{ other.creator.lastF }}</h4>
-                        </div>
-                        <div>
-                            <h3>{{ other.titlegroup }}</h3>
-                            <h5>{{ other.tematica }}</h5>
-                        </div>
-                        <div class="request{{ other.id }}">
-                            {% set acepted = 0 %}
-                            {% for accepted in other.aceptedentities %}
-                                {% if accepted.userid.id == app.user.id %}
-                                    {% set acepted = 1 %}
-                                {% endif %}
-                            {% endfor %}
-                            {% if acepted == 0 %}
-                                {% set counter = 0  %}
-                                {% for en in other.solicitudesentities %}
-                                    {% set counter = 1 %}
-                                    {% if  en.userid.id != app.user.id %}
-                                        <button class="sendRequest solicitudGrupo{{ other.id }}" onclick="sendSolicitud({{ other.id }})" data-url="{{ path('solicitud', {'id': other.id }) }}" ></button>
-                                    {% else %}
-                                        <button class="cancelRequest cancelarGrupo{{ other.id }}" onclick="cancelarSolicitud({{ other.id }})" data-url="{{ path('solicitudremove', {'id': other.id }) }}" ></button>
+                        <div style="box-sizing: border-box;padding:4px;">
+                            <div>
+                                <h3>{{ other.titlegroup }}</h3>
+                                <h5>{{ other.tematica }}</h5>
+                            </div>
+                            <div style="font-weight: normal">
+                                <h5>{{ other.creator.user }} {{ other.creator.lastM }} {{ other.creator.lastF }}</h5>
+                            </div>
+
+                            <div style="" class="request{{ other.id }}">
+                                {% set acepted = 0 %}
+                                {% for accepted in other.aceptedentities %}
+                                    {% if accepted.userid.id == app.user.id %}
+                                        {% set acepted = 1 %}
                                     {% endif %}
                                 {% endfor %}
-                                {% if counter == 0 %}
-                                    <button class="sendRequest solicitudGrupo{{ other.id }}" onclick="sendSolicitud({{ other.id }})" data-url="{{ path('solicitud', {'id': other.id }) }}" ></button>
+                                {% if acepted == 0 %}
+                                    {% set counter = 0  %}
+                                    {% for en in other.solicitudesentities %}
+                                        {% set counter = 1 %}
+                                        {% if  en.userid.id != app.user.id %}
+                                            <button class="sendRequest solicitudGrupo{{ other.id }}" onclick="sendSolicitud({{ other.id }})" data-url="{{ path('solicitud', {'id': other.id }) }}" ></button>
+                                        {% else %}
+                                            <button class="cancelRequest cancelarGrupo{{ other.id }}" onclick="cancelarSolicitud({{ other.id }})" data-url="{{ path('solicitudremove', {'id': other.id }) }}" ></button>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% if counter == 0 %}
+                                        <button class="sendRequest solicitudGrupo{{ other.id }}" onclick="sendSolicitud({{ other.id }})" data-url="{{ path('solicitud', {'id': other.id }) }}" ></button>
+                                    {% endif %}
+                                {% else %}
+                                    <button><a href="{{ path("viewgroup" , {id: other.id }) }}">Entrar</a></button>
                                 {% endif %}
-                            {% else %}
-                                <button><a href="{{ path("viewgroup" , {id: other.id }) }}">Entrar</a></button>
-                            {% endif %}
+                            </div>
                         </div>
                     </div>
                     {% endfor %}
