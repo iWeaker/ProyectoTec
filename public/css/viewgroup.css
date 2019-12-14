@@ -89,7 +89,9 @@ body {
     height: 90px;
     margin:5px;
     float: left;
-    background:red;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .solicitudes-list{
     position: relative;

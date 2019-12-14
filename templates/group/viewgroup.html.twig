@@ -8,7 +8,7 @@
 
 {% block javascripts %}
     <script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
-    <script src="https://kit.fontawesome.com/8bc8911105.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('/js/FontAwesome.js') }}" crossorigin="anonymous"></script>
     <script>
         function acceptSolicitud(variable){
             let tagadding = $(".adding"+variable);
@@ -62,8 +62,12 @@
             <div class="down-group">
                 <div>
                     <div class="member-list">
-                        <div class="user-member-container"></div>
-
+                        <div>Miembros del grupo</div>
+                        <div>
+                            {% for user in aceptados %}
+                                <div class="user-member-container" style="background-image: url({{ asset('userProfiles/' ~ user.userid.image) }})"></div>
+                            {% endfor %}
+                        </div>
                     </div>
                     <div class="solicitudes-list">
                         {% for entran in solicitudes %}

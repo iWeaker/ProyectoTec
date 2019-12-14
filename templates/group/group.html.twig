@@ -9,8 +9,9 @@
 {% endblock %}
 {% block javascripts %}
     <script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
-    <script src="https://kit.fontawesome.com/8bc8911105.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('/js/FontAwesome.js') }}" crossorigin="anonymous"></script>
     <script src="{{ asset('/js/sweetmodal/min/jquery.sweet-modal.min.js') }}"></script>
+    <script src="{{ asset('/js/Post.js') }}"></script>
     <script>
         function getNewGroup(){
             $.ajax({
@@ -25,38 +26,7 @@
                 }
             })
         }
-        function sendSolicitud(variable){
-            let tag = $(".solicitudGrupo"+variable);
-            let op_prod_url = $(tag).data('url');
-            $.ajax({
-                type: 'POST',
-                url: op_prod_url,
-                dataType: 'json',
-                success: function(res){
-                    if(res.success == true){
-                        $.sweetModal(res.msg);
-                        tag.remove()
-                    }
 
-                }
-            })
-        }
-        function cancelarSolicitud(variable){
-            let tagcancel = $(".cancelarGrupo"+variable);
-            let op_url = $(tagcancel).data('url');
-            $.ajax({
-                type: 'POST',
-                url: op_url,
-                dataType: 'json',
-                success: function(rescancel){
-                    if(rescancel.success == true){
-                        $.sweetModal(rescancel.msg);
-                        tagcancel.remove()
-                    }
-
-                }
-            })
-        }
     </script>
 {% endblock %}
 {% block body %}
@@ -97,29 +67,30 @@
                             <h3>{{ other.titlegroup }}</h3>
                             <h5>{{ other.tematica }}</h5>
                         </div>
-
-                        {% set acepted = 0 %}
-                        {% for accepted in other.aceptedentities %}
-                            {% if accepted.userid.id == app.user.id %}
-                                {% set acepted = 1 %}
-                            {% endif %}
-                        {% endfor %}
-                        {% if acepted == 0 %}
-                            {% set counter = 0  %}
-                            {% for en in other.solicitudesentities %}
-                                {% set counter = 1 %}
-                                {% if  en.userid.id != app.user.id %}
-                                    <button class="sendRequest solicitudGrupo{{ other.id }}" onclick="sendSolicitud({{ other.id }})" data-url="{{ path('solicitud', {'id': other.id }) }}" ></button>
-                                {% else %}
-                                    <button class="cancelarGrupo{{ other.id }}" onclick="cancelarSolicitud({{ other.id }})" data-url="{{ path('solicitudremove', {'id': other.id }) }}" ></button>
+                        <div class="request{{ other.id }}">
+                            {% set acepted = 0 %}
+                            {% for accepted in other.aceptedentities %}
+                                {% if accepted.userid.id == app.user.id %}
+                                    {% set acepted = 1 %}
                                 {% endif %}
                             {% endfor %}
-                            {% if counter == 0 %}
-                                <button class="solicitudGrupo{{ other.id }}" onclick="sendSolicitud({{ other.id }})" data-url="{{ path('solicitud', {'id': other.id }) }}" ></button>
+                            {% if acepted == 0 %}
+                                {% set counter = 0  %}
+                                {% for en in other.solicitudesentities %}
+                                    {% set counter = 1 %}
+                                    {% if  en.userid.id != app.user.id %}
+                                        <button class="sendRequest solicitudGrupo{{ other.id }}" onclick="sendSolicitud({{ other.id }})" data-url="{{ path('solicitud', {'id': other.id }) }}" ></button>
+                                    {% else %}
+                                        <button class="cancelRequest cancelarGrupo{{ other.id }}" onclick="cancelarSolicitud({{ other.id }})" data-url="{{ path('solicitudremove', {'id': other.id }) }}" ></button>
+                                    {% endif %}
+                                {% endfor %}
+                                {% if counter == 0 %}
+                                    <button class="sendRequest solicitudGrupo{{ other.id }}" onclick="sendSolicitud({{ other.id }})" data-url="{{ path('solicitud', {'id': other.id }) }}" ></button>
+                                {% endif %}
+                            {% else %}
+                                <button><a href="{{ path("viewgroup" , {id: other.id }) }}">Entrar</a></button>
                             {% endif %}
-                        {% else %}
-                            <button><a href="{{ path("viewgroup" , {id: other.id }) }}">Entrar</a></button>
-                        {% endif %}
+                        </div>
                     </div>
                     {% endfor %}
                 </section>

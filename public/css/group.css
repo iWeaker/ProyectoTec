@@ -91,17 +91,7 @@ section .groups{
     margin-left: 10px;
 }
 
-.box a{
-    display: inline-block;
-    background-color: #00bfad;
-    padding: 10px;
-    font-size: 20px;
-    text-decoration: none;
-    color: white;
-    border-radius: 15px;
-    margin-top: 95px;
-    width: 80%;
-}
+
 
 .mygroup button{
     margin-left: 35px;
@@ -115,8 +105,22 @@ section .groups{
     cursor: pointer;
     width:80%;
 }
-.sendRequest{
+.sendRequest , .cancelRequest{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border:0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 
+}
+
+.cancelRequest{
+    background-image: url("../img/remove.png");
+}
+.sendRequest{
+    background-image: url("../img/add.png");
 }
 
 
