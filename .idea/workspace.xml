@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="87bd9708-4b53-4a5e-9d0b-ac24603bb2e2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/group.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/group.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/viewgroup.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/viewgroup.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/Group.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/Group.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/group/group.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/group/group.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GroupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GroupController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/GroupEntity.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/GroupEntity.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/group/viewgroup.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/group/viewgroup.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -249,7 +248,7 @@
       <workItem from="1576294091039" duration="784000" />
       <workItem from="1576298642927" duration="3652000" />
       <workItem from="1576338755681" duration="12773000" />
-      <workItem from="1576355900610" duration="3407000" />
+      <workItem from="1576355900610" duration="8249000" />
     </task>
     <servers />
   </component>
@@ -314,10 +313,11 @@
     <state x="382" y="227" key="com.intellij.ide.util.TipDialog/0.0.1440.863@0.0.1440.863" timestamp="1576100253044" />
     <state x="382" y="227" key="com.intellij.ide.util.TipDialog/0.0.1440.864@0.0.1440.864" timestamp="1576338756680" />
     <state x="382" y="229" key="com.intellij.ide.util.TipDialog/0.0.1440.869@0.0.1440.869" timestamp="1575697865129" />
-    <state x="347" y="160" key="run.anything.popup" timestamp="1575786232226">
-      <screen x="0" y="0" width="1366" height="736" />
+    <state x="366" y="188" key="run.anything.popup" timestamp="1576369293519">
+      <screen x="0" y="0" width="1440" height="864" />
     </state>
     <state x="347" y="160" key="run.anything.popup/0.0.1366.736@0.0.1366.736" timestamp="1575786232226" />
+    <state x="366" y="188" key="run.anything.popup/0.0.1440.864@0.0.1440.864" timestamp="1576369293519" />
     <state x="346" y="55" width="672" height="678" key="search.everywhere.popup" timestamp="1576124045690">
       <screen x="0" y="0" width="1366" height="734" />
     </state>

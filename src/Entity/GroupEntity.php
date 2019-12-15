@@ -50,10 +50,16 @@ class GroupEntity
      */
     private $aceptedEntities;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\GroupPostEntity", mappedBy="groupid")
+     */
+    private $groupPostEntities;
+
     public function __construct()
     {
         $this->solicitudesEntities = new ArrayCollection();
         $this->aceptedEntities = new ArrayCollection();
+        $this->groupPostEntities = new ArrayCollection();
     }
 
 
@@ -118,7 +124,12 @@ class GroupEntity
     {
         return $this->solicitudesEntities;
     }
-
+    /**
+     * @return int
+     */
+    public function countSolicitudes():int {
+        return $this->solicitudesEntities->count();
+    }
     public function addSolicitudesEntity(SolicitudesEntity $solicitudesEntity): self
     {
         if (!$this->solicitudesEntities->contains($solicitudesEntity)) {
@@ -174,6 +185,37 @@ class GroupEntity
             // set the owning side to null (unless already changed)
             if ($aceptedEntity->getGroupid() === $this) {
                 $aceptedEntity->setGroupid(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|GroupPostEntity[]
+     */
+    public function getGroupPostEntities(): Collection
+    {
+        return $this->groupPostEntities;
+    }
+
+    public function addGroupPostEntity(GroupPostEntity $groupPostEntity): self
+    {
+        if (!$this->groupPostEntities->contains($groupPostEntity)) {
+            $this->groupPostEntities[] = $groupPostEntity;
+            $groupPostEntity->setGroupid($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGroupPostEntity(GroupPostEntity $groupPostEntity): self
+    {
+        if ($this->groupPostEntities->contains($groupPostEntity)) {
+            $this->groupPostEntities->removeElement($groupPostEntity);
+            // set the owning side to null (unless already changed)
+            if ($groupPostEntity->getGroupid() === $this) {
+                $groupPostEntity->setGroupid(null);
             }
         }
 

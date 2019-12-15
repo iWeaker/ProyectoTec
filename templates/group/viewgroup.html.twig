@@ -74,17 +74,44 @@
                         </div>
                     </div>
                     <div class="solicitudes-list">
-                        {% for entran in solicitudes %}
-                        <div class="solicitud-container">
-                            <div class="left-solicitud-container">{{ entran.userid.user }} {{ entran.userid.lastM }} {{ entran.userid.lastF }}</div>
-                            <div class="right-solicitud-container">
-                                <button class="adding{{ entran.id }}" onclick="acceptSolicitud({{ entran.id }})" data-url="{{ path('solicitudaccepted', {'idgroup': entran.groupid.id , 'iduser' : entran.userid.id}) }}">Aceptar</button>
-                            </div>
+                        <div>Solicitudes</div>
+                        <div>
+                            {% if solicitudes.count != 0 %}
+                                {% for entran in solicitudes %}
+
+                                <div class="solicitud-container">
+                                    <div class="left-solicitud-container">
+                                        <div class="photo-side-user" style="background-image:url({{ asset('userProfiles/' ~ entran.userid.image) }})"></div>
+                                        <div class="name-side-user">
+                                            {{ entran.userid.user }} {{ entran.userid.lastM }} {{ entran.userid.lastF }} ha solicitado unirse
+                                        </div>
+                                    </div>
+                                    <div class="right-solicitud-container">
+                                        <button class="adding{{ entran.id }}" onclick="acceptSolicitud({{ entran.id }})" data-url="{{ path('solicitudaccepted', {'idgroup': entran.groupid.id , 'iduser' : entran.userid.id}) }}">Aceptar</button>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            {% else %}
+                                <div  style="text-align: center;color:gray">No hay solicitudes</div>
+                            {% endif %}
                         </div>
-                        {% endfor %}
                     </div>
                 </div>
-                <div></div>
+                <div>
+                    <div class="homeworks-section">
+                            <div class="container-post" style="min-height: 50px">
+                                {{ form_start(form, {'attr': {'id': 'homework-register'}}) }}
+                                <div class="row-post">
+                                </div>
+                                <div class="row-post">
+                                    <div class="col-post-left"> </div>
+                                    <div class="col-post-right" id="some-custom-id"></div>
+                                </div>
+                                {{ form_end(form) }}
+                            </div>
+                    </div>
+                    <div class=""></div>
+                </div>
             </div>
         </div>
     </section>

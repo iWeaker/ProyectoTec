@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\AceptedEntity;
 use App\Entity\GroupEntity;
+use App\Entity\GroupPostEntity;
 use App\Entity\SolicitudesEntity;
 use App\Entity\User;
+use App\Form\GroupPostType;
 use App\Form\GroupType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -49,14 +51,15 @@ class GroupController extends AbstractController
     public function viewGroup($id, EntityManagerInterface $interface){
         $group = $interface->getRepository(GroupEntity::class)->find($id);
 
-
+        $form = $this->createForm(GroupPostType::class, new GroupPostEntity());
         return $this->render('group/viewgroup.html.twig', [
             'title' => $group->getTitleGroup(),
             'creator' => $group->getCreator(),
             'tematica' => $group->getTematica(),
             'image' => $group->getGroupImage(),
             'solicitudes' => $group->getSolicitudesEntities(),
-            'aceptados' => $group->getAceptedEntities()
+            'aceptados' => $group->getAceptedEntities(),
+            'form' => $form->createView()
         ]);
     }
     /**
